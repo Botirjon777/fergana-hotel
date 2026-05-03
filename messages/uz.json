@@ -1,0 +1,54 @@
+{
+  "Navbar": {
+    "home": "Bosh sahifa",
+    "about": "Biz haqimizda",
+    "gallery": "Galereya",
+    "services": "Xizmatlar",
+    "location": "Manzil",
+    "bookNow": "Band qilish"
+  },
+  "Hero": {
+    "titlePart1": "Vodiy Gavhari",
+    "titleEm": "Fergana Hotel",
+    "titlePart2": "ni kashf eting",
+    "reserveStay": "Dam olishni band qiling",
+    "discoverMore": "Batafsil ma'lumot",
+    "welcomeSub": "Oddiylikdan yuqori bo'lgan hashamatni his eting. Fergana mehmonxonasi — osmon ichkaridan boshlanadigan joy."
+  },
+  "Booking": {
+    "checkIn": "Kirish",
+    "checkOut": "Chiqish",
+    "guests": "Mehmonlar",
+    "roomType": "Xona turi",
+    "checkAvailability": "Mavjudligini tekshirish"
+  },
+  "About": {
+    "storyLabel": "Bizning tariximiz",
+    "storyTitle1": "An'analarga",
+    "storyTitleEm": "qarshi",
+    "storyTitle2": "chiqqan mehmonxona",
+    "description1": "Fergana mehmonxonasi bitta jasoratli savoldan tug'ilgan: agar mehmonxona sizni vaznsiz his qila olsa-chi? Shahardan balandda, go'yo ufqqe qarshi suzib turgandek bino ichida, biz har bir detal sizning ruhingizni ko'tarishga xizmat qiladigan tajribani yaratdik.",
+    "description2": "Bizning 87 ta xonamizning har biri sokinlik maskanidir — u yerda yorug'lik erkin oqadi, teksturalar nafas oladi va ichki va tashqi olam o'rtasidagi chegaralar sof borliqda eriydi. Biz hashamat ortiqchalikda emas, balki vaznsizlikda ekanligiga ishonamiz."
+  },
+  "Location": {
+    "findUs": "Bizni toping",
+    "heartOfEverything": "Farg'ona markazida",
+    "subtext": "Mehmonxonamiz Farg'ona shahrining qoq markazida, asosiy diqqatga sazovor joylar va transport yo'llari yaqinida joylashgan. Bizga avtomobil, taksi yoki jamoat transportida osonlik bilan yetib kelishingiz mumkin.",
+    "address": "Manzil",
+    "addressText": "Farg'ona sh., Moturudiy ko'chasi 30 B",
+    "reservations": "Bron qilish",
+    "phone": "+998 73 226 00 77",
+    "email": "Email",
+    "emailAddress": "ferghanahotel@gmail.com",
+    "checkInOut": "Kirish / Chiqish"
+  },
+  "ImageBanner": {
+    "featuredAmenities": "Asosiy qulayliklar",
+    "allAmenities": "Barcha qulayliklar"
+  },
+  "Gallery": {
+    "visualJourney": "Vizual sayohat",
+    "throughOur": "Bizning",
+    "spaces": "Joylarimiz"
+  }
+}

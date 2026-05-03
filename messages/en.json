@@ -1,0 +1,54 @@
+{
+  "Navbar": {
+    "home": "Home",
+    "about": "About",
+    "gallery": "Gallery",
+    "services": "Services",
+    "location": "Location",
+    "bookNow": "Book Now"
+  },
+  "Hero": {
+    "titlePart1": "Where",
+    "titleEm": "Fergana",
+    "titlePart2": "Defines Luxury",
+    "reserveStay": "Reserve Your Stay",
+    "discoverMore": "Discover More",
+    "welcomeSub": "Experience luxury beyond expectations. Fergana Hotel — the place where the sky starts from within."
+  },
+  "Booking": {
+    "checkIn": "Check In",
+    "checkOut": "Check Out",
+    "guests": "Guests",
+    "roomType": "Room Type",
+    "checkAvailability": "Check Availability"
+  },
+  "About": {
+    "storyLabel": "Our Story",
+    "storyTitle1": "A Hotel That",
+    "storyTitleEm": "Defies",
+    "storyTitle2": "Convention",
+    "description1": "Fergana Hotel was born from a single, audacious question: what if a hotel could make you feel weightless? Set high above the city in a building that seems to float against the skyline, we have crafted an experience where every detail conspires to lift your spirit.",
+    "description2": "Each of our 87 rooms is a sanctuary of calm — where light pours freely, textures breathe, and the boundaries between inside and outside dissolve into pure presence. We believe luxury is not about excess; it is about the absence of weight."
+  },
+  "Location": {
+    "findUs": "Find Us",
+    "heartOfEverything": "At the Heart of Fergana",
+    "subtext": "Our hotel is conveniently located in the heart of Fergana city, near major attractions and main transport arteries. You can easily reach us by car, taxi or public transport. Use the map to build the most convenient route.",
+    "address": "Address",
+    "addressText": "30 B Moturudiy Str., Fergana, Uzbekistan",
+    "reservations": "Reservations",
+    "phone": "+998 73 226 00 77",
+    "email": "Email",
+    "emailAddress": "ferghanahotel@gmail.com",
+    "checkInOut": "Check-in / Check-out"
+  },
+  "ImageBanner": {
+    "featuredAmenities": "Featured Amenities",
+    "allAmenities": "All Amenities"
+  },
+  "Gallery": {
+    "visualJourney": "Visual Journey",
+    "throughOur": "Through Our",
+    "spaces": "Spaces"
+  }
+}

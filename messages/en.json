@@ -104,5 +104,23 @@
     "standart": "Standard",
     "conference": "Conference",
     "backToHome": "Back to Home"
+  },
+  "Recommendations": {
+    "title": "Our Recommendations",
+    "subtitle": "Selection of the Finest",
+    "deluxeTitle": "Deluxe Suite",
+    "deluxeDesc": "The pinnacle of weightless luxury with panoramic sky views.",
+    "luxKingTitle": "Lux King Room",
+    "luxKingDesc": "Sophisticated comfort with a royal touch and infinite horizons.",
+    "luxFamilyTitle": "Lux Family Room",
+    "luxFamilyDesc": "Generous space for shared moments above the ordinary.",
+    "priceFrom": "From",
+    "perNight": "per night",
+    "features": {
+      "wifi": "Free Wi-Fi",
+      "bed": "King Bed",
+      "size": "65 m²",
+      "view": "Sky View"
+    }
   }
 }

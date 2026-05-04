@@ -4,6 +4,7 @@ import { BottomNav } from "@/components/layout/BottomNav";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
 import { ImageBanner } from "@/components/sections/ImageBanner";
+import { Recommendations } from "@/components/sections/Recommendations";
 import { About } from "@/components/sections/About";
 import { Gallery } from "@/components/sections/Gallery";
 import { Services } from "@/components/sections/Services";
@@ -23,6 +24,7 @@ export default function Home() {
 
       <Hero />
       <ImageBanner />
+      <Recommendations />
       <About />
 
       <Gallery />

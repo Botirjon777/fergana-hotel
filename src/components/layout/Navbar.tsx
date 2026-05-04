@@ -9,16 +9,18 @@ import LanguageSelector from "@/components/ui/LanguageSelector";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const { openSidebar, openPopup } = usePopup();
+  const { openSidebar, openPopup, activePopup, isSidebarOpen } = usePopup();
   const t = useTranslations("Navbar");
 
   useEffect(() => {
     const handleScroll = () => {
+      // Don't update if a popup or sidebar is open to prevent state resetting
+      if (activePopup || isSidebarOpen) return;
       setScrolled(window.scrollY > 60);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [activePopup, isSidebarOpen]);
 
   return (
     <nav

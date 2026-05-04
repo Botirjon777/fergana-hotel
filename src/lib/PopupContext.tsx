@@ -32,13 +32,18 @@ export function PopupProvider({ children }: { children: ReactNode }) {
   React.useEffect(() => {
     if (typeof document !== 'undefined') {
       if (activePopup || isSidebarOpen) {
-        document.body.style.overflow = 'hidden';
-        document.documentElement.style.overflow = 'hidden';
+        const scrollY = window.scrollY;
+        document.body.style.top = `-${scrollY}px`;
+        document.body.classList.add('no-scroll');
         document.body.style.paddingRight = 'var(--scrollbar-width, 0px)';
       } else {
-        document.body.style.overflow = '';
-        document.documentElement.style.overflow = '';
+        const scrollY = document.body.style.top;
+        document.body.classList.remove('no-scroll');
+        document.body.style.top = '';
         document.body.style.paddingRight = '';
+        if (scrollY) {
+          window.scrollTo(0, parseInt(scrollY || '0') * -1);
+        }
       }
     }
   }, [activePopup, isSidebarOpen]);

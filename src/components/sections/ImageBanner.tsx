@@ -67,6 +67,31 @@ const amenities = [
   { icon: <FiTruck className="w-5 h-5" />, label: "Airport Shuttle" },
 ];
 
+function BannerImage({ img, priority }: { img: any; priority: boolean }) {
+  const [loading, setLoading] = useState(true);
+
+  return (
+    <div className="relative w-full h-full bg-[#1a1108]">
+      {loading && (
+        <div className="absolute inset-0 z-30 flex items-center justify-center">
+          <div className="w-10 h-10 border-2 border-gold/20 border-t-gold rounded-full animate-spin"></div>
+        </div>
+      )}
+      <Image
+        src={img.src}
+        alt={img.alt}
+        fill
+        className={`object-cover transition-opacity duration-700 ${
+          loading ? "opacity-0" : "opacity-100"
+        }`}
+        priority={priority}
+        sizes="100vw"
+        onLoad={() => setLoading(false)}
+      />
+    </div>
+  );
+}
+
 export function ImageBanner() {
   const t = useTranslations("ImageBanner");
   const [swiper, setSwiper] = useState<SwiperType | null>(null);
@@ -112,14 +137,7 @@ export function ImageBanner() {
           {images.map((img, i) => (
             <SwiperSlide key={i} className="h-full">
               <div className="relative w-full h-full">
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  className="object-cover"
-                  priority={i === 0}
-                  sizes="100vw"
-                />
+                <BannerImage img={img} priority={i === 0} />
 
                 {/* Darkening Overlay */}
                 <div className="absolute inset-0 bg-black/60 z-10" />
@@ -162,3 +180,4 @@ export function ImageBanner() {
     </section>
   );
 }
+

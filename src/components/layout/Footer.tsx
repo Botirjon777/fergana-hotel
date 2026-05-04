@@ -9,8 +9,8 @@ import {
 export function Footer() {
   return (
     <footer className="bg-[#1a1108] text-cream px-5 py-[60px] pb-[120px] md:px-12 md:py-[80px] md:pb-10">
-      <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr] gap-10 md:gap-14 pb-10 md:pb-[60px] border-b border-cream/10">
-        <div className="footer-brand">
+      <div className="max-w-[1200px] mx-auto grid grid-cols-2 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr] gap-10 md:gap-14 pb-10 md:pb-[60px] border-b border-cream/10">
+        <div className="footer-brand col-span-2 lg:col-span-1">
           <Logo className="mb-5 text-gold!" />
           <p className="mt-5 text-sm leading-[1.8] text-cream/55 font-light">
             Where the sky is not the limit — it is the beginning. Experience

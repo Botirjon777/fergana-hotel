@@ -104,5 +104,23 @@
     "standart": "Standard",
     "conference": "Konferentsiya",
     "backToHome": "Bosh sahifaga qaytish"
+  },
+  "Recommendations": {
+    "title": "Bizning tavsiyalarimiz",
+    "subtitle": "Eng sara tanlovlar",
+    "deluxeTitle": "Deluxe Suite",
+    "deluxeDesc": "Panorama ko'rinishiga ega bo'lgan vaznsiz hashamat cho'qqisi.",
+    "luxKingTitle": "Lux King Room",
+    "luxKingDesc": "Qirollik darajasidagi qulaylik va cheksiz ufqlar.",
+    "luxFamilyTitle": "Lux Family Room",
+    "luxFamilyDesc": "Odatdagidan yuqori darajadagi umumiy lahzalar uchun keng maydon.",
+    "priceFrom": "Dan",
+    "perNight": "bir kecha uchun",
+    "features": {
+      "wifi": "Bepul Wi-Fi",
+      "bed": "Qirollik karavoti",
+      "size": "65 m²",
+      "view": "Osmon ko'rinishi"
+    }
   }
 }

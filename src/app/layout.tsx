@@ -5,7 +5,9 @@ import { PopupProvider } from "@/lib/PopupContext";
 import LanguageProvider from "@/components/providers/LanguageProvider";
 import GalleryPopup from "@/components/ui/GalleryPopup";
 import { BasePopup } from "@/components/ui/BasePopup";
+import { StickyBookingBar } from "@/components/ui/StickyBookingBar";
 import SmoothScroll from "@/components/ui/SmoothScroll";
+import ScrollToTop from "@/components/ui/ScrollToTop";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -39,6 +41,8 @@ export default function RootLayout({
               {children}
               <BasePopup />
               <GalleryPopup />
+              <StickyBookingBar />
+              <ScrollToTop />
             </SmoothScroll>
           </PopupProvider>
         </LanguageProvider>

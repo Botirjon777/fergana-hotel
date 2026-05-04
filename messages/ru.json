@@ -104,5 +104,23 @@
     "standart": "Стандарт",
     "conference": "Конференц-зал",
     "backToHome": "На главную"
+  },
+  "Recommendations": {
+    "title": "Наши рекомендации",
+    "subtitle": "Выбор лучших",
+    "deluxeTitle": "Deluxe Suite",
+    "deluxeDesc": "Вершина невесомой роскоши с панорамным видом на небо.",
+    "luxKingTitle": "Lux King Room",
+    "luxKingDesc": "Изысканный комфорт с королевским оттенком и бесконечными горизонтами.",
+    "luxFamilyTitle": "Lux Family Room",
+    "luxFamilyDesc": "Просторное место для общих моментов выше обыденного.",
+    "priceFrom": "От",
+    "perNight": "за ночь",
+    "features": {
+      "wifi": "Бесплатный Wi-Fi",
+      "bed": "Кровать King",
+      "size": "65 м²",
+      "view": "Вид на небо"
+    }
   }
 }

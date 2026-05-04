@@ -24,15 +24,15 @@ export default function GalleryPopup() {
   if (!mounted || activePopup !== "gallery-popup") return null;
 
   return (
-    <div className="fixed inset-0 z-[2000] flex items-center justify-center bg-black/95 backdrop-blur-sm animate-[fade-in_0.3s_ease-out]">
-      <button 
+    <div className="fixed inset-0 z-2000 flex items-center justify-center bg-black/95 backdrop-blur-sm animate-[fade-in_0.3s_ease-out]">
+      <button
         onClick={closePopup}
-        className="absolute top-6 right-6 z-[2001] text-white/70 hover:text-white transition-colors duration-300"
+        className="absolute top-4 right-4 md:top-8 md:right-8 z-2001 text-white/50 hover:text-white transition-colors duration-300 p-2"
       >
-        <LiaTimesSolid className="w-8 h-8" />
+        <LiaTimesSolid className="w-8 h-8 md:w-10 md:h-10" />
       </button>
 
-      <div className="w-full h-full max-w-[1400px] max-h-[90vh] px-4 md:px-12 flex items-center justify-center relative">
+      <div className="w-full h-full md:max-w-[1400px] md:max-h-[90vh] md:px-12 flex items-center justify-center relative">
         <Swiper
           onSwiper={setSwiper}
           modules={[Pagination]}
@@ -59,10 +59,10 @@ export default function GalleryPopup() {
         </Swiper>
 
         {/* Reusable Nav Buttons */}
-        <SwiperNavButtons 
-          swiper={swiper} 
-          variant="glass" 
-          className="absolute inset-x-4 md:inset-x-12 top-1/2 -translate-y-1/2 z-[2002] flex justify-between pointer-events-none [&_button]:pointer-events-auto"
+        <SwiperNavButtons
+          swiper={swiper}
+          variant="glass"
+          className="absolute inset-x-4 md:inset-x-12 top-1/2 -translate-y-1/2 z-2002 flex justify-between pointer-events-none [&_button]:pointer-events-auto"
         />
       </div>
 

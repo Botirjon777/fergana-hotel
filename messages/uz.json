@@ -20,7 +20,14 @@
     "checkOut": "Chiqish",
     "guests": "Mehmonlar",
     "roomType": "Xona turi",
-    "checkAvailability": "Mavjudligini tekshirish"
+    "checkAvailability": "Mavjudligini tekshirish",
+    "reserve": "Bron qilish",
+    "bookYourStay": "Dam olishni band qiling",
+    "bookSubtext": "Ma'lumotlaringizni to'ldiring va bizning jamoamiz 2 soat ichida siz bilan bog'lanadi.",
+    "fullName": "To'liq ism",
+    "emailAddress": "Email manzili",
+    "phoneNumber": "Telefon raqami",
+    "requestReservation": "Band qilishni so'rash"
   },
   "About": {
     "storyLabel": "Bizning tariximiz",
@@ -44,11 +51,58 @@
   },
   "ImageBanner": {
     "featuredAmenities": "Asosiy qulayliklar",
-    "allAmenities": "Barcha qulayliklar"
+    "allAmenities": "Barcha qulayliklar",
+    "slides": {
+      "hotel-day": {
+        "subtitle": "Farg'onaga xush kelibsiz",
+        "title": "Yashash san'ati"
+      },
+      "hotel-night": {
+        "subtitle": "Oqshom fayzi",
+        "title": "Tungi nafosat"
+      },
+      "reception": {
+        "subtitle": "Birinchi taassurot",
+        "title": "Samimiy qabul"
+      },
+      "restaurant": {
+        "subtitle": "Kulinariya sayohati",
+        "title": "Oliy lazzat"
+      },
+      "pool": {
+        "subtitle": "Sokinlik maskani",
+        "title": "Sof halovat"
+      },
+      "breakfast": {
+        "subtitle": "Tonggi kayfiyat",
+        "title": "Zarrin tonglar"
+      },
+      "billiard": {
+        "subtitle": "Hordiq va o'yin",
+        "title": "Nafis hordiq"
+      }
+    }
   },
   "Gallery": {
     "visualJourney": "Vizual sayohat",
     "throughOur": "Bizning",
     "spaces": "Joylarimiz"
+  },
+  "Welcome": {
+    "title": "Xush Kelibsiz",
+    "subtitle": "Odatdagidan yuqori hashamatni his eting",
+    "description": "Gravitatsiya shunchaki taklif bo'lgan va har bir lahza mukammal osoyishtalikda suzib yuradigan dunyoni kashf eting. Fergana Hotel — osmon ichkaridan boshlanadigan joy.",
+    "explore": "Mehmonxonani Ko'rish",
+    "book": "Bron Qilish"
+  },
+  "GalleryPage": {
+    "title": "Galereya",
+    "subtitle": "Bizning dunyomizni hashamatli nigoh orqali kashf eting.",
+    "all": "Barchasi",
+    "deluxe": "Deluxe",
+    "lux": "Lux",
+    "standart": "Standard",
+    "conference": "Konferentsiya",
+    "backToHome": "Bosh sahifaga qaytish"
   }
 }

@@ -3,7 +3,6 @@ import { MobileSidebar } from "@/components/layout/MobileSidebar";
 import { BottomNav } from "@/components/layout/BottomNav";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
-import { BookingBar } from "@/components/sections/BookingBar";
 import { ImageBanner } from "@/components/sections/ImageBanner";
 import { About } from "@/components/sections/About";
 import { Gallery } from "@/components/sections/Gallery";
@@ -23,9 +22,9 @@ export default function Home() {
       <MobileSidebar />
 
       <Hero />
-      <BookingBar />
-      <About />
       <ImageBanner />
+      <About />
+
       <Gallery />
       <Services />
       <Location />

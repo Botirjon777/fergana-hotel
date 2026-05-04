@@ -20,7 +20,14 @@
     "checkOut": "Check Out",
     "guests": "Guests",
     "roomType": "Room Type",
-    "checkAvailability": "Check Availability"
+    "checkAvailability": "Check Availability",
+    "reserve": "Reserve",
+    "bookYourStay": "Book Your Stay",
+    "bookSubtext": "Fill in your details and our reservations team will confirm your stay within 2 hours.",
+    "fullName": "Full Name",
+    "emailAddress": "Email Address",
+    "phoneNumber": "Phone Number",
+    "requestReservation": "Request Reservation"
   },
   "About": {
     "storyLabel": "Our Story",
@@ -44,11 +51,58 @@
   },
   "ImageBanner": {
     "featuredAmenities": "Featured Amenities",
-    "allAmenities": "All Amenities"
+    "allAmenities": "All Amenities",
+    "slides": {
+      "hotel-day": {
+        "subtitle": "Welcome to Fergana",
+        "title": "The Art of Living"
+      },
+      "hotel-night": {
+        "subtitle": "Evening Grace",
+        "title": "Nocturnal Elegance"
+      },
+      "reception": {
+        "subtitle": "First Impressions",
+        "title": "A Warm Welcome"
+      },
+      "restaurant": {
+        "subtitle": "Culinary Journey",
+        "title": "Taste the Sublime"
+      },
+      "pool": {
+        "subtitle": "Oasis of Calm",
+        "title": "Pure Serenity"
+      },
+      "breakfast": {
+        "subtitle": "Morning Delights",
+        "title": "Gilded Mornings"
+      },
+      "billiard": {
+        "subtitle": "Leisure & Play",
+        "title": "Refined Leisure"
+      }
+    }
   },
   "Gallery": {
     "visualJourney": "Visual Journey",
     "throughOur": "Through Our",
     "spaces": "Spaces"
+  },
+  "Welcome": {
+    "title": "Welcome",
+    "subtitle": "Experience luxury above the ordinary",
+    "description": "Discover a world where gravity is a suggestion and every moment floats in perfect calm. Fergana Hotel — where the sky begins inside.",
+    "explore": "Explore Hotel",
+    "book": "Book a Stay"
+  },
+  "GalleryPage": {
+    "title": "Gallery",
+    "subtitle": "Discover our world through the lens of luxury.",
+    "all": "All",
+    "deluxe": "Deluxe",
+    "lux": "Lux",
+    "standart": "Standard",
+    "conference": "Conference",
+    "backToHome": "Back to Home"
   }
 }

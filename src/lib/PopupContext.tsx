@@ -25,14 +25,23 @@ export function PopupProvider({ children }: { children: ReactNode }) {
   const openPopup = (id: PopupType) => setActivePopup(id);
   const closePopup = () => setActivePopup(null);
 
-  const openSidebar = () => {
-    setIsSidebarOpen(true);
-    if (typeof document !== 'undefined') document.body.style.overflow = 'hidden';
-  };
-  const closeSidebar = () => {
-    setIsSidebarOpen(false);
-    if (typeof document !== 'undefined') document.body.style.overflow = '';
-  };
+  const openSidebar = () => setIsSidebarOpen(true);
+  const closeSidebar = () => setIsSidebarOpen(false);
+
+  // Sync scroll locking
+  React.useEffect(() => {
+    if (typeof document !== 'undefined') {
+      if (activePopup || isSidebarOpen) {
+        document.body.style.overflow = 'hidden';
+        document.documentElement.style.overflow = 'hidden';
+        document.body.style.paddingRight = 'var(--scrollbar-width, 0px)';
+      } else {
+        document.body.style.overflow = '';
+        document.documentElement.style.overflow = '';
+        document.body.style.paddingRight = '';
+      }
+    }
+  }, [activePopup, isSidebarOpen]);
 
   return (
     <PopupContext.Provider value={{ activePopup, openPopup, closePopup, isSidebarOpen, openSidebar, closeSidebar, galleryImages, setGalleryImages }}>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useLanguageStore } from '@/store/useLanguageStore';
+import { useLanguageStore } from "@/store/useLanguageStore";
 import { useState, useRef, useEffect } from "react";
 
 const languages: { code: string; label: string; flag: string }[] = [
@@ -9,7 +9,11 @@ const languages: { code: string; label: string; flag: string }[] = [
   { code: "uz", label: "UZ", flag: "https://flagcdn.com/w20/uz.png" },
 ];
 
-export default function LanguageSelector({ isScrolled }: { isScrolled?: boolean }) {
+export default function LanguageSelector({
+  isScrolled,
+}: {
+  isScrolled?: boolean;
+}) {
   const { locale, setLocale } = useLanguageStore();
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -25,7 +29,10 @@ export default function LanguageSelector({ isScrolled }: { isScrolled?: boolean 
   useEffect(() => {
     setMounted(true);
     function handleClickOutside(event: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
         setIsOpen(false);
       }
     }
@@ -33,25 +40,25 @@ export default function LanguageSelector({ isScrolled }: { isScrolled?: boolean 
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  if (!mounted) return (
-    <div className="flex items-center gap-2 px-3 py-2 text-xs font-medium text-cream">
-       <div className="w-5 h-[15px] bg-sand/20 rounded-sm animate-pulse" />
-       <span className="w-4 h-3 bg-sand/20 rounded animate-pulse" />
-    </div>
-  );
+  if (!mounted)
+    return (
+      <div className="flex items-center gap-2 px-3 py-2 text-xs font-medium text-cream">
+        <div className="w-5 h-[15px] bg-sand/20 rounded-sm animate-pulse" />
+        <span className="w-4 h-3 bg-sand/20 rounded animate-pulse" />
+      </div>
+    );
 
   return (
     <div className="relative inline-block text-left" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`flex items-center gap-2 px-3 py-2 text-xs font-medium transition-colors duration-300 ${isScrolled ? 'text-text-mid' : 'text-cream'} hover:text-gold`}
+        className={`flex items-center gap-2 px-3 py-2 text-xs font-medium transition-colors duration-300 ${isScrolled ? "text-text-mid" : "text-cream"} hover:text-gold`}
       >
         <img
           src={currentLang.flag}
           alt={currentLang.label}
           width={20}
           height={15}
-          className="rounded-sm"
         />
         <span>{currentLang.label}</span>
         <svg
@@ -60,12 +67,17 @@ export default function LanguageSelector({ isScrolled }: { isScrolled?: boolean 
           stroke="currentColor"
           viewBox="0 0 24 24"
         >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M19 9l-7 7-7-7"
+          />
         </svg>
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-24 bg-cream shadow-lg z-[1001] animate-[popup-in_0.3s_ease-out]">
+        <div className="absolute right-0 mt-2 w-24 bg-cream shadow-lg z-1001 animate-[popup-in_0.3s_ease-out]">
           <div className="py-1">
             {languages.map((lang) => (
               <button
@@ -75,7 +87,7 @@ export default function LanguageSelector({ isScrolled }: { isScrolled?: boolean 
                   locale === lang.code ? "bg-sand font-bold" : ""
                 }`}
               >
-                <img src={lang.flag} alt={lang.label} width={20} height={15} className="rounded-sm" />
+                <img src={lang.flag} alt={lang.label} width={20} height={15} />
                 <span>{lang.label}</span>
               </button>
             ))}

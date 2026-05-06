@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
 import { CustomDatePicker } from "../ui/form/CustomDatePicker";
-import { CustomSelect } from "../ui/form/CustomSelect";
+import { GuestPicker } from "../ui/form/GuestPicker";
 import { useBookingStore } from "@/store/useBookingStore";
 import { ReviewsWidget } from "../ui/ReviewsWidget";
 import { useRouter } from "next/navigation";
@@ -14,20 +14,7 @@ export function Hero() {
   const tb = useTranslations("Booking");
   const router = useRouter();
 
-  const { checkIn, checkOut, guests, roomType, setCheckIn, setCheckOut, setGuests, setRoomType } = useBookingStore();
-
-  const guestOptions = [
-    { value: "1", label: `1 ${tb("guests")}` },
-    { value: "2", label: `2 ${tb("guests")}` },
-    { value: "3", label: `3 ${tb("guests")}` },
-    { value: "4", label: `4 ${tb("guests")}` },
-  ];
-
-  const roomOptions = [
-    { value: "deluxe", label: "Deluxe Suite" },
-    { value: "lux", label: "Lux Room" },
-    { value: "standard", label: "Standard Room" },
-  ];
+  const { checkIn, checkOut, adults, childrenAges, setCheckIn, setCheckOut, setAdults, setChildrenAges } = useBookingStore();
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -55,7 +42,7 @@ export function Hero() {
       id="hero"
       className="h-screen min-h-[700px] md:min-h-[800px] relative flex flex-col items-center justify-center"
     >
-      <div className="absolute inset-0 bg-linear-to-br from-[#1a1108] via-[#2d1f0a] to-[#3d2c12] hero-orb-1 hero-orb-2"></div>
+      <div className="absolute inset-0 bg-linear-to-br from-[#1a1108] via-[#2d1f0a] to-[#3d2c12] hero-orb-1 hero-orb-2 overflow-hidden"></div>
       <div
         className="absolute inset-0 overflow-hidden"
         id="particles"
@@ -63,7 +50,7 @@ export function Hero() {
       ></div>
 
       {/* Main Content Area */}
-      <div className="relative z-2 text-center px-4 md:px-6 max-w-[1200px] w-full flex flex-col items-center">
+      <div className="relative z-2 text-center px-4 md:px-6 max-w-[1200px] w-full flex flex-col items-center pt-20 md:pt-24">
         <div className="max-w-[900px] mb-8 md:mb-12">
           <h1 className="font-cormorant text-[clamp(42px,10vw,110px)] font-light leading-[0.9] text-cream mb-5 md:mb-7 opacity-0 animate-[fadeUp_0.8s_0.5s_forwards]">
             {t("titlePart1")} <em className="italic text-gold">{t("titleEm")}</em>
@@ -90,19 +77,10 @@ export function Hero() {
                 className="flex-[1.5] w-full min-w-[280px]"
                 theme="light"
               />
-              <CustomSelect
-                label={tb("guests")}
-                options={guestOptions}
-                value={guests}
-                onChange={setGuests}
-                className="flex-1 w-full"
-                theme="light"
-              />
-              <CustomSelect
-                label={tb("roomType")}
-                options={roomOptions}
-                value={roomType}
-                onChange={setRoomType}
+              <GuestPicker
+                adults={adults}
+                childrenAges={childrenAges}
+                onChange={(a, c) => { setAdults(a); setChildrenAges(c); }}
                 className="flex-1 w-full"
                 theme="light"
               />

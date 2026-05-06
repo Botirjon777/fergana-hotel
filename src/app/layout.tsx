@@ -38,11 +38,13 @@ export default function RootLayout({
         <LanguageProvider>
           <PopupProvider>
             <SmoothScroll>
-              {children}
-              <BasePopup />
-              <GalleryPopup />
-              <StickyBookingBar />
-              <ScrollToTop />
+              <div className="overflow-x-hidden relative w-full flex flex-col min-h-screen">
+                {children}
+                <BasePopup />
+                <GalleryPopup />
+                <StickyBookingBar />
+                <ScrollToTop />
+              </div>
             </SmoothScroll>
           </PopupProvider>
         </LanguageProvider>

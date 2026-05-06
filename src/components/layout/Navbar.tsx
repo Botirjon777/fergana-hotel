@@ -6,11 +6,13 @@ import { navLinks } from "@/lib/data";
 import { usePopup } from "@/lib/PopupContext";
 import { useTranslations } from "next-intl";
 import LanguageSelector from "@/components/ui/LanguageSelector";
+import { useRouter } from "@/i18n/routing";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const { openSidebar, openPopup, activePopup, isSidebarOpen } = usePopup();
+  const { openSidebar, activePopup, isSidebarOpen } = usePopup();
   const t = useTranslations("Navbar");
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,7 +49,7 @@ export function Navbar() {
         <li>
           <button
             className="bg-gold hover:bg-gold-dark text-white border-none py-2.5 px-6 font-jost text-xs tracking-[2px] uppercase cursor-pointer transition-colors duration-300 inline-block no-underline"
-            onClick={() => openPopup("booking-popup")}
+            onClick={() => router.push("/booking")}
           >
             {t("bookNow")}
           </button>

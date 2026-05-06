@@ -1,28 +1,42 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
-import { FiCalendar, FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import { FiCalendar, FiChevronLeft, FiChevronRight, FiArrowRight } from "react-icons/fi";
+import { useAvailability } from "@/hooks/useAvailability";
 
 interface CustomDatePickerProps {
-  value: string; // ISO string or YYYY-MM-DD
-  onChange: (value: string) => void;
+  checkIn: string; // ISO string or YYYY-MM-DD
+  checkOut: string; // ISO string or YYYY-MM-DD
+  onChange: (checkIn: string, checkOut: string) => void;
   label?: string;
   className?: string;
+  theme?: "light" | "dark";
 }
 
 export function CustomDatePicker({
-  value,
+  checkIn,
+  checkOut,
   onChange,
   label,
   className = "",
+  theme = "dark",
 }: CustomDatePickerProps) {
   const [isOpen, setIsOpen] = useState(false);
+  
+  // Selection step: 0 = needs checkIn, 1 = needs checkOut
+  const [selectionStep, setSelectionStep] = useState<0 | 1>(0);
+  
+  // Temporary state while selecting
+  const [tempCheckIn, setTempCheckIn] = useState<string | null>(checkIn);
+  const [hoverDate, setHoverDate] = useState<string | null>(null);
+
   const [viewDate, setViewDate] = useState(
-    value ? new Date(value) : new Date(),
+    checkIn ? new Date(checkIn) : new Date(),
   );
+  
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const selectedDate = value ? new Date(value) : null;
+  const { forbiddenDates, lowestPrices, isLoading } = useAvailability(viewDate);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -31,16 +45,24 @@ export function CustomDatePicker({
         !containerRef.current.contains(event.target as Node)
       ) {
         setIsOpen(false);
+        // Reset selection if incomplete
+        if (selectionStep === 1) {
+          setSelectionStep(0);
+          setTempCheckIn(checkIn);
+        }
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+  }, [selectionStep, checkIn]);
 
   const daysInMonth = (year: number, month: number) =>
     new Date(year, month + 1, 0).getDate();
-  const firstDayOfMonth = (year: number, month: number) =>
-    new Date(year, month, 1).getDay();
+  const firstDayOfMonth = (year: number, month: number) => {
+    let day = new Date(year, month, 1).getDay();
+    day = day === 0 ? 6 : day - 1;
+    return day;
+  };
 
   const handlePrevMonth = () => {
     setViewDate(new Date(viewDate.getFullYear(), viewDate.getMonth() - 1, 1));
@@ -50,52 +72,121 @@ export function CustomDatePicker({
     setViewDate(new Date(viewDate.getFullYear(), viewDate.getMonth() + 1, 1));
   };
 
-  const handleDateSelect = (day: number) => {
-    const newDate = new Date(viewDate.getFullYear(), viewDate.getMonth(), day);
-    // Format to YYYY-MM-DD for consistency
-    const formatted = newDate.toISOString().split("T")[0];
-    onChange(formatted);
-    setIsOpen(false);
+  const handleDateSelect = (dateString: string) => {
+    if (selectionStep === 0) {
+      setTempCheckIn(dateString);
+      setSelectionStep(1);
+    } else {
+      const start = new Date(tempCheckIn!);
+      const end = new Date(dateString);
+      
+      if (end <= start) {
+        // If selected end is before start, make the new date the start date
+        setTempCheckIn(dateString);
+        setSelectionStep(1);
+      } else {
+        // Valid range! Check if there are forbidden dates in between
+        let hasForbidden = false;
+        let curr = new Date(start);
+        while (curr <= end) {
+          const currStr = `${curr.getFullYear()}-${String(curr.getMonth() + 1).padStart(2, '0')}-${String(curr.getDate()).padStart(2, '0')}`;
+          if (forbiddenDates.has(currStr)) {
+            hasForbidden = true;
+            break;
+          }
+          curr.setDate(curr.getDate() + 1);
+        }
+        
+        if (hasForbidden) {
+          // Reset to just the new start date
+          setTempCheckIn(dateString);
+          setSelectionStep(1);
+        } else {
+          onChange(tempCheckIn!, dateString);
+          setSelectionStep(0);
+          setIsOpen(false);
+        }
+      }
+    }
   };
 
-  const renderCalendar = () => {
+  const renderCalendar = (monthOffset: number) => {
+    const targetYear = new Date(viewDate.getFullYear(), viewDate.getMonth() + monthOffset, 1).getFullYear();
+    const targetMonth = new Date(viewDate.getFullYear(), viewDate.getMonth() + monthOffset, 1).getMonth();
+
     const days = [];
-    const totalDays = daysInMonth(viewDate.getFullYear(), viewDate.getMonth());
-    const firstDay = firstDayOfMonth(
-      viewDate.getFullYear(),
-      viewDate.getMonth(),
-    );
+    const totalDays = daysInMonth(targetYear, targetMonth);
+    const firstDay = firstDayOfMonth(targetYear, targetMonth);
 
     // Padding for first day of week
     for (let i = 0; i < firstDay; i++) {
-      days.push(<div key={`empty-${i}`} className="p-2"></div>);
+      days.push(<div key={`empty-${i}`} className="p-2 border border-transparent"></div>);
     }
 
+    const currentCheckIn = selectionStep === 1 ? tempCheckIn : checkIn;
+    const currentCheckOut = selectionStep === 1 ? null : checkOut;
+
     for (let d = 1; d <= totalDays; d++) {
-      const isSelected =
-        selectedDate &&
-        selectedDate.getDate() === d &&
-        selectedDate.getMonth() === viewDate.getMonth() &&
-        selectedDate.getFullYear() === viewDate.getFullYear();
+      const currentDate = new Date(targetYear, targetMonth, d);
+      const dateString = `${currentDate.getFullYear()}-${String(currentDate.getMonth() + 1).padStart(2, '0')}-${String(currentDate.getDate()).padStart(2, '0')}`;
+      
+      const isStart = dateString === currentCheckIn;
+      const isEnd = dateString === currentCheckOut;
+      
+      let inRange = false;
+      let inHoverRange = false;
+
+      if (currentCheckIn && currentCheckOut) {
+        inRange = dateString > currentCheckIn && dateString < currentCheckOut;
+      } else if (selectionStep === 1 && currentCheckIn && hoverDate) {
+        const start = currentCheckIn < hoverDate ? currentCheckIn : hoverDate;
+        const end = currentCheckIn < hoverDate ? hoverDate : currentCheckIn;
+        inHoverRange = dateString > start && dateString < end;
+      }
 
       const isToday =
         new Date().getDate() === d &&
-        new Date().getMonth() === viewDate.getMonth() &&
-        new Date().getFullYear() === viewDate.getFullYear();
+        new Date().getMonth() === targetMonth &&
+        new Date().getFullYear() === targetYear;
+
+      const isForbidden = forbiddenDates.has(dateString);
+      const isPast = currentDate < new Date(new Date().setHours(0, 0, 0, 0));
+      const disabled = isForbidden || isPast;
+      const priceInfo = lowestPrices[dateString];
+
+      let cellBgClasses = "";
+      if (isStart || isEnd) {
+        cellBgClasses = "bg-[#8b5a2b] text-white";
+      } else if (inRange) {
+        cellBgClasses = theme === "light" ? "bg-gold/10 text-gray-800" : "bg-gold/20 text-white/90";
+      } else if (inHoverRange) {
+        cellBgClasses = theme === "light" ? "bg-gray-100 text-gray-800" : "bg-white/5 text-white/90";
+      } else if (disabled) {
+        cellBgClasses = theme === "light" ? "bg-gray-200/50 text-gray-400" : "bg-black/20 text-white/30";
+      } else {
+        cellBgClasses = "cursor-pointer hover:bg-gold/20 " + (theme === "light" ? "text-gray-800" : "text-white/80");
+      }
 
       days.push(
         <div
           key={d}
-          onClick={() => handleDateSelect(d)}
-          className={`p-2 text-center text-[10px] cursor-pointer transition-all duration-200 rounded-full hover:bg-gold hover:text-white ${
-            isSelected
-              ? "bg-gold text-white"
-              : isToday
-                ? "text-gold font-bold"
-                : "text-white/60"
+          onClick={() => !disabled && handleDateSelect(dateString)}
+          onMouseEnter={() => {
+            if (!disabled && selectionStep === 1) setHoverDate(dateString);
+          }}
+          className={`h-12 border ${theme === "light" ? "border-gray-200" : "border-gold/10"} flex flex-col items-center justify-center text-center transition-all duration-200 ${cellBgClasses} ${
+            isToday && !isStart && !isEnd ? "font-bold text-gold" : ""
           }`}
+          title={disabled ? "Not available" : ""}
         >
-          {d}
+          <span className="text-[13px] leading-tight font-medium">{d}</span>
+          {!disabled && priceInfo ? (
+            <span className={`text-[9px] mt-0.5 leading-none ${isStart || isEnd ? 'text-white/90' : theme === 'light' ? 'text-gray-500' : 'text-gold'}`}>
+              {(priceInfo.price_after_tax / 1000).toFixed(1)}k
+            </span>
+          ) : disabled ? (
+            <span className="text-[14px] mt-0.5 text-gray-400 opacity-50 font-light leading-none">&times;</span>
+          ) : null}
         </div>,
       );
     }
@@ -103,26 +194,21 @@ export function CustomDatePicker({
   };
 
   const monthNames = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
+    "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь",
+    "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь",
   ];
+  
+  const weekDays = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
 
-  const formatDate = (date: Date) => {
-    const d = date.getDate().toString().padStart(2, "0");
-    const m = (date.getMonth() + 1).toString().padStart(2, "0");
-    const y = date.getFullYear();
-    return `${d}.${m}.${y}`;
+  const formatDate = (dateStr: string) => {
+    if (!dateStr) return "";
+    const date = new Date(dateStr);
+    const d = date.getDate();
+    const mName = monthNames[date.getMonth()].toLowerCase();
+    return `${d} ${mName}`;
   };
+
+  const nextMonthDate = new Date(viewDate.getFullYear(), viewDate.getMonth() + 1, 1);
 
   return (
     <div
@@ -135,45 +221,95 @@ export function CustomDatePicker({
         </label>
       )}
       <div
-        className="flex items-center justify-between cursor-pointer group"
-        onClick={() => setIsOpen(!isOpen)}
+        className={`flex items-center justify-between cursor-pointer group px-4 h-[58px] border transition-all duration-300 ${
+          theme === "light"
+            ? "bg-white border-gold/30 hover:border-gold focus:bg-white text-text-dark rounded-[4px]"
+            : "border-transparent"
+        }`}
+        onClick={() => {
+          setIsOpen(!isOpen);
+          if (!isOpen) {
+            setSelectionStep(0);
+            setTempCheckIn(checkIn);
+          }
+        }}
       >
-        <span className="text-white text-xs font-light tracking-[0.5px]">
-          {selectedDate ? formatDate(selectedDate) : "Select Date"}
-        </span>
-        <FiCalendar className="text-gold" />
+        <div className="flex flex-col">
+          <span className={`text-[9px] ${theme === "light" ? "text-gray-500" : "text-white/50"}`}>Заезд &mdash; Выезд</span>
+          <span className={`text-sm font-medium tracking-[0.5px] ${theme === "light" ? "text-text-dark" : "text-white"}`}>
+            {checkIn && checkOut ? `${formatDate(checkIn)} — ${formatDate(checkOut)}` : "Select Dates"}
+          </span>
+        </div>
+        <FiCalendar className="text-gold text-lg" />
       </div>
 
       {isOpen && (
-        <div className="absolute top-full left-0 mt-2 w-[240px] bg-[#1a1108] border border-gold/20 p-4 shadow-2xl z-1000 animate-[fadeIn_0.2s_ease-out]">
-          <div className="flex items-center justify-between mb-4 border-b border-gold/10 pb-3">
+        <div className={`absolute top-full left-0 mt-2 w-[100vw] sm:w-[600px] md:w-[680px] max-w-[100vw] rounded-md border ${theme === "light" ? "border-gray-200 bg-white" : "border-gold/20 bg-[#1a1108]"} p-5 shadow-2xl z-[1000] animate-[fadeIn_0.2s_ease-out]`}>
+          
+          <div className="flex justify-between relative mb-6">
             <button
               onClick={handlePrevMonth}
-              className="text-gold hover:opacity-50"
+              className={`absolute left-0 top-1/2 -translate-y-1/2 z-10 p-1 hover:opacity-50 ${theme === "light" ? "text-gray-400" : "text-gold"}`}
             >
-              <FiChevronLeft />
+              <FiChevronLeft className="text-xl" />
             </button>
-            <span className="text-white text-[10px] uppercase tracking-[1px] font-medium">
-              {monthNames[viewDate.getMonth()]} {viewDate.getFullYear()}
-            </span>
+            
+            <div className="flex-1 text-center">
+              <span className={`text-[14px] font-bold ${theme === "light" ? "text-gray-800" : "text-white"}`}>
+                {monthNames[viewDate.getMonth()]} {viewDate.getFullYear()}
+              </span>
+            </div>
+            
+            <div className="flex-1 text-center hidden sm:block">
+              <span className={`text-[14px] font-bold ${theme === "light" ? "text-gray-800" : "text-white"}`}>
+                {monthNames[nextMonthDate.getMonth()]} {nextMonthDate.getFullYear()}
+              </span>
+            </div>
+
             <button
               onClick={handleNextMonth}
-              className="text-gold hover:opacity-50"
+              className={`absolute right-0 top-1/2 -translate-y-1/2 z-10 p-1 hover:opacity-50 ${theme === "light" ? "text-[#8b5a2b]" : "text-gold"}`}
             >
-              <FiChevronRight />
+              <FiArrowRight className="text-xl" />
             </button>
           </div>
-          <div className="grid grid-cols-7 gap-1 mb-2">
-            {["S", "M", "T", "W", "T", "F", "S"].map((day) => (
-              <div
-                key={day}
-                className="text-center text-[8px] text-gold/40 font-bold"
-              >
-                {day}
+
+          <div className="flex flex-col sm:flex-row gap-6">
+            <div className="flex-1">
+              <div className="grid grid-cols-7 mb-2">
+                {weekDays.map((day, index) => (
+                  <div
+                    key={`w1-${index}`}
+                    className={`text-center text-[11px] font-medium pb-2 ${index > 4 ? "text-red-500" : theme === "light" ? "text-gray-600" : "text-gold/60"}`}
+                  >
+                    {day}
+                  </div>
+                ))}
               </div>
-            ))}
+              <div className="grid grid-cols-7">{renderCalendar(0)}</div>
+            </div>
+            
+            <div className="flex-1 hidden sm:block">
+              <div className="grid grid-cols-7 mb-2">
+                {weekDays.map((day, index) => (
+                  <div
+                    key={`w2-${index}`}
+                    className={`text-center text-[11px] font-medium pb-2 ${index > 4 ? "text-red-500" : theme === "light" ? "text-gray-600" : "text-gold/60"}`}
+                  >
+                    {day}
+                  </div>
+                ))}
+              </div>
+              <div className="grid grid-cols-7">{renderCalendar(1)}</div>
+            </div>
           </div>
-          <div className="grid grid-cols-7 gap-1">{renderCalendar()}</div>
+
+          <div className={`mt-6 pt-4 border-t ${theme === "light" ? "border-gray-200 text-gray-600" : "border-gold/10 text-white/70"} flex flex-col gap-1`}>
+            <span className={`text-[15px] font-medium ${theme === "light" ? "text-gray-800" : "text-white"}`}>Выберите даты проживания</span>
+            <span className="text-[12px]">Лучшие цены для 1 гостя за ночь в UZS</span>
+            <span className="text-[11px] italic mt-1 opacity-80">Цена может быть доступна при соблюдении специальных условий бронирования</span>
+          </div>
+
         </div>
       )}
     </div>

@@ -2,9 +2,11 @@
 
 import { navLinks } from "@/lib/data";
 import { usePopup } from "@/lib/PopupContext";
+import { useRouter } from "@/i18n/routing";
 
 export function MobileSidebar() {
-  const { isSidebarOpen, closeSidebar, openPopup } = usePopup();
+  const { isSidebarOpen, closeSidebar } = usePopup();
+  const router = useRouter();
 
   return (
     <>
@@ -38,7 +40,7 @@ export function MobileSidebar() {
           className="bg-gold hover:bg-gold-dark hover:-translate-y-[2px] transition-all duration-300 text-white border-none py-4 px-10 font-jost text-xs tracking-[3px] uppercase cursor-pointer" 
           onClick={() => {
             closeSidebar();
-            openPopup("booking-popup");
+            router.push("/booking");
           }}
         >
           Book a Room

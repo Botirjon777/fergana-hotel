@@ -5,18 +5,16 @@ import { usePopup } from "@/lib/PopupContext";
 import { useTranslations } from "next-intl";
 import { CustomSelect } from "./form/CustomSelect";
 import { CustomDatePicker } from "./form/CustomDatePicker";
+import { useBookingStore } from "@/store/useBookingStore";
+import { useRouter } from "@/i18n/routing";
 
 export function StickyBookingBar() {
   const [show, setShow] = useState(false);
   const { openPopup, activePopup, isSidebarOpen } = usePopup();
   const t = useTranslations("Booking");
+  const router = useRouter();
 
-  const [bookingData, setBookingData] = useState({
-    checkIn: new Date().toISOString().split("T")[0],
-    checkOut: new Date(Date.now() + 86400000).toISOString().split("T")[0],
-    guests: "2",
-    roomType: "deluxe",
-  });
+  const { checkIn, checkOut, guests, roomType, setCheckIn, setCheckOut, setGuests, setRoomType } = useBookingStore();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,36 +47,26 @@ export function StickyBookingBar() {
       <div className="bg-[#1a1108]/95 backdrop-blur-md border-b border-gold/20 px-4 py-3 md:px-12 md:py-4 flex flex-wrap items-center justify-between gap-4">
         <div className="hidden lg:flex items-center gap-6 flex-1">
           <CustomDatePicker
-            label={t("checkIn")}
-            value={bookingData.checkIn}
-            onChange={(val) => setBookingData({ ...bookingData, checkIn: val })}
-            className="flex-1"
-          />
-          <div className="w-px h-6 bg-gold/20"></div>
-          <CustomDatePicker
-            label={t("checkOut")}
-            value={bookingData.checkOut}
-            onChange={(val) =>
-              setBookingData({ ...bookingData, checkOut: val })
-            }
-            className="flex-1"
+            label={`${t("checkIn")} — ${t("checkOut")}`}
+            checkIn={checkIn}
+            checkOut={checkOut}
+            onChange={(inDate, outDate) => { setCheckIn(inDate); setCheckOut(outDate); }}
+            className="flex-[1.5] min-w-[280px]"
           />
           <div className="w-px h-6 bg-gold/20"></div>
           <CustomSelect
             label={t("guests")}
             options={guestOptions}
-            value={bookingData.guests}
-            onChange={(val) => setBookingData({ ...bookingData, guests: val })}
+            value={guests}
+            onChange={setGuests}
             className="flex-1"
           />
           <div className="w-px h-6 bg-gold/20"></div>
           <CustomSelect
             label={t("roomType")}
             options={roomOptions}
-            value={bookingData.roomType}
-            onChange={(val) =>
-              setBookingData({ ...bookingData, roomType: val })
-            }
+            value={roomType}
+            onChange={setRoomType}
             className="flex-1"
           />
         </div>
@@ -94,7 +82,7 @@ export function StickyBookingBar() {
           </div>
           <button
             className="bg-gold hover:bg-[#b08d4a] text-white border-none py-2.5 px-6 md:py-3.5 md:px-10 font-jost text-[10px] md:text-xs tracking-[2px] uppercase cursor-pointer transition-all duration-300 shadow-lg shadow-gold/20 font-bold active:scale-95"
-            onClick={() => openPopup("booking-popup")}
+            onClick={() => router.push("/booking")}
           >
             {t("checkAvailability")}
           </button>

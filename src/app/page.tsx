@@ -10,8 +10,6 @@ import { Gallery } from "@/components/sections/Gallery";
 import { Services } from "@/components/sections/Services";
 import { Location } from "@/components/sections/Location";
 
-import { BookingPopup } from "@/components/ui/BookingPopup";
-import { ConfirmPopup } from "@/components/ui/ConfirmPopup";
 import { ServicePopup } from "@/components/ui/ServicePopup";
 import { WelcomePopup } from "@/components/ui/WelcomePopup";
 import { FloatBookBtn } from "@/components/ui/FloatBookBtn";
@@ -35,8 +33,6 @@ export default function Home() {
       <BottomNav />
 
       <FloatBookBtn />
-      <BookingPopup />
-      <ConfirmPopup />
       <ServicePopup />
       <WelcomePopup />
     </main>

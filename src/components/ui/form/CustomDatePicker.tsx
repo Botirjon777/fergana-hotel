@@ -244,8 +244,40 @@ export function CustomDatePicker({
       </div>
 
       {isOpen && (
-        <div className={`absolute top-full left-0 mt-2 w-[100vw] sm:w-[600px] md:w-[680px] max-w-[100vw] rounded-md border ${theme === "light" ? "border-gray-200 bg-white" : "border-gold/20 bg-[#1a1108]"} p-5 shadow-2xl z-[1000] animate-[fadeIn_0.2s_ease-out]`}>
+        <div className="fixed inset-0 z-[1500] md:absolute md:top-full md:inset-auto md:left-0 md:mt-2 md:w-[680px] animate-[fadeIn_0.2s_ease-out]">
+          {/* Mobile Overlay */}
+          <div 
+            className="md:hidden absolute inset-0 bg-black/60 backdrop-blur-sm" 
+            onClick={() => {
+              setIsOpen(false);
+              if (selectionStep === 1) {
+                setSelectionStep(0);
+                setTempCheckIn(checkIn);
+              }
+            }}
+          ></div>
           
+          <div className={`absolute bottom-0 left-0 right-0 w-full md:relative md:bottom-auto rounded-t-2xl md:rounded-md border-t md:border ${
+            theme === "light" ? "border-gray-200 bg-white" : "border-gold/20 bg-[#1a1108]"
+          } p-5 pb-8 md:pb-5 shadow-2xl overflow-y-auto max-h-[85vh] md:max-h-none custom-scrollbar`}>
+          
+          {/* Mobile Header with close button */}
+          <div className="md:hidden flex justify-between items-center mb-6 pb-2 border-b border-gold/10">
+             <span className={`font-bold tracking-widest uppercase text-sm ${theme === "light" ? "text-gray-800" : "text-white"}`}>Select Dates</span>
+             <button 
+               onClick={() => {
+                 setIsOpen(false);
+                 if (selectionStep === 1) {
+                   setSelectionStep(0);
+                   setTempCheckIn(checkIn);
+                 }
+               }} 
+               className={`text-2xl leading-none ${theme === "light" ? "text-gray-500" : "text-white/70"}`}
+             >
+               &times;
+             </button>
+          </div>
+
           <div className="flex justify-between relative mb-6">
             <button
               onClick={handlePrevMonth}
@@ -307,9 +339,9 @@ export function CustomDatePicker({
           <div className={`mt-6 pt-4 border-t ${theme === "light" ? "border-gray-200 text-gray-600" : "border-gold/10 text-white/70"} flex flex-col gap-1`}>
             <span className={`text-[15px] font-medium ${theme === "light" ? "text-gray-800" : "text-white"}`}>Выберите даты проживания</span>
             <span className="text-[12px]">Лучшие цены для 1 гостя за ночь в UZS</span>
-            <span className="text-[11px] italic mt-1 opacity-80">Цена может быть доступна при соблюдении специальных условий бронирования</span>
           </div>
 
+          </div>
         </div>
       )}
     </div>

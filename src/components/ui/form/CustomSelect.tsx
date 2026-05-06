@@ -70,26 +70,42 @@ export function CustomSelect({
       </div>
 
       {isOpen && (
-        <div className={`absolute top-full left-0 right-0 mt-2 border border-gold/20 shadow-2xl z-[1000] animate-[fadeIn_0.2s_ease-out] ${
-          theme === "light" ? "bg-white" : "bg-[#1a1108]"
-        }`}>
-          <div className="max-h-[200px] overflow-y-auto custom-scrollbar">
-            {options.map((option) => (
-              <div
-                key={option.value}
-                className={`px-4 py-3 text-xs font-light cursor-pointer transition-colors duration-200 hover:bg-gold/10 hover:text-gold ${
-                  value === option.value
-                    ? "text-gold bg-gold/5"
-                    : theme === "light" ? "text-gray-800" : "text-white/70"
-                }`}
-                onClick={() => {
-                  onChange(option.value);
-                  setIsOpen(false);
-                }}
-              >
-                {option.label}
-              </div>
-            ))}
+        <div className="fixed inset-0 z-[1500] md:absolute md:top-full md:inset-auto md:left-0 md:right-0 md:mt-2 md:border md:shadow-2xl animate-[fadeIn_0.2s_ease-out]">
+          {/* Mobile Overlay Background (clickable to close) */}
+          <div 
+            className="md:hidden absolute inset-0 bg-black/60 backdrop-blur-sm" 
+            onClick={() => setIsOpen(false)}
+          ></div>
+          
+          {/* Menu Container */}
+          <div className={`absolute bottom-0 left-0 right-0 w-full md:relative md:bottom-auto rounded-t-2xl md:rounded-none max-h-[60vh] md:max-h-[200px] overflow-y-auto custom-scrollbar flex flex-col ${
+             theme === "light" ? "bg-white text-gray-800 md:border-gold/30" : "bg-[#1a1108] text-white md:border-gold/20"
+          }`}>
+             {/* Mobile Header */}
+             <div className="md:hidden px-6 py-4 border-b border-gold/20 flex justify-between items-center sticky top-0 bg-inherit z-10">
+                <span className="font-bold text-sm tracking-widest uppercase">{label || "Select Option"}</span>
+                <button onClick={() => setIsOpen(false)} className="text-2xl leading-none">&times;</button>
+             </div>
+
+             {/* Options List */}
+             <div className="py-2 md:py-0">
+               {options.map((option) => (
+                 <div
+                   key={option.value}
+                   className={`px-6 md:px-4 py-4 md:py-3 text-sm md:text-xs font-light cursor-pointer transition-colors duration-200 hover:bg-gold/10 hover:text-gold ${
+                     value === option.value
+                       ? "text-gold bg-gold/5"
+                       : theme === "light" ? "text-gray-800" : "text-white/70"
+                   }`}
+                   onClick={() => {
+                     onChange(option.value);
+                     setIsOpen(false);
+                   }}
+                 >
+                   {option.label}
+                 </div>
+               ))}
+             </div>
           </div>
         </div>
       )}

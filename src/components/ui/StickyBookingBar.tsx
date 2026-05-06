@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { usePopup } from "@/lib/PopupContext";
 import { useTranslations } from "next-intl";
-import { CustomSelect } from "./form/CustomSelect";
+import { GuestPicker } from "./form/GuestPicker";
 import { CustomDatePicker } from "./form/CustomDatePicker";
 import { useBookingStore } from "@/store/useBookingStore";
 import { useRouter } from "@/i18n/routing";
@@ -14,7 +14,7 @@ export function StickyBookingBar() {
   const t = useTranslations("Booking");
   const router = useRouter();
 
-  const { checkIn, checkOut, guests, roomType, setCheckIn, setCheckOut, setGuests, setRoomType } = useBookingStore();
+  const { checkIn, checkOut, adults, childrenAges, setCheckIn, setCheckOut, setAdults, setChildrenAges } = useBookingStore();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,19 +24,6 @@ export function StickyBookingBar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [activePopup, isSidebarOpen]);
-
-  const guestOptions = [
-    { value: "1", label: `1 ${t("guests")}` },
-    { value: "2", label: `2 ${t("guests")}` },
-    { value: "3", label: `3 ${t("guests")}` },
-    { value: "4", label: `4 ${t("guests")}` },
-  ];
-
-  const roomOptions = [
-    { value: "deluxe", label: "Deluxe Suite" },
-    { value: "lux", label: "Lux Room" },
-    { value: "standard", label: "Standard Room" },
-  ];
 
   return (
     <div
@@ -54,19 +41,11 @@ export function StickyBookingBar() {
             className="flex-[1.5] min-w-[280px]"
           />
           <div className="w-px h-6 bg-gold/20"></div>
-          <CustomSelect
+          <GuestPicker
             label={t("guests")}
-            options={guestOptions}
-            value={guests}
-            onChange={setGuests}
-            className="flex-1"
-          />
-          <div className="w-px h-6 bg-gold/20"></div>
-          <CustomSelect
-            label={t("roomType")}
-            options={roomOptions}
-            value={roomType}
-            onChange={setRoomType}
+            adults={adults}
+            childrenAges={childrenAges}
+            onChange={(a, c) => { setAdults(a); setChildrenAges(c); }}
             className="flex-1"
           />
         </div>

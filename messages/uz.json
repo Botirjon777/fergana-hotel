@@ -212,5 +212,27 @@
         "size": "3 xona"
       }
     }
+  },
+  "NewsPage": {
+    "title": "Yangiliklar va tadbirlar",
+    "subtitle": "Safir mehmonxonasidagi so'nggi yangiliklardan xabardor bo'ling",
+    "readMore": "Batafsil",
+    "items": {
+      "spring-promo": {
+        "title": "Bahorgi maxsus takliflar",
+        "excerpt": "Sizning maksimal qulayligingiz uchun mo'ljallangan eksklyuziv chegirmalar va maxsus paketlar bilan mavsumni nishonlang.",
+        "content": "Bahor — yangilanish vaqti va Safir mehmonxonasida biz uni sizni hashamatni o'zida his qilishga chorlaydigan eksklyuziv takliflar bilan nishonlaymiz. Bizning bahorgi taklifimiz barcha turdagi xonalar uchun 20% chegirma, Altitude restoranida bepul nonushta va kelganingizda maxsus mavsumiy sovg'ani o'z ichiga oladi."
+      },
+      "new-spa-menu": {
+        "title": "Yangi sog'lomlashtirish rituallari",
+        "excerpt": "Xolistik yosharish va zamonaviy davolash usullariga qaratilgan yangi spa muolajalarimizni kashf eting.",
+        "content": "Biz yangi Spa menyusini taqdim etishdan mamnunmiz — bu sizning tanangiz va ruhingiz muvozanatini tiklash uchun mo'ljallangan rituallar to'plamidir. Qadimgi davolash an'analaridan ilhomlangan va zamonaviy sog'lomlashtirish usullarini o'z ichiga olgan yangi muolajalarimiz haqiqiy o'zgarish tajribasini taklif etadi."
+      },
+      "award-2024": {
+        "title": "Safir mehmonxonasi mukofotni qo'lga kiritdi",
+        "excerpt": "Safir mehmonxonasi yilning eng yaxshi butik mehmonxonasi sifatida tan olinganini faxr bilan e'lon qilamiz.",
+        "content": "Safir mehmonxonasi 2024-yilgi Xalqaro mehmondo'stlik mukofotlarida «Yilning eng yaxshi butik mehmonxonasi» deb topilganini katta faxr bilan e'lon qilamiz. Ushbu nufuzli e'tirof butun jamoamizning fidoyiligi va mislsiz mehmon tajribasini taqdim etishga bo'lgan intilishimizning isbotidir."
+      }
+    }
   }
 }

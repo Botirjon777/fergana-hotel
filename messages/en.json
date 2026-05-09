@@ -213,6 +213,7 @@
         "size": "3 Rooms"
       }
     }
+  },
   "NewsPage": {
     "title": "News & Events",
     "subtitle": "Stay updated with the latest happenings at Safir Hotel",
@@ -220,15 +221,18 @@
     "items": {
       "spring-promo": {
         "title": "Spring Special Offers",
-        "excerpt": "Celebrate the season with exclusive discounts and special packages designed for your ultimate comfort."
+        "excerpt": "Celebrate the season with exclusive discounts and special packages designed for your ultimate comfort.",
+        "content": "Spring is a time of renewal, and at Safir Hotel, we are celebrating with exclusive offers that invite you to experience luxury at its finest. Our Spring Special includes a 20% discount on all room categories, complimentary breakfast at our Altitude restaurant, and a welcome seasonal treat upon arrival.\n\nWhether you're planning a romantic getaway or a family vacation, our meticulously designed rooms provide the perfect sanctuary. Enjoy panoramic city views, bespoke furnishings, and the impeccable service that Safir is known for. This offer is available for stays throughout May and June. Book your spring escape today and let us lift your spirits."
       },
       "new-spa-menu": {
         "title": "New Wellness Rituals",
-        "excerpt": "Discover our newly curated spa treatments focusing on holistic rejuvenation and modern healing techniques."
+        "excerpt": "Discover our newly curated spa treatments focusing on holistic rejuvenation and modern healing techniques.",
+        "content": "We are thrilled to unveil our new Spa menu, a collection of rituals designed to restore balance to your body and mind. Drawing inspiration from ancient healing traditions and incorporating modern wellness techniques, our new treatments offer a truly transformative experience.\n\nHighlights include our signature 'Weightless Float' session, deep tissue massages using organic essential oils, and rejuvenating facials that leave your skin glowing. Our expert therapists are dedicated to providing personalized care in the serene environment of our Float Spa. Experience the ultimate in relaxation and emerge feeling renewed and revitalized."
       },
       "award-2024": {
         "title": "Safir Hotel Wins Excellence Award",
-        "excerpt": "We are proud to announce that Safir Hotel has been recognized as the best boutique hotel of the year."
+        "excerpt": "We are proud to announce that Safir Hotel has been recognized as the best boutique hotel of the year.",
+        "content": "It is with great pride that we announce Safir Hotel has been named the 'Boutique Hotel of the Year' at the 2024 International Hospitality Awards. This prestigious recognition is a testament to the dedication of our entire team and our commitment to providing an unparalleled guest experience.\n\nSince our opening, we have strived to redefine luxury through innovation, personalized service, and a unique architectural vision that 'defies convention'. We want to thank our loyal guests for their continued support and for being part of our journey. We look forward to welcoming you back and continuing to provide the exceptional service that earned us this honor."
       }
     }
   }

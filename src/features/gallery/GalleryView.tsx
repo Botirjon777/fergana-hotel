@@ -32,7 +32,7 @@ export default function GalleryView() {
         </div>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
-          {images.map((src, index) => (
+          {images.filter(src => src && src.trim() !== "").map((src, index) => (
             <div
               key={`${src}-${index}`}
               className="group relative aspect-square cursor-pointer overflow-hidden bg-text-dark animate-[fadeUp_0.6s_ease-out_forwards]"
@@ -66,7 +66,9 @@ export default function GalleryView() {
     </section>
   );
 
-  const allRoomImages = otherRoomCategories.flatMap(c => c.images);
+  const allRoomImages = otherRoomCategories
+    .filter(c => c.images && c.images.length > 0)
+    .flatMap(c => c.images || []);
 
   return (
     <main className="bg-cream min-h-screen">

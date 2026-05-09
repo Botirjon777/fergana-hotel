@@ -47,20 +47,22 @@ export default function NewsView() {
               style={{ animationDelay: `${index * 0.15}s`, opacity: 0 }}
             >
               {/* Image Container */}
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <Image
-                  src={item.image}
-                  alt={t(`items.${item.id}.title`)}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1.5 flex items-center gap-2 shadow-sm">
-                  <FiCalendar className="w-3.5 h-3.5 text-gold" />
-                  <span className="text-[10px] font-bold text-text-dark tracking-widest">
-                    {mounted ? new Date(item.date).toLocaleDateString() : ""}
-                  </span>
+              {item.image && (
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <Image
+                    src={item.image}
+                    alt={t(`items.${item.id}.title`)}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1.5 flex items-center gap-2 shadow-sm">
+                    <FiCalendar className="w-3.5 h-3.5 text-gold" />
+                    <span className="text-[10px] font-bold text-text-dark tracking-widest">
+                      {mounted ? new Date(item.date).toLocaleDateString() : ""}
+                    </span>
+                  </div>
                 </div>
-              </div>
+              )}
 
               {/* Content */}
               <div className="p-8">

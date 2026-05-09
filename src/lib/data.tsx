@@ -1,17 +1,29 @@
-import React from "react";
-import { LiaBedSolid, LiaWineGlassSolid, LiaSpaSolid, LiaSwimmingPoolSolid, LiaMusicSolid, LiaCarSolid } from "react-icons/lia";
+import { 
+  LiaBedSolid, 
+  LiaWineGlassSolid, 
+  LiaSpaSolid, 
+  LiaSwimmingPoolSolid, 
+  LiaUsersSolid, 
+  LiaConciergeBellSolid,
+  LiaWifiSolid,
+  LiaParkingSolid,
+  LiaUtensilsSolid,
+  LiaDumbbellSolid,
+  LiaCocktailSolid,
+  LiaMusicSolid,
+  LiaCarSolid
+} from "react-icons/lia";
 
 export const navLinks = [
   { label: "About Us", href: "/about" },
   { label: "Rooms", href: "/rooms" },
   { 
     label: "Services", 
-    href: "#", 
+    href: "/services", 
     subLinks: [
-      { label: "Gastrobar", href: "/#services" },
-      { label: "Fitness & SPA", href: "/#services" },
-      { label: "Meetings", href: "/#services" },
-      { label: "Events & groups", href: "/#services" },
+      { label: "Gastrobar", href: "/gastrobar" },
+      { label: "Fitness & SPA", href: "/spa" },
+      { label: "Meetings & Events", href: "/meetings" },
     ]
   },
   { label: "Gallery", href: "/gallery" },
@@ -119,41 +131,48 @@ export const generalGallery = [
   "/images/hotel/general/billiard.webp",
 ];
 
+
 export const servicesItems = [
   {
-    icon: <LiaBedSolid />,
-    title: "Floating Rooms",
-    description: "87 meticulously designed rooms and suites with floor-to-ceiling windows, bespoke furnishings, and panoramic sky views that blur the line between inside and the infinite.",
-    linkText: "Explore Rooms →",
-  },
-  {
     icon: <LiaWineGlassSolid />,
-    title: "Altitude Dining",
-    description: "Four distinctive dining experiences — from our award-winning fine dining restaurant at 40 floors to a casual sky terrace where cocktails meet the sunset.",
-    linkText: "View Menus →",
+    title: "Gastrobar",
+    description: "Experience exquisite flavors at our Gastrobar. From artisanal cocktails to a rich buffet breakfast, every bite is a journey of taste.",
+    linkText: "Explore Gastrobar →",
+    href: "/gastrobar"
   },
   {
     icon: <LiaSpaSolid />,
-    title: "Float Spa",
-    description: "A sanctuary of sensory deprivation and deep healing. Float therapy, hot stone massages, and ancient rituals reinterpreted for the modern soul seeking stillness.",
-    linkText: "Book Treatment →",
+    title: "Fitness & SPA",
+    description: "A sanctuary of wellness featuring our modern fitness room and a serene indoor swimming pool for complete physical and mental rejuvenation.",
+    linkText: "Relax & Recharge →",
+    href: "/spa"
+  },
+  {
+    icon: <LiaUsersSolid />,
+    title: "Meetings & Events",
+    description: "Elegant venues for any occasion. Our versatile conference rooms and expert planning services ensure your meetings and events are truly extraordinary.",
+    linkText: "Plan Your Event →",
+    href: "/meetings"
+  },
+  {
+    icon: <LiaBedSolid />,
+    title: "Amenities",
+    description: "Thoughtfully curated details for your ultimate comfort. From smart home systems to premium toiletries, we provide everything you need for a seamless stay.",
+    linkText: "View Amenities →",
+    href: "/services"
+  },
+  {
+    icon: <LiaConciergeBellSolid />,
+    title: "Guest Services",
+    description: "Enjoy effortless hospitality with our inclusive services: laundry, 24/7 housekeeping, and a 10% discount at our main restaurant for direct bookings.",
+    linkText: "Our Services →",
+    href: "/services"
   },
   {
     icon: <LiaSwimmingPoolSolid />,
     title: "Infinity Pool",
-    description: "Perched at the hotel's crown, our 25-meter infinity pool seems to pour directly into the city skyline. Available at sunrise for an experience unlike any other.",
-    linkText: "Learn More →",
-  },
-  {
-    icon: <LiaMusicSolid />,
-    title: "Curated Events",
-    description: "From intimate gallery openings to star-lit rooftop dinners, our concierge team crafts bespoke experiences tailored to your desires with exquisite precision.",
-    linkText: "See Events →",
-  },
-  {
-    icon: <LiaCarSolid />,
-    title: "Seamless Transfers",
-    description: "Arrive and depart in style with our fleet of electric luxury vehicles. Private airport transfers, city tours, and helicopter arrivals are available on request.",
-    linkText: "Arrange Transfer →",
+    description: "Immerse yourself in the tranquility of our indoor pool. Controlled temperature and a cozy atmosphere provide the perfect escape year-round.",
+    linkText: "Dive In →",
+    href: "/spa"
   },
 ];

@@ -3,7 +3,7 @@
 import { navLinks } from "@/lib/data";
 import { usePopup } from "@/lib/PopupContext";
 import { useTranslations } from "next-intl";
-import { useRouter } from "next/navigation";
+import { Link, useRouter } from "@/i18n/routing";
 
 export function MobileSidebar() {
   const { isSidebarOpen, closeSidebar } = usePopup();
@@ -28,24 +28,24 @@ export function MobileSidebar() {
         <ul className="list-none flex flex-col gap-6 m-0 p-0">
           {navLinks.map((link) => (
             <li key={link.label}>
-              <a
+              <Link
                 href={link.href}
                 onClick={closeSidebar}
-                className="font-cormorant text-3xl font-light text-text-dark no-underline tracking-[1px] transition-colors duration-300 hover:text-gold"
+                className="font-cormorant text-3xl font-light text-text-dark no-underline tracking-[1px] transition-colors duration-300 hover:text-gold block"
               >
                 {t(link.label.toLowerCase())}
-              </a>
+              </Link>
               {link.subLinks && (
                 <ul className="list-none flex flex-col gap-3 mt-4 ml-4">
                   {link.subLinks.map((sub) => (
                     <li key={sub.label}>
-                      <a
+                      <Link
                         href={sub.href}
                         onClick={closeSidebar}
-                        className="font-jost text-sm font-light text-text-mid no-underline tracking-[1px] uppercase transition-colors duration-300 hover:text-gold"
+                        className="font-jost text-sm font-light text-text-mid no-underline tracking-[1px] uppercase transition-colors duration-300 hover:text-gold block"
                       >
                         {t(`subLinks.${sub.label.toLowerCase()}`)}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>

@@ -35,13 +35,15 @@ export default function NewsDetailView({ id }: NewsDetailViewProps) {
 
       {/* Hero Section */}
       <section className="relative h-[60vh] min-h-[400px] flex items-end overflow-hidden">
-        <Image
-          src={item.image}
-          alt={t(`items.${item.id}.title`)}
-          fill
-          className="object-cover"
-          priority
-        />
+        {item.image && (
+          <Image
+            src={item.image}
+            alt={t(`items.${item.id}.title`)}
+            fill
+            className="object-cover"
+            priority
+          />
+        )}
         <div className="absolute inset-0 bg-linear-to-t from-[#1a1108] via-[#1a1108]/40 to-transparent"></div>
         
         <div className="max-w-[1000px] mx-auto w-full px-6 pb-16 relative z-10">

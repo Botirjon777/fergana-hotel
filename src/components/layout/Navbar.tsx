@@ -4,8 +4,9 @@ import Logo from "@/components/ui/Logo";
 import { navLinks } from "@/lib/data";
 import { usePopup } from "@/lib/PopupContext";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/routing";
 import LanguageSelector from "@/components/ui/LanguageSelector";
-import { useRouter } from "next/navigation";
+import { useRouter } from "@/i18n/routing";
 import { FiChevronDown } from "react-icons/fi";
 
 export function Navbar() {
@@ -23,26 +24,26 @@ export function Navbar() {
       <ul className="hidden md:flex items-center gap-9 list-none m-0 p-0">
         {navLinks.map((link) => (
           <li key={link.label} className="relative group">
-            <a
+            <Link
               href={link.href}
               className="text-[13px] font-normal tracking-[2px] uppercase no-underline transition-colors duration-300 flex items-center gap-1 text-text-mid group-hover:text-gold"
             >
               {t(link.label.toLowerCase())}
               {link.subLinks && <FiChevronDown className="w-3 h-3 transition-transform duration-300 group-hover:rotate-180" />}
               <span className="absolute -bottom-1 left-0 right-0 h-1px bg-gold scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></span>
-            </a>
+            </Link>
 
             {link.subLinks && (
               <div className="absolute top-full left-0 pt-4 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50">
                 <ul className="bg-white shadow-[0_10px_40px_rgba(0,0,0,0.1)] py-4 min-w-[220px] border border-sand/10">
                   {link.subLinks.map((sub) => (
                     <li key={sub.label}>
-                      <a
+                      <Link
                         href={sub.href}
-                        className="block px-6 py-3 text-[12px] tracking-[1px] text-text-mid hover:text-gold hover:bg-cream/30 transition-colors uppercase"
+                        className="block px-6 py-3 text-[12px] tracking-[1px] text-text-mid hover:text-gold hover:bg-cream/30 transition-colors uppercase no-underline"
                       >
                         {t(`subLinks.${sub.label.toLowerCase()}`)}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>

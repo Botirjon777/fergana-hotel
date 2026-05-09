@@ -5,6 +5,7 @@ import {
   FaInstagram,
   FaYoutube,
 } from "react-icons/fa6";
+import { Link } from "@/i18n/routing";
 
 export function Footer() {
   return (
@@ -49,83 +50,83 @@ export function Footer() {
           </h4>
           <ul className="list-none flex flex-col gap-3 m-0 p-0">
             <li>
-              <a
+              <Link
                 className="text-sm text-cream/55 no-underline font-light transition-colors duration-300 hover:text-gold"
                 href="/about"
               >
                 About Us
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 className="text-sm text-cream/55 no-underline font-light transition-colors duration-300 hover:text-gold"
                 href="/rooms"
               >
                 Rooms & Suites
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 className="text-sm text-cream/55 no-underline font-light transition-colors duration-300 hover:text-gold"
                 href="/gallery"
               >
                 Gallery
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 className="text-sm text-cream/55 no-underline font-light transition-colors duration-300 hover:text-gold"
-                href="/#services"
+                href="/services"
               >
                 Services
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 className="text-sm text-cream/55 no-underline font-light transition-colors duration-300 hover:text-gold"
                 href="/#location"
               >
                 Location
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
         <div className="flex flex-col">
           <h4 className="font-jost text-[10px] tracking-[4px] uppercase text-gold mb-6 font-normal">
-            Rooms
+            Services
           </h4>
           <ul className="list-none flex flex-col gap-3 m-0 p-0">
             <li>
-              <a
+              <Link
                 className="text-sm text-cream/55 no-underline font-light transition-colors duration-300 hover:text-gold"
-                href="#"
+                href="/gastrobar"
               >
-                Levitation Suite
-              </a>
+                Gastrobar
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 className="text-sm text-cream/55 no-underline font-light transition-colors duration-300 hover:text-gold"
-                href="#"
+                href="/spa"
               >
-                Cloud Deluxe
-              </a>
+                Fitness & SPA
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 className="text-sm text-cream/55 no-underline font-light transition-colors duration-300 hover:text-gold"
-                href="#"
+                href="/meetings"
               >
-                Horizon Penthouse
-              </a>
+                Meetings & Events
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 className="text-sm text-cream/55 no-underline font-light transition-colors duration-300 hover:text-gold"
-                href="#"
+                href="/services"
               >
-                Float Studio
-              </a>
+                Amenities
+              </Link>
             </li>
           </ul>
         </div>
@@ -135,36 +136,36 @@ export function Footer() {
           </h4>
           <ul className="list-none flex flex-col gap-3 m-0 p-0">
             <li>
-              <a
+              <Link
                 className="text-sm text-cream/55 no-underline font-light transition-colors duration-300 hover:text-gold"
-                href="#"
+                href="/privacy"
               >
                 Privacy Policy
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 className="text-sm text-cream/55 no-underline font-light transition-colors duration-300 hover:text-gold"
-                href="#"
+                href="/terms"
               >
                 Terms of Service
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 className="text-sm text-cream/55 no-underline font-light transition-colors duration-300 hover:text-gold"
-                href="#"
+                href="/cookies"
               >
                 Cookie Policy
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 className="text-sm text-cream/55 no-underline font-light transition-colors duration-300 hover:text-gold"
-                href="#"
+                href="/cancellation"
               >
                 Cancellation
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

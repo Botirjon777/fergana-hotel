@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const PROPERTY_ID = 506786;
+const PROPERTY_ID = 506781;
 
 export interface RateSummary {
   rate: {

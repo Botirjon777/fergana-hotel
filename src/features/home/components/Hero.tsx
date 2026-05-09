@@ -2,10 +2,10 @@
 
 import { useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
-import { CustomDatePicker } from "../ui/form/CustomDatePicker";
-import { GuestPicker } from "../ui/form/GuestPicker";
+import { CustomDatePicker } from "@/components/ui/form/CustomDatePicker";
+import { GuestPicker } from "@/components/ui/form/GuestPicker";
 import { useBookingStore } from "@/store/useBookingStore";
-import { ReviewsWidget } from "../ui/ReviewsWidget";
+import { ReviewsWidget } from "@/components/ui/ReviewsWidget";
 import { useRouter } from "next/navigation";
 
 export function Hero() {

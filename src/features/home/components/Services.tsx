@@ -2,11 +2,9 @@
 
 import SectionHeader from "@/components/ui/SectionHeader";
 import { servicesItems } from "@/lib/data";
-import { usePopup } from "@/lib/PopupContext";
+import { Link } from "@/i18n/routing";
 
 export function Services() {
-  const { openPopup } = usePopup();
-
   return (
     <section
       id="services"
@@ -20,10 +18,10 @@ export function Services() {
         />
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-px md:gap-[2px] mt-10 md:mt-[60px]">
           {servicesItems.map((service, i) => (
-            <div
-              className="bg-sand p-6 md:p-12 relative overflow-hidden transition-colors duration-400 cursor-pointer group hover:bg-cream"
+            <Link
+              href={service.href || "#"}
+              className="bg-sand p-6 md:p-12 relative overflow-hidden transition-colors duration-400 cursor-pointer group hover:bg-cream no-underline block"
               key={i}
-              onClick={() => openPopup("service-popup")}
             >
               <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-gold scale-x-0 transition-transform duration-400 group-hover:scale-x-100"></div>
               <span className="text-2xl md:text-4xl mb-4 md:mb-6 block transition-transform duration-400 group-hover:-translate-y-1.5">
@@ -38,7 +36,7 @@ export function Services() {
               <span className="inline-flex items-center gap-2 mt-3 md:mt-5 text-[9px] md:text-[11px] tracking-[2px] uppercase text-gold no-underline font-normal">
                 {service.linkText}
               </span>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

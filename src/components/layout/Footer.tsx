@@ -5,13 +5,14 @@ import {
   FaInstagram,
   FaYoutube,
 } from "react-icons/fa6";
+import { Link } from "@/i18n/routing";
 
 export function Footer() {
   return (
     <footer className="bg-[#1a1108] text-cream px-5 py-[60px] pb-[120px] md:px-12 md:py-[80px] md:pb-10">
       <div className="max-w-[1200px] mx-auto grid grid-cols-2 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr] gap-10 md:gap-14 pb-10 md:pb-[60px] border-b border-cream/10">
         <div className="footer-brand col-span-2 lg:col-span-1">
-          <Logo className="mb-5 text-gold!" />
+          <Logo className="mb-5 brightness-0 invert opacity-90" />
           <p className="mt-5 text-sm leading-[1.8] text-cream/55 font-light">
             Where the sky is not the limit — it is the beginning. Experience
             hospitality that elevates every sense and moment.
@@ -49,75 +50,83 @@ export function Footer() {
           </h4>
           <ul className="list-none flex flex-col gap-3 m-0 p-0">
             <li>
-              <a
+              <Link
                 className="text-sm text-cream/55 no-underline font-light transition-colors duration-300 hover:text-gold"
-                href="#about"
+                href="/about"
               >
-                About Hotel
-              </a>
+                About Us
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 className="text-sm text-cream/55 no-underline font-light transition-colors duration-300 hover:text-gold"
-                href="#gallery"
+                href="/rooms"
+              >
+                Rooms & Suites
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="text-sm text-cream/55 no-underline font-light transition-colors duration-300 hover:text-gold"
+                href="/gallery"
               >
                 Gallery
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 className="text-sm text-cream/55 no-underline font-light transition-colors duration-300 hover:text-gold"
-                href="#services"
+                href="/services"
               >
                 Services
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 className="text-sm text-cream/55 no-underline font-light transition-colors duration-300 hover:text-gold"
-                href="#location"
+                href="/#location"
               >
                 Location
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
         <div className="flex flex-col">
           <h4 className="font-jost text-[10px] tracking-[4px] uppercase text-gold mb-6 font-normal">
-            Rooms
+            Services
           </h4>
           <ul className="list-none flex flex-col gap-3 m-0 p-0">
             <li>
-              <a
+              <Link
                 className="text-sm text-cream/55 no-underline font-light transition-colors duration-300 hover:text-gold"
-                href="#"
+                href="/gastrobar"
               >
-                Levitation Suite
-              </a>
+                Gastrobar
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 className="text-sm text-cream/55 no-underline font-light transition-colors duration-300 hover:text-gold"
-                href="#"
+                href="/spa"
               >
-                Cloud Deluxe
-              </a>
+                Fitness & SPA
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 className="text-sm text-cream/55 no-underline font-light transition-colors duration-300 hover:text-gold"
-                href="#"
+                href="/meetings"
               >
-                Horizon Penthouse
-              </a>
+                Meetings & Events
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 className="text-sm text-cream/55 no-underline font-light transition-colors duration-300 hover:text-gold"
-                href="#"
+                href="/services"
               >
-                Float Studio
-              </a>
+                Amenities
+              </Link>
             </li>
           </ul>
         </div>
@@ -127,43 +136,43 @@ export function Footer() {
           </h4>
           <ul className="list-none flex flex-col gap-3 m-0 p-0">
             <li>
-              <a
+              <Link
                 className="text-sm text-cream/55 no-underline font-light transition-colors duration-300 hover:text-gold"
-                href="#"
+                href="/privacy"
               >
                 Privacy Policy
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 className="text-sm text-cream/55 no-underline font-light transition-colors duration-300 hover:text-gold"
-                href="#"
+                href="/terms"
               >
                 Terms of Service
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 className="text-sm text-cream/55 no-underline font-light transition-colors duration-300 hover:text-gold"
-                href="#"
+                href="/cookies"
               >
                 Cookie Policy
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 className="text-sm text-cream/55 no-underline font-light transition-colors duration-300 hover:text-gold"
-                href="#"
+                href="/cancellation"
               >
                 Cancellation
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
       </div>
       <div className="max-w-[1200px] mx-auto pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
         <p className="text-xs text-cream/35 tracking-[1px]">
-          © 2026 Fergana Hotel. All rights reserved.
+          © 2026 Safir Hotel. All rights reserved.
         </p>
         <p className="text-[11px] text-cream/20 tracking-[2px]">
           ABOVE THE ORDINARY

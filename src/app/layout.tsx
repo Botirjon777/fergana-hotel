@@ -23,8 +23,8 @@ const jost = Jost({
 });
 
 export const metadata: Metadata = {
-  title: "Fergana Hotel — Above the Ordinary",
-  description: "Suspended between earth and sky, Fergana Hotel redefines luxury with weightless elegance and timeless design.",
+  title: "Safir Hotel — Above the Ordinary",
+  description: "Suspended between earth and sky, Safir Hotel redefines luxury with weightless elegance and timeless design.",
 };
 
 export default function RootLayout({

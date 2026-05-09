@@ -1,7 +1,6 @@
 "use client";
 
-import { usePopup } from "@/lib/PopupContext";
-import { useRouter } from "@/i18n/routing";
+import { useRouter } from "next/navigation";
 
 export function FloatBookBtn() {
   const router = useRouter();

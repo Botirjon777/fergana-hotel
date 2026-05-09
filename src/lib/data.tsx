@@ -2,14 +2,44 @@ import React from "react";
 import { LiaBedSolid, LiaWineGlassSolid, LiaSpaSolid, LiaSwimmingPoolSolid, LiaMusicSolid, LiaCarSolid } from "react-icons/lia";
 
 export const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Gallery", href: "#gallery" },
-  { label: "Services", href: "#services" },
-  { label: "Location", href: "#location" },
+  { label: "About Us", href: "/about" },
+  { label: "Rooms", href: "/rooms" },
+  { 
+    label: "Services", 
+    href: "#", 
+    subLinks: [
+      { label: "Gastrobar", href: "/#services" },
+      { label: "Fitness & SPA", href: "/#services" },
+      { label: "Meetings", href: "/#services" },
+      { label: "Events & groups", href: "/#services" },
+    ]
+  },
+  { label: "Gallery", href: "/gallery" },
+  { label: "News", href: "/news" },
+  { label: "Contacts", href: "/#location" },
+  { label: "Reviews", href: "/reviews" },
+];
+
+export const newsItems = [
+  {
+    id: "spring-promo",
+    date: "2024-05-01",
+    image: "/images/hotel/general/hotel-day.webp",
+  },
+  {
+    id: "new-spa-menu",
+    date: "2024-04-15",
+    image: "/images/hotel/general/pool.webp",
+  },
+  {
+    id: "award-2024",
+    date: "2024-03-20",
+    image: "/images/hotel/general/restaurant.webp",
+  }
 ];
 
 export const stats = [
-  { num: "87", label: "Rooms & Suites" },
+  { num: "63", label: "Rooms & Suites" },
   { num: "4", label: "Dining Venues" },
   { num: "10", label: "Years of Grace" },
   { num: "∞", label: "Sky Views" },
@@ -17,63 +47,52 @@ export const stats = [
 
 export const roomCategories = [
   {
-    id: "deluxe",
-    label: "Deluxe Suite",
-    mainImage: "/images/hotel/rooms/deluxe/2-room/1.jpg",
-    images: [
-      "/images/hotel/rooms/deluxe/2-room/1.jpg",
-      "/images/hotel/rooms/deluxe/2-room/2.jpg",
-      "/images/hotel/rooms/deluxe/2-room/3.jpg",
-      "/images/hotel/rooms/deluxe/2-room/4.jpg",
-      "/images/hotel/rooms/deluxe/2-room/5.jpg",
-      "/images/hotel/rooms/deluxe/2-room/6.jpg",
-      "/images/hotel/rooms/deluxe/king/1.jpg",
-      "/images/hotel/rooms/deluxe/king/2.jpg",
-      "/images/hotel/rooms/deluxe/king/3.jpg",
-      "/images/hotel/rooms/deluxe/king/4.jpg",
-      "/images/hotel/rooms/deluxe/king/5.jpg",
-      "/images/hotel/rooms/deluxe/king/6.jpg",
-    ]
+    id: "deluxe-king",
+    label: "Deluxe King Room",
+    hopenId: 5051545,
+    mainImage: "/images/hotel/rooms/deluxe/king/1.jpg",
+    images: ["/images/hotel/rooms/deluxe/king/1.jpg", "/images/hotel/rooms/deluxe/king/2.jpg", "/images/hotel/rooms/deluxe/king/3.jpg"]
   },
   {
-    id: "lux",
-    label: "Lux Room",
+    id: "superior-king",
+    label: "Superior King Room",
+    hopenId: 5036377,
     mainImage: "/images/hotel/rooms/lux/king/1.jpg",
-    images: [
-      "/images/hotel/rooms/lux/king/1.jpg",
-      "/images/hotel/rooms/lux/king/2.jpg",
-      "/images/hotel/rooms/lux/king/3.jpg",
-      "/images/hotel/rooms/lux/king/4.jpg",
-      "/images/hotel/rooms/lux/king/5.jpg",
-      "/images/hotel/rooms/lux/king/6.jpg",
-      "/images/hotel/rooms/lux/2-room/1.jpg",
-      "/images/hotel/rooms/lux/2-room/2.jpg",
-      "/images/hotel/rooms/lux/2-room/3.jpg",
-      "/images/hotel/rooms/lux/2-room/4.jpg",
-      "/images/hotel/rooms/lux/2-room/5.jpg",
-      "/images/hotel/rooms/lux/2-room/6.jpg",
-      "/images/hotel/rooms/lux/2-room/7.jpg",
-      "/images/hotel/rooms/lux/family/1.jpg",
-      "/images/hotel/rooms/lux/family/2.jpg",
-      "/images/hotel/rooms/lux/family/3.jpg",
-      "/images/hotel/rooms/lux/family/4.jpg",
-      "/images/hotel/rooms/lux/family/5.jpg",
-      "/images/hotel/rooms/lux/family/6.jpg",
-    ]
+    images: ["/images/hotel/rooms/lux/king/1.jpg", "/images/hotel/rooms/lux/king/2.jpg", "/images/hotel/rooms/lux/king/3.jpg"]
+  },
+  {
+    id: "superior-twin",
+    label: "Superior Twin Room",
+    hopenId: 5036376,
+    bestseller: true,
+    mainImage: "/images/hotel/rooms/lux/2-room/2.jpg",
+    images: ["/images/hotel/rooms/lux/2-room/2.jpg", "/images/hotel/rooms/lux/2-room/3.jpg"]
+  },
+  {
+    id: "deluxe-twin",
+    label: "Deluxe Twin Room",
+    hopenId: 5036375,
+    mainImage: "/images/hotel/rooms/lux/2-room/1.jpg",
+    images: ["/images/hotel/rooms/lux/2-room/1.jpg", "/images/hotel/rooms/lux/2-room/4.jpg"]
+  },
+  {
+    id: "superior-family",
+    label: "Superior Family Room",
+    hopenId: 5049207,
+    mainImage: "/images/hotel/rooms/lux/family/1.jpg",
+    images: ["/images/hotel/rooms/lux/family/1.jpg", "/images/hotel/rooms/lux/family/2.jpg"]
   },
   {
     id: "standart",
-    label: "Standart Room",
+    label: "Standard Single Room",
+    hopenId: 5047553,
     mainImage: "/images/hotel/rooms/standart/1-room/1.jpg",
-    images: [
-      "/images/hotel/rooms/standart/1-room/1.jpg",
-      "/images/hotel/rooms/standart/1-room/2.jpg",
-      "/images/hotel/rooms/standart/1-room/3.jpg",
-      "/images/hotel/rooms/standart/1-room/4.jpg",
-      "/images/hotel/rooms/standart/1-room/5.jpg",
-      "/images/hotel/rooms/standart/1-room/6.jpg",
-      "/images/hotel/rooms/standart/1-room/7.jpg",
-    ]
+    images: ["/images/hotel/rooms/standart/1-room/1.jpg", "/images/hotel/rooms/standart/1-room/2.jpg"]
+  },
+  {
+    id: "apartment",
+    label: "Apartment",
+    hopenId: 5039999
   },
   {
     id: "conference",
@@ -81,16 +100,23 @@ export const roomCategories = [
     mainImage: "/images/hotel/conference-rooms/32-person/1.jpg",
     images: [
       "/images/hotel/conference-rooms/32-person/1.jpg",
-      "/images/hotel/conference-rooms/32-person/2.jpg",
-      "/images/hotel/conference-rooms/32-person/3.jpg",
-      "/images/hotel/conference-rooms/32-person/4.jpg",
       "/images/hotel/conference-rooms/22-person/1.jpg",
-      "/images/hotel/conference-rooms/22-person/2.jpg",
       "/images/hotel/conference-rooms/52-person/1.jpg",
-      "/images/hotel/conference-rooms/52-person/2.jpg",
-      "/images/hotel/conference-rooms/52-person/3.jpg",
     ]
   },
+];
+
+export const generalGallery = [
+  "/images/hotel/general/hotel-day.webp",
+  "/images/hotel/general/hotel-night.webp",
+  "/images/hotel/general/reception.webp",
+  "/images/hotel/general/reception-2.webp",
+  "/images/hotel/general/reception-3.webp",
+  "/images/hotel/general/restaurant.webp",
+  "/images/hotel/general/restaurant-2.webp",
+  "/images/hotel/general/pool.webp",
+  "/images/hotel/general/breakfast.webp",
+  "/images/hotel/general/billiard.webp",
 ];
 
 export const servicesItems = [

@@ -1,19 +1,29 @@
 {
   "Navbar": {
     "home": "Bosh sahifa",
-    "about": "Biz haqimizda",
+    "about us": "Biz haqimizda",
+    "rooms": "Xonalar",
     "gallery": "Galereya",
     "services": "Xizmatlar",
+    "news": "Yangiliklar",
+    "contacts": "Kontaktlar",
     "location": "Manzil",
-    "bookNow": "Band qilish"
+    "reviews": "Sharhlar",
+    "bookNow": "Band qilish",
+    "subLinks": {
+      "gastrobar": "Gastrobar",
+      "fitness & spa": "Fitness va SPA",
+      "meetings": "Uchrashuvlar",
+      "events & groups": "Tadbirlar va guruhlar"
+    }
   },
   "Hero": {
     "titlePart1": "Vodiy Gavhari",
-    "titleEm": "Fergana Hotel",
+    "titleEm": "Safir Hotel",
     "titlePart2": "ni kashf eting",
     "reserveStay": "Dam olishni band qiling",
     "discoverMore": "Batafsil ma'lumot",
-    "welcomeSub": "Oddiylikdan yuqori bo'lgan hashamatni his eting. Fergana mehmonxonasi — osmon ichkaridan boshlanadigan joy."
+    "welcomeSub": "Oddiylikdan yuqori bo'lgan hashamatni his eting. Safir mehmonxonasi — osmon ichkaridan boshlanadigan joy."
   },
   "Booking": {
     "checkIn": "Kirish",
@@ -34,7 +44,7 @@
     "storyTitle1": "An'analarga",
     "storyTitleEm": "qarshi",
     "storyTitle2": "chiqqan mehmonxona",
-    "description1": "Fergana mehmonxonasi bitta jasoratli savoldan tug'ilgan: agar mehmonxona sizni vaznsiz his qila olsa-chi? Shahardan balandda, go'yo ufqqe qarshi suzib turgandek bino ichida, biz har bir detal sizning ruhingizni ko'tarishga xizmat qiladigan tajribani yaratdik.",
+    "description1": "Safir mehmonxonasi bitta jasoratli savoldan tug'ilgan: agar mehmonxona sizni vaznsiz his qila olsa-chi? Shahardan balandda, go'yo ufqqe qarshi suzib turgandek bino ichida, biz har bir detal sizning ruhingizni ko'tarishga xizmat qiladigan tajribani yaratdik.",
     "description2": "Bizning 87 ta xonamizning har biri sokinlik maskanidir — u yerda yorug'lik erkin oqadi, teksturalar nafas oladi va ichki va tashqi olam o'rtasidagi chegaralar sof borliqda eriydi. Biz hashamat ortiqchalikda emas, balki vaznsizlikda ekanligiga ishonamiz."
   },
   "Location": {
@@ -86,12 +96,13 @@
   "Gallery": {
     "visualJourney": "Vizual sayohat",
     "throughOur": "Bizning",
-    "spaces": "Joylarimiz"
+    "spaces": "Joylarimiz",
+    "viewFullGallery": "To'liq galereyani ko'rish"
   },
   "Welcome": {
     "title": "Xush Kelibsiz",
     "subtitle": "Odatdagidan yuqori hashamatni his eting",
-    "description": "Gravitatsiya shunchaki taklif bo'lgan va har bir lahza mukammal osoyishtalikda suzib yuradigan dunyoni kashf eting. Fergana Hotel — osmon ichkaridan boshlanadigan joy.",
+    "description": "Gravitatsiya shunchaki taklif bo'lgan va har bir lahza mukammal osoyishtalikda suzib yuradigan dunyoni kashf eting. Safir Hotel — osmon ichkaridan boshlanadigan joy.",
     "explore": "Mehmonxonani Ko'rish",
     "book": "Bron Qilish"
   },
@@ -103,7 +114,12 @@
     "lux": "Lux",
     "standart": "Standard",
     "conference": "Konferentsiya",
-    "backToHome": "Bosh sahifaga qaytish"
+    "backToHome": "Bosh sahifaga qaytish",
+    "sections": {
+      "hotel": "Safir mehmonxonasi",
+      "conference": "Konferentsiya zallari",
+      "rooms": "Xonalar va lyukslar"
+    }
   },
   "Recommendations": {
     "title": "Bizning tavsiyalarimiz",
@@ -121,6 +137,80 @@
       "bed": "Qirollik karavoti",
       "size": "65 m²",
       "view": "Osmon ko'rinishi"
+    }
+  },
+  "AboutPage": {
+    "title": "Safir Hotel haqida",
+    "welcome": "Safir mehmonxonasiga xush kelibsiz — qulaylik va uslub yuqori darajadagi xizmat bilan uchrashadigan joy. Bizning mulkimiz qulay hududda joylashgan bo'lib, bu ish safari va dam olish uchun ajoyib tanlovdir. Biz mehmonlarga qulay xonalar, zamonaviy qulayliklar va to'liq dam olishga yordam beradigan muhitni taklif etamiz. Safir mehmonxonasida biz har bir mijozga bepul Wi-fi, restoran, 24 soatlik qabulxona va boshqa qulayliklar kabi yuqori sifatli xizmatlarni taqdim etish orqali g'amxo'rlik qilamiz, bu sizga qulay yashash imkonini beradi. Har bir xona tafsilotlarga e'tibor bilan jihozlangan va bizning turli xil tariflarimiz har qanday sayohatchiga mos keladi. Biz bilan qoling va Safir mehmonxonasida qolishingizni unutilmas qiladigan mehmondo'stlikdan zavqlaning!",
+    "detailsTitle": "Xona tafsilotlari",
+    "bestseller": "Xit savdo",
+    "earlyCheckIn": "Erta yugurish:",
+    "early1": "00:00 dan 05:59 gacha — bir kecha uchun xarajatlarning 100% miqdorida qo'shimcha to'lov.",
+    "early2": "06:00 dan 13:59 gacha — bir kecha uchun xarajatlarning 50% miqdorida qo'shimcha to'lov.",
+    "lateCheckOut": "Kech jo'nab ketish:",
+    "late1": "12:01 dan 17:59 gacha — bir kecha uchun xarajatlarning 50% miqdorida qo'shimcha to'lov.",
+    "late2": "18:00 dan 23:59 gacha — bir kecha uchun xarajatlarning 100% miqdorida qo'shimcha to'lov.",
+    "contactAdmin": "Erta ro'yxatdan o'tish yoki kech chiqish uchun administratorga murojaat qiling.",
+    "checkInTime": "Kelishda ro'yxatdan o'tish",
+    "checkInValue": "14:00",
+    "checkOutTime": "Jo'nashda ro'yxatdan o'tish",
+    "checkOutValue": "12:00",
+    "cancellationTitle": "Bandlovni bekor qilish",
+    "cancellationText": "Bekor qilish shartlari va tartib-qoidalarini aniqlashtirish uchun administratorga murojaat qiling. Biz sizga barcha kerakli ma'lumotlarni mamnuniyat bilan taqdim etamiz va bekor qilish jarayonida yordam beramiz.",
+    "policyTitle": "Bekor qilish siyosati"
+  },
+  "RoomsPage": {
+    "title": "Xonalar va lyukslar",
+    "subtitle": "Vaznsiz nafislik va abadiy qulaylik to'plamini kashf eting.",
+    "explore": "Xonani ko'rish",
+    "from": "dan",
+    "bookNow": "Band qilish",
+    "moreDetails": "Batafsil",
+    "size": "Maydoni",
+    "capacity": "Sig'imi",
+    "details": {
+      "deluxe-king": {
+        "title": "King-size karavotli Delux xona",
+        "description": "Bizning King-size karavotli Delux xonamiz juftliklar yoki kenglik va qulaylikni qadrlaydiganlar uchun ajoyib tanlovdir. Xonada yuqori sifatli choyshablarga ega 2.00 × 1.90 m o'lchamdagi katta ikki kishilik karavot mavjud bo'lib, u sizga tinch va osoyishta uyqu beradi.",
+        "capacity": "2 Kattalar",
+        "size": "15m²"
+      },
+      "superior-king": {
+        "title": "King-size karavotli Superior xona",
+        "description": "Superior King Suite kenglik va nafis uslubni o'zida mujassam etgan. Yuqori sifatli choyshablarga ega 2.00 × 1.80 m o'lchamdagi katta King Size karavoti mukammal uyquni ta'minlaydi, nafis ranglardagi mebellar esa qulaylik va uyg'unlik muhitini yaratadi.",
+        "capacity": "2 Kattalar",
+        "size": "25m²"
+      },
+      "superior-twin": {
+        "title": "Ikki kishilik Superior xona",
+        "description": "Bizning Superior Twin xonamiz ikki mehmonning qulayligi va hordig'i uchun mo'ljallangan. Xonada har birining o'lchami 2.00 × 1.00 m bo'lgan ikkita keng bir kishilik karavot mavjud bo'lib, ular yuqori sifatli choyshablar bilan ta'minlangan, bu sizga sog'lom va osoyishta uyquni kafolatlaydi.",
+        "capacity": "2 Kattalar",
+        "size": "22m²"
+      },
+      "deluxe-twin": {
+        "title": "Ikki kishilik Delux xona",
+        "description": "Bizning Deluxe Twin xonamiz alohida karavotlarda qolishni afzal ko'radigan do'stlar, hamkasblar yoki oila a'zolari uchun juda mos keladi. Xonada har birining o'lchami 1.90 × 1.00 m bo'lgan ikkita keng bir kishilik karavot mavjud bo'lib, ular yuqori sifatli choyshablar bilan ta'minlangan, bu esa osoyishta va qulay uyquni ta'minlaydi.",
+        "capacity": "2 Kattalar",
+        "size": "15m²"
+      },
+      "superior-family": {
+        "title": "Superior oilaviy xona",
+        "description": "Superior oilaviy xonasi oilaviy dam olish uchun mukammal yechimdir. Keng xonada bitta King Size karavoti (2.10 × 2.00 m) va bitta qulay bir kishilik karavot (2.10 × 1.00 m) mavjud.",
+        "capacity": "3 Kattalar",
+        "size": "25m²"
+      },
+      "standart": {
+        "title": "Standart bir kishilik xona",
+        "description": "Yolg'iz mehmon uchun ideal tanlov — 2.10 × 1.00 m o'lchamdagi qulay karavotga va qulay yashash uchun barcha zaruriy narsalarga ega standart bir kishilik xonadir.",
+        "capacity": "1 Kattalar",
+        "size": "15m²"
+      },
+      "apartment": {
+        "title": "Apartament",
+        "description": "Maksimal qulaylik uchun mo'ljallangan keng uch xonali apartament. Alohida yashash joylari, bir nechta televizor, to'liq jihozlangan oshxona va isitiladigan polga ega yuqori darajadagi vanna xonasi bilan ta'minlangan.",
+        "capacity": "3 Kattalar",
+        "size": "3 xona"
+      }
     }
   }
 }

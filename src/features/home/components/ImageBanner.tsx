@@ -20,12 +20,12 @@ import { SwiperNavButtons } from "@/components/ui/SwiperNavButtons";
 const images = [
   {
     src: "/images/hotel/general/hotel-day.webp",
-    alt: "Fergana Hotel Day View",
+    alt: "Safir Hotel Day View",
     id: "hotel-day",
   },
   {
     src: "/images/hotel/general/hotel-night.webp",
-    alt: "Fergana Hotel Night View",
+    alt: "Safir Hotel Night View",
     id: "hotel-night",
   },
   {

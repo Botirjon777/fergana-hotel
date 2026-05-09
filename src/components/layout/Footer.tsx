@@ -11,7 +11,7 @@ export function Footer() {
     <footer className="bg-[#1a1108] text-cream px-5 py-[60px] pb-[120px] md:px-12 md:py-[80px] md:pb-10">
       <div className="max-w-[1200px] mx-auto grid grid-cols-2 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr] gap-10 md:gap-14 pb-10 md:pb-[60px] border-b border-cream/10">
         <div className="footer-brand col-span-2 lg:col-span-1">
-          <Logo className="mb-5 text-gold!" />
+          <Logo className="mb-5 brightness-0 invert opacity-90" />
           <p className="mt-5 text-sm leading-[1.8] text-cream/55 font-light">
             Where the sky is not the limit — it is the beginning. Experience
             hospitality that elevates every sense and moment.
@@ -51,15 +51,23 @@ export function Footer() {
             <li>
               <a
                 className="text-sm text-cream/55 no-underline font-light transition-colors duration-300 hover:text-gold"
-                href="#about"
+                href="/about"
               >
-                About Hotel
+                About Us
               </a>
             </li>
             <li>
               <a
                 className="text-sm text-cream/55 no-underline font-light transition-colors duration-300 hover:text-gold"
-                href="#gallery"
+                href="/rooms"
+              >
+                Rooms & Suites
+              </a>
+            </li>
+            <li>
+              <a
+                className="text-sm text-cream/55 no-underline font-light transition-colors duration-300 hover:text-gold"
+                href="/gallery"
               >
                 Gallery
               </a>
@@ -67,7 +75,7 @@ export function Footer() {
             <li>
               <a
                 className="text-sm text-cream/55 no-underline font-light transition-colors duration-300 hover:text-gold"
-                href="#services"
+                href="/#services"
               >
                 Services
               </a>
@@ -75,7 +83,7 @@ export function Footer() {
             <li>
               <a
                 className="text-sm text-cream/55 no-underline font-light transition-colors duration-300 hover:text-gold"
-                href="#location"
+                href="/#location"
               >
                 Location
               </a>
@@ -163,7 +171,7 @@ export function Footer() {
       </div>
       <div className="max-w-[1200px] mx-auto pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
         <p className="text-xs text-cream/35 tracking-[1px]">
-          © 2026 Fergana Hotel. All rights reserved.
+          © 2026 Safir Hotel. All rights reserved.
         </p>
         <p className="text-[11px] text-cream/20 tracking-[2px]">
           ABOVE THE ORDINARY

@@ -75,7 +75,7 @@ export function Location() {
             referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
           <div className="absolute top-5 left-5 bg-cream px-5 py-3 shadow-[0_8px_40px_rgba(176,113,55,0.12)]">
-            <p className="text-[11px] tracking-[2px] uppercase text-gold m-0">Fergana Hotel</p>
+            <p className="text-[11px] tracking-[2px] uppercase text-gold m-0">Safir Hotel</p>
           </div>
         </div>
       </div>

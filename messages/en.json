@@ -1,19 +1,29 @@
 {
   "Navbar": {
     "home": "Home",
-    "about": "About",
+    "about us": "About Us",
+    "rooms": "Rooms",
     "gallery": "Gallery",
     "services": "Services",
+    "news": "News",
+    "contacts": "Contacts",
     "location": "Location",
-    "bookNow": "Book Now"
+    "reviews": "Reviews",
+    "bookNow": "Book Now",
+    "subLinks": {
+      "gastrobar": "Gastrobar",
+      "fitness & spa": "Fitness & SPA",
+      "meetings": "Meetings",
+      "events & groups": "Events & groups"
+    }
   },
   "Hero": {
     "titlePart1": "Where",
-    "titleEm": "Fergana",
+    "titleEm": "Safir",
     "titlePart2": "Defines Luxury",
     "reserveStay": "Reserve Your Stay",
     "discoverMore": "Discover More",
-    "welcomeSub": "Experience luxury beyond expectations. Fergana Hotel — the place where the sky starts from within."
+    "welcomeSub": "Experience luxury beyond expectations. Safir Hotel — the place where the sky starts from within."
   },
   "Booking": {
     "checkIn": "Check In",
@@ -34,7 +44,7 @@
     "storyTitle1": "A Hotel That",
     "storyTitleEm": "Defies",
     "storyTitle2": "Convention",
-    "description1": "Fergana Hotel was born from a single, audacious question: what if a hotel could make you feel weightless? Set high above the city in a building that seems to float against the skyline, we have crafted an experience where every detail conspires to lift your spirit.",
+    "description1": "Safir Hotel was born from a single, audacious question: what if a hotel could make you feel weightless? Set high above the city in a building that seems to float against the skyline, we have crafted an experience where every detail conspires to lift your spirit.",
     "description2": "Each of our 87 rooms is a sanctuary of calm — where light pours freely, textures breathe, and the boundaries between inside and outside dissolve into pure presence. We believe luxury is not about excess; it is about the absence of weight."
   },
   "Location": {
@@ -54,7 +64,7 @@
     "allAmenities": "All Amenities",
     "slides": {
       "hotel-day": {
-        "subtitle": "Welcome to Fergana",
+        "subtitle": "Welcome to Safir",
         "title": "The Art of Living"
       },
       "hotel-night": {
@@ -86,12 +96,13 @@
   "Gallery": {
     "visualJourney": "Visual Journey",
     "throughOur": "Through Our",
-    "spaces": "Spaces"
+    "spaces": "Spaces",
+    "viewFullGallery": "View Full Gallery"
   },
   "Welcome": {
     "title": "Welcome",
     "subtitle": "Experience luxury above the ordinary",
-    "description": "Discover a world where gravity is a suggestion and every moment floats in perfect calm. Fergana Hotel — where the sky begins inside.",
+    "description": "Discover a world where gravity is a suggestion and every moment floats in perfect calm. Safir Hotel — where the sky begins inside.",
     "explore": "Explore Hotel",
     "book": "Book a Stay"
   },
@@ -103,7 +114,12 @@
     "lux": "Lux",
     "standart": "Standard",
     "conference": "Conference",
-    "backToHome": "Back to Home"
+    "backToHome": "Back to Home",
+    "sections": {
+      "hotel": "Safir Hotel",
+      "conference": "Conference Halls",
+      "rooms": "Rooms & Suites"
+    }
   },
   "Recommendations": {
     "title": "Our Recommendations",
@@ -121,6 +137,99 @@
       "bed": "King Bed",
       "size": "65 m²",
       "view": "Sky View"
+    }
+  },
+  "AboutPage": {
+    "title": "About Safir Hotel",
+    "welcome": "Welcome to Safir Hotel, a place where comfort and style meet with a high level of service. Our hotel is located in a convenient area, which makes it an excellent choice for both business and leisure trips. We offer our guests cozy rooms, modern amenities and an atmosphere conducive to complete relaxation. At Safir Hotel, we take care of every customer by providing high-quality services such as free Wi-Fi, a restaurant, a 24-hour front desk and other amenities that will ensure you a comfortable stay. Each room is furnished with attention to detail, and our varied rates are suitable for any type of traveler. Stay with us and enjoy the hospitality that will make your stay at Safir Hotel unforgettable!",
+    "termsTitle": "Terms of stay",
+    "earlyCheckIn": "Early check-in:",
+    "early1": "From 00:00 to 05:59 — an additional payment of 100% of the cost per night.",
+    "early2": "From 06:00 to 13:59 — additional payment of 50% of the cost per night.",
+    "lateCheckOut": "Late check-out:",
+    "late1": "From 12:01 to 17:59 — additional payment of 50% of the cost per night.",
+    "late2": "From 18:00 to 23:59 — an additional payment of 100% of the cost per night.",
+    "contactAdmin": "For early check-in or late check-out, please contact the administrator.",
+    "checkInTime": "Check-in",
+    "checkInValue": "14:00",
+    "checkOutTime": "Check-out",
+    "checkOutValue": "12:00",
+    "cancellationTitle": "Booking cancellation",
+    "cancellationText": "To clarify the conditions and cancellation procedures, please contact the administrator. We will be happy to provide you with all the necessary information and help you with the cancellation process.",
+    "policyTitle": "Cancellation policy"
+  },
+  "RoomsPage": {
+    "title": "Rooms & Suites",
+    "subtitle": "Discover a collection of weightless elegance and timeless comfort.",
+    "explore": "Explore Room",
+    "from": "From",
+    "bookNow": "Book Now",
+    "moreDetails": "More Details",
+    "detailsTitle": "Room Details",
+    "bestseller": "Bestseller",
+    "size": "Size",
+    "capacity": "Capacity",
+    "details": {
+      "deluxe-king": {
+        "title": "Deluxe King Room",
+        "description": "Our Deluxe King Room is a great choice for couples or those who appreciate space and comfort. The room has a large double bed measuring 2.00 × 1.90 m with high quality linens, which will give you a restful and undisturbed sleep.",
+        "capacity": "2 Adults",
+        "size": "15m²"
+      },
+      "superior-king": {
+        "title": "Superior King Room",
+        "description": "The Superior King Suite combines spaciousness and sophisticated style. A large King Size bed measuring 2.00 × 1.80 m with high-quality linens ensures perfect sleep, and the furniture in elegant colors creates an atmosphere of comfort and harmony.",
+        "capacity": "2 Adults",
+        "size": "25m²"
+      },
+      "superior-twin": {
+        "title": "Superior Twin Room",
+        "description": "Our Superior Twin Room is designed for the convenience and comfort of two guests. The room has two spacious single beds measuring 2.00 × 1.00 m each, with high-quality linens that will ensure you a healthy and restful sleep.",
+        "capacity": "2 Adults",
+        "size": "22m²"
+      },
+      "deluxe-twin": {
+        "title": "Deluxe Twin Room",
+        "description": "Our Deluxe Twin Room is ideal for friends, colleagues or family members who prefer to stay in separate beds. The room has two spacious single beds (1.90 × 1.00 m each) with high-quality linens that ensure a restful and comfortable sleep.",
+        "capacity": "2 Adults",
+        "size": "15m²"
+      },
+      "superior-family": {
+        "title": "Superior Family Room",
+        "description": "The Superior Family Room is the perfect solution for a family vacation. The spacious room has one King Size bed (2.10 × 2.00 m) and one comfortable single bed (2.10 × 1.00 m).",
+        "capacity": "3 Adults",
+        "size": "25m²"
+      },
+      "standart": {
+        "title": "Standard Single Room",
+        "description": "The ideal choice for a single guest is a standard single room with a comfortable 2.10 × 1.00 m bed and everything you need for a comfortable stay.",
+        "capacity": "1 Adult",
+        "size": "15m²"
+      },
+      "apartment": {
+        "title": "Apartment",
+        "description": "Spacious three-room apartment designed for maximum comfort. Features separate living areas, multiple TV sets, a fully equipped kitchenette, and premium bathroom amenities with heated floors.",
+        "capacity": "3 Adults",
+        "size": "3 Rooms"
+      }
+    }
+  "NewsPage": {
+    "title": "News & Events",
+    "subtitle": "Stay updated with the latest happenings at Safir Hotel",
+    "readMore": "Read More",
+    "items": {
+      "spring-promo": {
+        "title": "Spring Special Offers",
+        "excerpt": "Celebrate the season with exclusive discounts and special packages designed for your ultimate comfort."
+      },
+      "new-spa-menu": {
+        "title": "New Wellness Rituals",
+        "excerpt": "Discover our newly curated spa treatments focusing on holistic rejuvenation and modern healing techniques."
+      },
+      "award-2024": {
+        "title": "Safir Hotel Wins Excellence Award",
+        "excerpt": "We are proud to announce that Safir Hotel has been recognized as the best boutique hotel of the year."
+      }
     }
   }
 }

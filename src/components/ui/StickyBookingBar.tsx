@@ -6,7 +6,7 @@ import { useTranslations } from "next-intl";
 import { GuestPicker } from "./form/GuestPicker";
 import { CustomDatePicker } from "./form/CustomDatePicker";
 import { useBookingStore } from "@/store/useBookingStore";
-import { useRouter } from "@/i18n/routing";
+import { useRouter } from "next/navigation";
 
 export function StickyBookingBar() {
   const [show, setShow] = useState(false);
@@ -27,9 +27,8 @@ export function StickyBookingBar() {
 
   return (
     <div
-      className={`fixed top-[64px] md:top-[80px] left-0 right-0 z-900 transition-all duration-500 transform ${
-        show ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
-      }`}
+      className={`fixed top-[64px] md:top-[80px] left-0 right-0 z-900 transition-all duration-500 transform ${show ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
+        }`}
     >
       <div className="bg-[#1a1108]/95 backdrop-blur-md border-b border-gold/20 px-4 py-3 md:px-12 md:py-4 flex flex-wrap items-center justify-between gap-4">
         <div className="hidden lg:flex items-center gap-6 flex-1">
@@ -53,7 +52,7 @@ export function StickyBookingBar() {
         <div className="flex items-center justify-between w-full lg:w-auto gap-4">
           <div className="lg:hidden flex flex-col">
             <span className="text-[9px] tracking-[2px] uppercase text-gold font-bold">
-              Fergana Hotel
+              Safir Hotel
             </span>
             <span className="text-white text-[10px] font-light">
               Luxury Above the Ordinary

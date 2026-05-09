@@ -92,7 +92,7 @@ export default function GalleryView() {
 
       {/* Sections */}
       {renderSection(t("sections.hotel"), generalGallery, "Safir Hotel")}
-      {conferenceCategory && renderSection(t("sections.conference"), conferenceCategory.images, "Conference Hall")}
+      {conferenceCategory && conferenceCategory.images && renderSection(t("sections.conference"), conferenceCategory.images, "Conference Hall")}
       {renderSection(t("sections.rooms"), allRoomImages, "Rooms & Suites")}
 
       <div className="pb-20"></div>

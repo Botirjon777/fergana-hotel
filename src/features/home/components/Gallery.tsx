@@ -46,8 +46,8 @@ export function Gallery() {
               Discover our curated selection of suites and halls, each designed
               with a unique blend of comfort and weightless elegance.
             </p>
-            <a 
-              href="/gallery" 
+            <a
+              href="/gallery"
               className="inline-block font-jost text-[11px] tracking-[3px] uppercase text-gold border border-gold/30 px-8 py-3.5 transition-all duration-300 hover:bg-gold hover:text-white"
             >
               {t("viewFullGallery")}
@@ -74,10 +74,10 @@ export function Gallery() {
             <SwiperSlide key={item.id}>
               <div
                 className="group relative aspect-4/5 cursor-pointer overflow-hidden bg-text-dark"
-                onClick={() => handleOpenGallery(item.images)}
+                onClick={() => handleOpenGallery(item.images || [])}
               >
                 <Image
-                  src={item.mainImage}
+                  src={item.mainImage || ""}
                   alt={item.label}
                   fill
                   className="object-cover transition-all duration-1000 md:group-hover:scale-110 md:group-hover:opacity-40"

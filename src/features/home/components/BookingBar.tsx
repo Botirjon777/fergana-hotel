@@ -2,10 +2,10 @@
 
 import { usePopup } from "@/lib/PopupContext";
 import { useTranslations } from "next-intl";
-import { CustomDatePicker } from "../ui/form/CustomDatePicker";
-import { GuestPicker } from "../ui/form/GuestPicker";
+import { CustomDatePicker } from "@/components/ui/form/CustomDatePicker";
+import { GuestPicker } from "@/components/ui/form/GuestPicker";
 import { useBookingStore } from "@/store/useBookingStore";
-import { useRouter } from "@/i18n/routing";
+import { useRouter } from "next/navigation";
 
 export function BookingBar() {
   const { openPopup } = usePopup();

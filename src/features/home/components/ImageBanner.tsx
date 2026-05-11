@@ -12,6 +12,7 @@ import {
   MdEvStation,
 } from "react-icons/md";
 import { FiWifi, FiTruck } from "react-icons/fi";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 import type { Swiper as SwiperType } from "swiper";
@@ -98,30 +99,26 @@ export function ImageBanner() {
 
   return (
     <section className="bg-cream">
-      <div className="max-w-[1200px] mx-auto px-5 py-10 md:py-14">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-start">
-          <div className="md:col-span-1">
-            <h3 className="font-jost text-[10px] tracking-[4px] uppercase text-text-mid mb-2 font-bold">
-              {t("featuredAmenities")}
-            </h3>
-            <a
-              href="#"
-              className="text-gold text-xs font-medium hover:underline"
-            >
-              {t("allAmenities")}
-            </a>
-          </div>
+      <div className="max-w-[1200px] mx-auto px-5 py-10 md:py-32">
+        <SectionHeader
+          label={t("featuredAmenities")}
+          title="Designed for Your"
+          subtitle="Ultimate Comfort"
+          action={{
+            label: t("allAmenities"),
+            href: "/services",
+          }}
+        />
 
-          <div className="md:col-span-3 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-y-6 gap-x-3 md:gap-x-4">
-            {amenities.map((item, i) => (
-              <div key={i} className="flex items-center gap-4 text-text-dark">
-                <div className="text-gold shrink-0">{item.icon}</div>
-                <span className="text-[13px] font-medium tracking-[0.5px]">
-                  {item.label}
-                </span>
-              </div>
-            ))}
-          </div>
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-6 gap-y-12 gap-x-6 md:gap-x-10">
+          {amenities.map((item, i) => (
+            <div key={i} className="flex items-center gap-4 text-text-dark">
+              <div className="text-gold shrink-0">{item.icon}</div>
+              <span className="text-[13px] font-medium tracking-[0.5px]">
+                {item.label}
+              </span>
+            </div>
+          ))}
         </div>
       </div>
 
@@ -180,4 +177,3 @@ export function ImageBanner() {
     </section>
   );
 }
-

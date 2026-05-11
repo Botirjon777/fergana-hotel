@@ -1,67 +1,119 @@
 "use client";
-
 import { navLinks } from "@/lib/data";
 import { usePopup } from "@/lib/PopupContext";
 import { useTranslations } from "next-intl";
-import { Link, useRouter } from "@/i18n/routing";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { FiChevronDown } from "react-icons/fi";
+import { IoIosClose } from "react-icons/io";
+import { Button } from "@/components/ui/Button";
 
 export function MobileSidebar() {
   const { isSidebarOpen, closeSidebar } = usePopup();
   const router = useRouter();
   const t = useTranslations("Navbar");
+  const [openSubMenu, setOpenSubMenu] = useState<string | null>(null);
+
+  const toggleSubMenu = (label: string) => {
+    setOpenSubMenu((prev) => (prev === label ? null : label));
+  };
 
   return (
     <>
       <div
-        className={`fixed inset-0 bg-black/40 z-[1999] transition-opacity duration-300 ${isSidebarOpen ? "block" : "hidden"}`}
+        className={`fixed inset-0 bg-black/60 z-1999 transition-opacity duration-500 ${isSidebarOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
         onClick={closeSidebar}
       />
       <div
-        className={`fixed top-0 right-0 bottom-0 w-[300px] bg-cream z-[2000] px-10 pt-[100px] pb-10 flex flex-col gap-8 shadow-[-4px_0_40px_rgba(0,0,0,0.15)] transition-transform duration-400 ease-[cubic-bezier(.77,0,.18,1)] ${isSidebarOpen ? "translate-x-0" : "translate-x-full"}`}
+        className={`fixed top-0 right-0 bottom-0 w-[320px] bg-cream z-2000 px-10 pt-[100px] pb-10 flex flex-col gap-8 shadow-[-10px_0_50px_rgba(26,17,8,0.2)] transition-all duration-500 ease-in-out ${isSidebarOpen ? "translate-x-0" : "translate-x-full"}`}
       >
         <button
-          className="absolute top-7 right-7 w-9 h-9 cursor-pointer flex items-center justify-center text-2xl text-gold bg-transparent border-none"
+          className="absolute top-7 right-7 w-12 h-12 cursor-pointer flex items-center justify-center text-gold bg-transparent border-none hover:rotate-90 transition-transform duration-300"
           onClick={closeSidebar}
         >
-          ✕
+          <IoIosClose size={40} />
         </button>
-        <ul className="list-none flex flex-col gap-6 m-0 p-0">
-          {navLinks.map((link) => (
-            <li key={link.label}>
-              <Link
-                href={link.href}
-                onClick={closeSidebar}
-                className="font-cormorant text-3xl font-light text-text-dark no-underline tracking-[1px] transition-colors duration-300 hover:text-gold block"
+
+        <ul className="list-none flex flex-col gap-8 m-0 p-0 overflow-y-auto overflow-x-hidden no-scrollbar">
+          {navLinks.map((link, index) => {
+            const hasSubLinks = link.subLinks && link.subLinks.length > 0;
+            const isOpen = openSubMenu === link.label;
+
+            return (
+              <li
+                key={link.label}
+                className={`transition-all duration-700 transform ${isSidebarOpen ? "translate-x-0 opacity-100" : "translate-x-12 opacity-0"}`}
+                style={{
+                  transitionDelay: isSidebarOpen ? `${index * 100}ms` : "0ms",
+                }}
               >
-                {t(link.label.toLowerCase())}
-              </Link>
-              {link.subLinks && (
-                <ul className="list-none flex flex-col gap-3 mt-4 ml-4">
-                  {link.subLinks.map((sub) => (
-                    <li key={sub.label}>
-                      <Link
-                        href={sub.href}
-                        onClick={closeSidebar}
-                        className="font-jost text-sm font-light text-text-mid no-underline tracking-[1px] uppercase transition-colors duration-300 hover:text-gold block"
-                      >
-                        {t(`subLinks.${sub.label.toLowerCase()}`)}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </li>
-          ))}
+                <div className="flex items-center justify-between group">
+                  <Link
+                    href={link.href}
+                    onClick={closeSidebar}
+                    className="font-cormorant text-2xl font-light text-text-dark no-underline tracking-[1.5px] transition-all duration-300 hover:text-gold block flex-1"
+                  >
+                    {t(link.label.toLowerCase())}
+                  </Link>
+                  {hasSubLinks && (
+                    <button
+                      onClick={() => toggleSubMenu(link.label)}
+                      className="p-2 text-gold hover:text-gold-dark transition-colors duration-300"
+                    >
+                      <FiChevronDown
+                        className={`w-6 h-6 transition-transform duration-500 ${isOpen ? "rotate-180" : ""}`}
+                      />
+                    </button>
+                  )}
+                </div>
+
+                {hasSubLinks && (
+                  <div
+                    className={`grid transition-all duration-500 ease-in-out ${
+                      isOpen
+                        ? "grid-rows-[1fr] opacity-100 mt-6"
+                        : "grid-rows-[0fr] opacity-0 mt-0"
+                    }`}
+                  >
+                    <div className="overflow-hidden">
+                      <ul className="list-none flex flex-col gap-5 ml-5 pb-2 border-l border-gold/10">
+                        {link.subLinks!.map((sub) => (
+                          <li
+                            key={sub.label}
+                            className="pl-5 relative before:content-[''] before:absolute before:left-0 before:top-1/2 before:w-2 before:h-px before:bg-gold/30"
+                          >
+                            <Link
+                              href={sub.href}
+                              onClick={closeSidebar}
+                              className="font-jost text-[11px] font-medium text-text-mid no-underline tracking-[2px] uppercase transition-colors duration-300 hover:text-gold block"
+                            >
+                              {t(`subLinks.${sub.label.toLowerCase()}`)}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                )}
+              </li>
+            );
+          })}
         </ul>
-        <button
-          className="bg-gold hover:bg-gold-dark hover:-translate-y-[2px] transition-all duration-300 text-white border-none py-4 px-10 font-jost text-xs tracking-[3px] uppercase cursor-pointer"
-          onClick={() => {
-            closeSidebar();
-            router.push("/booking");
-          }}
+
+        <div
+          className={`mt-auto pt-8 border-t border-gold/5 transition-all duration-700 delay-500 ${isSidebarOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
         >
-          {t("bookNow")}
-        </button>
+          <Button
+            onClick={() => {
+              closeSidebar();
+              router.push("/booking");
+            }}
+            fullWidth
+          >
+            {t("bookNow")}
+          </Button>
+        </div>
       </div>
     </>
   );

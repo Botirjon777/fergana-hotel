@@ -1,8 +1,8 @@
 "use client";
 
-import SectionHeader from "@/components/ui/SectionHeader";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 import { servicesItems } from "@/lib/data";
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 
 export function Services() {
   return (
@@ -13,14 +13,14 @@ export function Services() {
       <div className="max-w-[1200px] mx-auto">
         <SectionHeader
           label="What We Offer"
-          titlePart1="Elevated"
-          titleEm="Experiences"
+          title="Elevated"
+          subtitle="Experiences"
         />
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-px md:gap-[2px] mt-10 md:mt-[60px]">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-px md:gap-[2px]">
           {servicesItems.map((service, i) => (
             <Link
               href={service.href || "#"}
-              className="bg-sand p-6 md:p-12 relative overflow-hidden transition-colors duration-400 cursor-pointer group hover:bg-cream no-underline block"
+              className="bg-sand p-2.5 md:p-5 relative overflow-hidden transition-colors duration-400 cursor-pointer group hover:bg-cream no-underline block"
               key={i}
             >
               <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-gold scale-x-0 transition-transform duration-400 group-hover:scale-x-100"></div>

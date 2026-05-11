@@ -2,17 +2,23 @@
 
 import { Navbar } from "@/components/layout/Navbar";
 import { MobileSidebar } from "@/components/layout/MobileSidebar";
-import { BottomNav } from "@/components/layout/BottomNav";
+
 import { Footer } from "@/components/layout/Footer";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { FiClock, FiInfo, FiFileText, FiCheckCircle, FiMapPin } from "react-icons/fi";
+import {
+  FiClock,
+  FiInfo,
+  FiFileText,
+  FiCheckCircle,
+  FiMapPin,
+} from "react-icons/fi";
 
 export default function AboutView() {
   const t = useTranslations("AboutPage");
 
   return (
-    <main className="min-h-screen bg-[#faf8f2] text-text-dark">
+    <main className="min-h-screen bg-cream text-text-dark">
       <Navbar />
       <MobileSidebar />
 
@@ -40,7 +46,7 @@ export default function AboutView() {
             />
           </div>
           <div className="space-y-6">
-            <div className="w-12 h-[1px] bg-gold"></div>
+            <div className="w-12 h-px bg-gold"></div>
             <p className="font-jost text-lg md:text-xl font-light leading-relaxed text-text-mid italic">
               "{t("welcome")}"
             </p>
@@ -56,17 +62,27 @@ export default function AboutView() {
             <div className="w-12 h-12 bg-gold/10 flex items-center justify-center rounded-full text-gold">
               <FiClock size={24} />
             </div>
-            <h2 className="font-cormorant text-3xl md:text-4xl text-text-dark">{t("termsTitle")}</h2>
+            <h2 className="font-cormorant text-3xl md:text-4xl text-text-dark">
+              {t("termsTitle")}
+            </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-white p-6 border-l-4 border-gold shadow-sm">
-              <span className="block text-xs uppercase tracking-[2px] text-gold font-bold mb-2">{t("checkInTime")}</span>
-              <span className="text-3xl font-cormorant">{t("checkInValue")}</span>
+              <span className="block text-xs uppercase tracking-[2px] text-gold font-bold mb-2">
+                {t("checkInTime")}
+              </span>
+              <span className="text-3xl font-cormorant">
+                {t("checkInValue")}
+              </span>
             </div>
             <div className="bg-white p-6 border-l-4 border-gold shadow-sm">
-              <span className="block text-xs uppercase tracking-[2px] text-gold font-bold mb-2">{t("checkOutTime")}</span>
-              <span className="text-3xl font-cormorant">{t("checkOutValue")}</span>
+              <span className="block text-xs uppercase tracking-[2px] text-gold font-bold mb-2">
+                {t("checkOutTime")}
+              </span>
+              <span className="text-3xl font-cormorant">
+                {t("checkOutValue")}
+              </span>
             </div>
           </div>
 
@@ -111,12 +127,16 @@ export default function AboutView() {
             <div className="w-12 h-12 bg-gold/10 flex items-center justify-center rounded-full text-gold">
               <FiFileText size={24} />
             </div>
-            <h2 className="font-cormorant text-3xl md:text-4xl text-text-dark">{t("policyTitle")}</h2>
+            <h2 className="font-cormorant text-3xl md:text-4xl text-text-dark">
+              {t("policyTitle")}
+            </h2>
           </div>
 
           <div className="bg-white p-8 md:p-10 shadow-sm border border-sand/20 space-y-8">
             <div>
-              <h3 className="text-text-dark font-cormorant text-2xl mb-4">{t("cancellationTitle")}</h3>
+              <h3 className="text-text-dark font-cormorant text-2xl mb-4">
+                {t("cancellationTitle")}
+              </h3>
               <p className="text-text-mid font-light leading-relaxed">
                 {t("cancellationText")}
               </p>
@@ -146,10 +166,12 @@ export default function AboutView() {
           <div className="w-12 h-12 bg-gold/10 flex items-center justify-center rounded-full text-gold">
             <FiMapPin size={24} />
           </div>
-          <h2 className="font-cormorant text-3xl md:text-4xl text-text-dark">Our Location</h2>
+          <h2 className="font-cormorant text-3xl md:text-4xl text-text-dark">
+            Our Location
+          </h2>
         </div>
-        
-        <div className="w-full aspect-video md:aspect-[21/9] bg-[#e8e0d0] relative overflow-hidden shadow-[0_20px_80px_rgba(0,0,0,0.1)] border border-sand/20">
+
+        <div className="w-full aspect-video md:aspect-21/9 bg-[#e8e0d0] relative overflow-hidden shadow-[0_20px_80px_rgba(0,0,0,0.1)] border border-sand/20">
           <iframe
             src="https://yandex.com/map-widget/v1/?ll=71.789258%2C40.371206&z=16&pt=71.789258%2C40.371206%2Cpm2rdm"
             className="w-full h-full border-none grayscale-[0.2] contrast-[1.1]"
@@ -161,7 +183,6 @@ export default function AboutView() {
       <div className="pb-10"></div>
 
       <Footer />
-      <BottomNav />
     </main>
   );
 }

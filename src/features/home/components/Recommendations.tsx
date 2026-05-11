@@ -1,77 +1,20 @@
 "use client";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { usePopup } from "@/lib/PopupContext";
-import {
-  LiaWifiSolid,
-  LiaBedSolid,
-  LiaExpandArrowsAltSolid,
-  LiaCitySolid,
-} from "react-icons/lia";
 import { FiArrowRight } from "react-icons/fi";
+import { roomCategories } from "@/lib/data";
+import Link from "next/link";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 
 import "swiper/css";
 import "swiper/css/effect-fade";
 
-const recommendations = [
-  {
-    id: "deluxe",
-    titleKey: "deluxeTitle",
-    descKey: "deluxeDesc",
-    price: "450",
-    images: [
-      "/images/hotel/rooms/deluxe/2-room/1.jpg",
-      "/images/hotel/rooms/deluxe/2-room/2.jpg",
-      "/images/hotel/rooms/deluxe/king/1.jpg",
-    ],
-    features: [
-      { icon: <LiaWifiSolid />, labelKey: "wifi" },
-      { icon: <LiaBedSolid />, labelKey: "bed" },
-      { icon: <LiaExpandArrowsAltSolid />, labelKey: "size" },
-      { icon: <LiaCitySolid />, labelKey: "view" },
-    ],
-  },
-  {
-    id: "lux-king",
-    titleKey: "luxKingTitle",
-    descKey: "luxKingDesc",
-    price: "320",
-    images: [
-      "/images/hotel/rooms/lux/king/1.jpg",
-      "/images/hotel/rooms/lux/king/2.jpg",
-      "/images/hotel/rooms/lux/king/3.jpg",
-    ],
-    features: [
-      { icon: <LiaWifiSolid />, labelKey: "wifi" },
-      { icon: <LiaBedSolid />, labelKey: "bed" },
-      { icon: <LiaExpandArrowsAltSolid />, labelKey: "size" },
-      { icon: <LiaCitySolid />, labelKey: "view" },
-    ],
-  },
-  {
-    id: "lux-family",
-    titleKey: "luxFamilyTitle",
-    descKey: "luxFamilyDesc",
-    price: "380",
-    images: [
-      "/images/hotel/rooms/lux/family/1.jpg",
-      "/images/hotel/rooms/lux/family/2.jpg",
-      "/images/hotel/rooms/lux/family/3.jpg",
-    ],
-    features: [
-      { icon: <LiaWifiSolid />, labelKey: "wifi" },
-      { icon: <LiaBedSolid />, labelKey: "bed" },
-      { icon: <LiaExpandArrowsAltSolid />, labelKey: "size" },
-      { icon: <LiaCitySolid />, labelKey: "view" },
-    ],
-  },
-];
-
 export function Recommendations() {
   const t = useTranslations("Recommendations");
+  const tr = useTranslations("RoomsPage");
   const { openPopup, setGalleryImages } = usePopup();
 
   const handleOpenGallery = (images: string[]) => {
@@ -79,17 +22,19 @@ export function Recommendations() {
     openPopup("gallery-popup");
   };
 
+  // Select 3 bestsellers or specific rooms
+  const selectedRooms = roomCategories.filter((cat) =>
+    ["deluxe-king", "superior-twin", "superior-family"].includes(cat.id),
+  );
+
   return (
-    <section className="py-5 md:py-10 px-5 bg-cream overflow-hidden">
+    <section className="py-10 md:py-10 px-5 bg-cream overflow-hidden">
       <div className="max-w-[1100px] mx-auto">
-        <div className="mb-5 md:mb-10 text-center md:text-left">
-          <span className="font-jost text-[9px] tracking-[4px] uppercase text-gold block mb-3 animate-[fadeUp_0.8s_ease-out]">
-            {t("subtitle")}
-          </span>
-          <h2 className="font-cormorant text-[clamp(32px,4vw,48px)] font-light leading-[1.1] text-text-dark">
-            {t("title")}
-          </h2>
-        </div>
+        <SectionHeader
+          label={t("subtitle")}
+          title={t("title")}
+          className="text-center md:text-left"
+        />
 
         <Swiper
           spaceBetween={24}
@@ -105,7 +50,7 @@ export function Recommendations() {
           }}
           className="overflow-visible!"
         >
-          {recommendations.map((room, index) => (
+          {selectedRooms.map((room, index) => (
             <SwiperSlide key={room.id} className="h-auto! pb-5 flex">
               <div
                 className={`flex flex-col bg-white shadow-[0_20px_40px_rgba(26,17,8,0.05)] overflow-hidden group hover:shadow-[0_30px_60px_rgba(26,17,8,0.08)] transition-all duration-700 animate-[fadeUp_0.8s_ease-out_forwards] w-full h-full`}
@@ -114,7 +59,7 @@ export function Recommendations() {
                 {/* Image Slider */}
                 <div
                   className="w-full aspect-3/2 relative cursor-pointer overflow-hidden"
-                  onClick={() => handleOpenGallery(room.images)}
+                  onClick={() => handleOpenGallery(room.images || [])}
                 >
                   <Swiper
                     modules={[Autoplay, EffectFade]}
@@ -126,11 +71,11 @@ export function Recommendations() {
                     loop={true}
                     className="w-full h-full"
                   >
-                    {room.images.map((img, i) => (
+                    {(room.images || []).map((img, i) => (
                       <SwiperSlide key={i} className="h-full">
                         <Image
                           src={img}
-                          alt={room.id}
+                          alt={room.label}
                           fill
                           className="object-cover transition-transform duration-2000 group-hover:scale-105"
                           sizes="(max-width: 768px) 100vw, 30vw"
@@ -145,37 +90,13 @@ export function Recommendations() {
                   <div>
                     <div className="flex justify-between items-start mb-3">
                       <h3 className="font-cormorant text-xl md:text-2xl text-text-dark font-light group-hover:text-gold transition-colors duration-500">
-                        {t(room.titleKey)}
+                        {tr(`details.${room.id}.title`)}
                       </h3>
-                      <div className="text-right">
-                        <span className="block text-[7px] uppercase tracking-[2px] text-text-mid mb-0.5">
-                          {t("priceFrom")}
-                        </span>
-                        <span className="text-lg font-jost text-gold font-medium">
-                          ${room.price}
-                        </span>
-                      </div>
                     </div>
 
-                    <p className="text-text-mid text-[12px] font-light leading-relaxed mb-5 line-clamp-2">
-                      {t(room.descKey)}
+                    <p className="text-text-mid text-[12px] font-light leading-relaxed mb-8 line-clamp-3">
+                      {tr(`details.${room.id}.description`)}
                     </p>
-
-                    <div className="grid grid-cols-2 gap-y-3 gap-x-2 mb-6">
-                      {room.features.slice(0, 4).map((feature, i) => (
-                        <div
-                          key={i}
-                          className="flex items-center gap-1.5 text-text-dark"
-                        >
-                          <span className="text-gold text-base">
-                            {feature.icon}
-                          </span>
-                          <span className="text-[8px] tracking-[1px] font-medium uppercase">
-                            {t(`features.${feature.labelKey}`)}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
                   </div>
 
                   <div className="flex items-center justify-between pt-4 border-t border-sand/20">
@@ -194,6 +115,31 @@ export function Recommendations() {
               </div>
             </SwiperSlide>
           ))}
+
+          {/* Show More Slide */}
+          <SwiperSlide className="h-auto! pb-5 flex">
+            <Link
+              href="/rooms"
+              className="flex flex-col bg-gold overflow-hidden group hover:bg-[#b08d4a] transition-all duration-700 animate-[fadeUp_0.8s_ease-out_forwards] w-full h-full p-8 md:p-10 justify-center items-center text-center text-white relative shadow-[0_20px_40px_rgba(176,113,55,0.2)]"
+              style={{ animationDelay: `0.6s`, opacity: 0 }}
+            >
+              <div className="absolute inset-0 opacity-10 bg-[url('/images/hotel/general/hotel-day.webp')] bg-cover bg-center group-hover:scale-110 transition-transform duration-1000"></div>
+              <div className="relative z-10">
+                <span className="font-jost text-[10px] tracking-[4px] uppercase block mb-4 opacity-80">
+                  {t("subtitle")}
+                </span>
+                <h3 className="font-cormorant text-3xl md:text-4xl font-light mb-8">
+                  Discover All <br /> <span className="italic">Room Types</span>
+                </h3>
+                <div className="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center mx-auto group-hover:border-white transition-colors duration-300">
+                  <FiArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                </div>
+                <span className="font-jost text-[9px] tracking-[2px] uppercase mt-6 block font-bold">
+                  View Rooms
+                </span>
+              </div>
+            </Link>
+          </SwiperSlide>
         </Swiper>
       </div>
     </section>

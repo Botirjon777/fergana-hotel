@@ -1,15 +1,16 @@
 "use client";
 import { Navbar } from "@/components/layout/Navbar";
 import { MobileSidebar } from "@/components/layout/MobileSidebar";
-import { BottomNav } from "@/components/layout/BottomNav";
+
 import { Footer } from "@/components/layout/Footer";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { newsItems } from "@/lib/data";
-import { FiCalendar, FiArrowLeft } from "react-icons/fi";
-import Link from "next/link";
+import { FiCalendar, FiArrowRight, FiArrowLeft } from "react-icons/fi";
 import { notFound } from "next/navigation";
 import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/Button";
+import { useRouter } from "next/navigation";
 
 interface NewsDetailViewProps {
   id: string;
@@ -17,7 +18,12 @@ interface NewsDetailViewProps {
 
 export default function NewsDetailView({ id }: NewsDetailViewProps) {
   const t = useTranslations("NewsPage");
-  const item = newsItems.find((n) => n.id === id);
+  const router = useRouter();
+  const currentIndex = newsItems.findIndex((n) => n.id === id);
+  const item = newsItems[currentIndex];
+
+  const nextItem = newsItems[(currentIndex + 1) % newsItems.length];
+
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -44,24 +50,16 @@ export default function NewsDetailView({ id }: NewsDetailViewProps) {
             priority
           />
         )}
-        <div className="absolute inset-0 bg-linear-to-t from-[#1a1108] via-[#1a1108]/40 to-transparent"></div>
-        
-        <div className="max-w-[1000px] mx-auto w-full px-6 pb-16 relative z-10">
-          <Link 
-            href="/news"
-            className="inline-flex items-center gap-2 text-xs font-bold text-gold uppercase tracking-[2px] mb-8 hover:text-white transition-colors group"
-          >
-            <FiArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
-            Back to News
-          </Link>
-          
-          <div className="flex items-center gap-3 text-sand/60 mb-6">
+        <div className="absolute inset-0 bg-linear-to-t from-[#1a1108] via-[#1a1108]/50 to-transparent"></div>
+
+        <div className="max-w-[1000px] mx-auto w-full px-6 pb-10 relative z-10">
+          <div className="flex items-center gap-3 text-sand/60 mb-2.5">
             <FiCalendar className="w-4 h-4" />
             <span className="text-xs font-medium tracking-[2px] uppercase">
               {mounted ? new Date(item.date).toLocaleDateString() : ""}
             </span>
           </div>
-          
+
           <h1 className="font-cormorant text-4xl md:text-6xl text-white leading-tight animate-[fadeUp_0.8s_ease-out]">
             {t(`items.${item.id}.title`)}
           </h1>
@@ -69,32 +67,51 @@ export default function NewsDetailView({ id }: NewsDetailViewProps) {
       </section>
 
       {/* Article Content */}
-      <section className="py-20 px-6 max-w-[1000px] mx-auto">
-        <div className="bg-white p-8 md:p-16 border border-sand/10 shadow-sm">
+      <section className="py-10 px-5 max-w-[1000px] mx-auto">
+        <div className="bg-white p-5 md:p-10 border border-sand/10 shadow-sm">
           <div className="prose prose-gold max-w-none">
-            {t(`items.${item.id}.content`).split('\n\n').map((paragraph, i) => (
-              <p key={i} className="font-jost text-text-mid text-lg leading-relaxed mb-8 last:mb-0">
-                {paragraph}
-              </p>
-            ))}
+            {t(`items.${item.id}.content`)
+              .split("\n\n")
+              .map((paragraph, i) => (
+                <p
+                  key={i}
+                  className="font-jost text-text-mid text-md leading-relaxed mb-8 last:mb-0"
+                >
+                  {paragraph}
+                </p>
+              ))}
           </div>
-          
-          <div className="mt-16 pt-8 border-t border-sand/10 flex justify-between items-center">
-            <div className="flex gap-4">
-              {/* Share links could go here */}
-            </div>
-            <Link 
-              href="/news"
-              className="font-jost text-sm font-bold text-gold hover:text-text-dark transition-colors"
+
+          <div className="mt-5 border-t border-sand/10 flex flex-col md:flex-row justify-center items-center gap-5">
+            <Button
+              variant="outline"
+              size="md"
+              onClick={() => router.push("/news")}
+              className="min-w-[180px] w-full"
             >
-              ← All News
-            </Link>
+              <FiArrowLeft className="mr-2 w-4 h-4" />
+              All News
+            </Button>
+
+            {nextItem && (
+              <Button
+                variant="gold"
+                size="md"
+                onClick={() => router.push(`/news/${nextItem.id}`)}
+                className="min-w-[180px] w-full"
+              >
+                Next:{" "}
+                {nextItem.id.length > 15
+                  ? nextItem.id.substring(0, 15) + "..."
+                  : nextItem.id}
+                <FiArrowRight className="ml-2 w-4 h-4" />
+              </Button>
+            )}
           </div>
         </div>
       </section>
 
       <Footer />
-      <BottomNav />
     </main>
   );
 }

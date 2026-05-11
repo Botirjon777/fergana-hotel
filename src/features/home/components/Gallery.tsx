@@ -9,6 +9,8 @@ import { useTranslations } from "next-intl";
 import { useState } from "react";
 import type { Swiper as SwiperType } from "swiper";
 import { FiPlus } from "react-icons/fi";
+import { SectionHeader } from "@/components/ui/SectionHeader";
+import { useRouter } from "next/navigation";
 import { SwiperNavButtons } from "@/components/ui/SwiperNavButtons";
 
 import "swiper/css";
@@ -17,6 +19,7 @@ export function Gallery() {
   const { openPopup, setGalleryImages } = usePopup();
   const t = useTranslations("Gallery");
   const [swiper, setSwiper] = useState<SwiperType | null>(null);
+  const router = useRouter();
 
   const handleOpenGallery = (images: string[]) => {
     setGalleryImages(images);
@@ -26,34 +29,19 @@ export function Gallery() {
   return (
     <section
       id="gallery"
-      className="px-5 py-10 md:px-12 md:py-20 bg-sand overflow-hidden relative"
+      className="px-5 py-10 md:px-12 md:py-30 bg-sand overflow-hidden relative"
     >
-      <div className="max-w-[1200px] mx-auto mb-16">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 md:gap-20">
-          <div className="flex-1">
-            <span className="font-jost text-[10px] tracking-[5px] uppercase text-gold block mb-6 animate-[fadeUp_0.8s_ease-out]">
-              {t("visualJourney")}
-            </span>
-            <h2 className="font-cormorant text-[clamp(40px,6vw,72px)] font-light leading-none text-text-dark">
-              {t("throughOur")} <br />
-              <span className="italic text-gold">{t("spaces")}</span>
-            </h2>
-          </div>
-
-          <div className="max-w-[450px] pb-2">
-            <div className="w-12 h-px bg-gold mb-6"></div>
-            <p className="text-text-mid text-[15px] font-light leading-relaxed mb-8">
-              Discover our curated selection of suites and halls, each designed
-              with a unique blend of comfort and weightless elegance.
-            </p>
-            <a
-              href="/gallery"
-              className="inline-block font-jost text-[11px] tracking-[3px] uppercase text-gold border border-gold/30 px-8 py-3.5 transition-all duration-300 hover:bg-gold hover:text-white"
-            >
-              {t("viewFullGallery")}
-            </a>
-          </div>
-        </div>
+      <div className="max-w-[1200px] mx-auto">
+        <SectionHeader
+          label={t("visualJourney")}
+          title={t("throughOur")}
+          subtitle={t("spaces")}
+          description="Discover our curated selection of suites and halls, each designed with a unique blend of comfort and weightless elegance."
+          action={{
+            label: t("viewFullGallery"),
+            href: "/gallery",
+          }}
+        />
       </div>
 
       <div className="max-w-[1200px] mx-auto relative px-4 md:px-0">
@@ -76,13 +64,15 @@ export function Gallery() {
                 className="group relative aspect-4/5 cursor-pointer overflow-hidden bg-text-dark"
                 onClick={() => handleOpenGallery(item.images || [])}
               >
-                <Image
-                  src={item.mainImage || ""}
-                  alt={item.label}
-                  fill
-                  className="object-cover transition-all duration-1000 md:group-hover:scale-110 md:group-hover:opacity-40"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
+                {item.mainImage && (
+                  <Image
+                    src={item.mainImage}
+                    alt={item.label}
+                    fill
+                    className="object-cover transition-all duration-1000 md:group-hover:scale-110 md:group-hover:opacity-40"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                )}
 
                 {/* Hover Overlay Color - Desktop Only */}
                 <div className="absolute inset-0 bg-gold/60 opacity-0 md:group-hover:opacity-100 transition-opacity duration-500"></div>

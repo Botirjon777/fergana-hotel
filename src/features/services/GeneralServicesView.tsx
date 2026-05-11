@@ -2,7 +2,7 @@
 
 import { Navbar } from "@/components/layout/Navbar";
 import { MobileSidebar } from "@/components/layout/MobileSidebar";
-import { BottomNav } from "@/components/layout/BottomNav";
+
 import { Footer } from "@/components/layout/Footer";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
@@ -100,7 +100,7 @@ export default function GeneralServicesView() {
       </section>
 
       <Footer />
-      <BottomNav />
+
     </main>
   );
 }

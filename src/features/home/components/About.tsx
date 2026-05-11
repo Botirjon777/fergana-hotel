@@ -1,40 +1,43 @@
 "use client";
 
-import SectionHeader from "@/components/ui/SectionHeader";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 import { stats } from "@/lib/data";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 
 export function About() {
   const t = useTranslations("About");
+  const ta = useTranslations("AboutPage");
 
   return (
     <section
       id="about"
-      className="px-5 py-10 md:px-6 md:py-40 bg-cream relative"
+      className="px-5 py-10 md:px-6 md:py-20 bg-cream relative overflow-hidden"
     >
-      <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-        <div>
-          <SectionHeader
-            label={t("storyLabel")}
-            titlePart1={t("storyTitle1")}
-            titleEm={t("storyTitleEm")}
-            titlePart2={t("storyTitle2")}
-          />
-          <div className="w-[60px] h-px bg-gold my-6"></div>
-          <p className="text-base leading-[1.9] text-text-mid mb-5 font-light">
-            {t("description1")}
-          </p>
-          <p className="text-base leading-[1.9] text-text-mid mb-5 font-light">
-            {t("description2")}
-          </p>
-          <div className="grid grid-cols-2 gap-8 mt-12">
+      <div className="max-w-[1200px] mx-auto">
+        <SectionHeader
+          label={t("storyLabel")}
+          title={t("storyTitle1")}
+          subtitle={t("storyTitleEm")}
+          description={ta("welcome")}
+          action={{
+            label: "Read More",
+            href: "/about",
+          }}
+        />
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
+          <div className="grid grid-cols-2 gap-8 md:gap-12">
             {stats.map((stat, i) => (
-              <div className="border-l-2 border-sand pl-5" key={i}>
-                <span className="font-cormorant text-5xl font-light text-gold leading-none block mb-1">
+              <div
+                className="border-l-2 border-gold/20 pl-6 animate-[fadeUp_0.8s_ease-out_forwards]"
+                style={{ animationDelay: `${i * 0.1}s`, opacity: 0 }}
+                key={i}
+              >
+                <span className="font-cormorant text-5xl md:text-6xl font-light text-gold leading-none block mb-3">
                   {stat.num}
                 </span>
-                <span className="text-[11px] tracking-[2px] uppercase text-text-mid">
+                <span className="text-[11px] tracking-[3px] uppercase text-text-mid font-medium">
                   {stat.label}
                 </span>
               </div>

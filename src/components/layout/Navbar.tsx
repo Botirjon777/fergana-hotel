@@ -4,10 +4,11 @@ import Logo from "@/components/ui/Logo";
 import { navLinks } from "@/lib/data";
 import { usePopup } from "@/lib/PopupContext";
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import LanguageSelector from "@/components/ui/LanguageSelector";
-import { useRouter } from "@/i18n/routing";
+import { useRouter } from "next/navigation";
 import { FiChevronDown } from "react-icons/fi";
+import { Button } from "@/components/ui/Button";
 
 export function Navbar() {
   const { openSidebar } = usePopup();
@@ -29,7 +30,9 @@ export function Navbar() {
               className="text-[13px] font-normal tracking-[2px] uppercase no-underline transition-colors duration-300 flex items-center gap-1 text-text-mid group-hover:text-gold"
             >
               {t(link.label.toLowerCase())}
-              {link.subLinks && <FiChevronDown className="w-3 h-3 transition-transform duration-300 group-hover:rotate-180" />}
+              {link.subLinks && (
+                <FiChevronDown className="w-3 h-3 transition-transform duration-300 group-hover:rotate-180" />
+              )}
               <span className="absolute -bottom-1 left-0 right-0 h-1px bg-gold scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></span>
             </Link>
 
@@ -55,12 +58,9 @@ export function Navbar() {
           <LanguageSelector isScrolled={true} />
         </li>
         <li>
-          <button
-            className="bg-gold hover:bg-gold-dark text-white border-none py-2.5 px-6 font-jost text-xs tracking-[2px] uppercase cursor-pointer transition-colors duration-300 inline-block no-underline"
-            onClick={() => router.push("/booking")}
-          >
+          <Button size="sm" onClick={() => router.push("/booking")}>
             {t("bookNow")}
-          </button>
+          </Button>
         </li>
       </ul>
 

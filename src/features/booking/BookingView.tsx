@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { Navbar } from "@/components/layout/Navbar";
 import { MobileSidebar } from "@/components/layout/MobileSidebar";
-import { BottomNav } from "@/components/layout/BottomNav";
+
 import { Footer } from "@/components/layout/Footer";
 import { useBookingStore } from "@/store/useBookingStore";
 import { useLocale } from "next-intl";
@@ -78,7 +78,7 @@ export default function BookingView() {
       </section>
 
       <Footer />
-      <BottomNav />
+
     </main>
   );
 }

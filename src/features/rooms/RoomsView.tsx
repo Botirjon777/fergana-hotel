@@ -1,7 +1,7 @@
 "use client";
 import { Navbar } from "@/components/layout/Navbar";
 import { MobileSidebar } from "@/components/layout/MobileSidebar";
-import { BottomNav } from "@/components/layout/BottomNav";
+
 import { Footer } from "@/components/layout/Footer";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
@@ -9,13 +9,14 @@ import { roomCategories } from "@/lib/data";
 import { FiWifi, FiArrowRight } from "react-icons/fi";
 import { LuBath, LuBed, LuWind } from "react-icons/lu";
 import { useRouter } from "next/navigation";
+import { Button } from "@/components/ui/Button";
 
 export default function RoomsView() {
   const t = useTranslations("RoomsPage");
   const router = useRouter();
 
   // We only want rooms, not conference halls for this page
-  const rooms = roomCategories.filter(cat => cat.id !== "conference");
+  const rooms = roomCategories.filter((cat) => cat.id !== "conference");
 
   const handleBook = (roomId?: number) => {
     if (roomId) {
@@ -24,7 +25,6 @@ export default function RoomsView() {
       router.push("/booking");
     }
   };
-
 
   return (
     <main className="min-h-screen bg-cream">
@@ -43,7 +43,6 @@ export default function RoomsView() {
           </p>
         </div>
       </section>
-
 
       {/* Rooms List */}
       <section className="py-5 px-4 md:px-6 max-w-[1100px] mx-auto space-y-6">
@@ -64,17 +63,29 @@ export default function RoomsView() {
                   sizes="(max-width: 768px) 100vw, 320px"
                 />
                 {/* Amenity Icons Overlaid */}
-                <div className="absolute top-0 left-0 flex flex-col gap-[1px]">
-                  <div className="bg-[#166534] text-white p-2 text-xs flex items-center justify-center opacity-90" title="Free Wi-Fi">
+                <div className="absolute top-0 left-0 flex flex-col gap-px">
+                  <div
+                    className="bg-[#166534] text-white p-2 text-xs flex items-center justify-center opacity-90"
+                    title="Free Wi-Fi"
+                  >
                     <FiWifi className="w-4 h-4" />
                   </div>
-                  <div className="bg-[#166534] text-white p-2 text-xs flex items-center justify-center opacity-90" title="Air Conditioning">
+                  <div
+                    className="bg-[#166534] text-white p-2 text-xs flex items-center justify-center opacity-90"
+                    title="Air Conditioning"
+                  >
                     <LuWind className="w-4 h-4" />
                   </div>
-                  <div className="bg-[#166534] text-white p-2 text-xs flex items-center justify-center opacity-90" title="Premium Bed">
+                  <div
+                    className="bg-[#166534] text-white p-2 text-xs flex items-center justify-center opacity-90"
+                    title="Premium Bed"
+                  >
                     <LuBed className="w-4 h-4" />
                   </div>
-                  <div className="bg-[#166534] text-white p-2 text-xs flex items-center justify-center opacity-90" title="Private Bath">
+                  <div
+                    className="bg-[#166534] text-white p-2 text-xs flex items-center justify-center opacity-90"
+                    title="Private Bath"
+                  >
                     <LuBath className="w-4 h-4" />
                   </div>
                 </div>
@@ -103,13 +114,16 @@ export default function RoomsView() {
                       {t(`details.${room.id}.title`)}
                     </h2>
                   </div>
-                  <button
-                    onClick={() => handleBook(room.hopenId)}
-                    className="text-green-promo hover:text-green-700 font-jost text-sm font-medium flex items-center gap-1.5 transition-colors group mt-1"
-                  >
-                    {t("moreDetails")}
-                    <FiArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
-                  </button>
+                  <div className="mt-1">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => handleBook(room.hopenId)}
+                    >
+                      {t("moreDetails")}
+                      <FiArrowRight className="ml-2 w-3.5 h-3.5" />
+                    </Button>
+                  </div>
                 </div>
 
                 <p className="text-text-mid font-jost text-sm leading-relaxed mb-6 line-clamp-3 md:line-clamp-4">
@@ -130,7 +144,6 @@ export default function RoomsView() {
       </section>
 
       <Footer />
-      <BottomNav />
     </main>
   );
 }

@@ -2,12 +2,14 @@
 
 import { usePopup } from "@/lib/PopupContext";
 import { useTranslations } from "next-intl";
-import Link from "next/link";
 import { useEffect, useState } from "react";
+import { Button } from "./Button";
+import { useRouter } from "next/navigation";
 
 export function WelcomePopup() {
   const { activePopup, openPopup, closePopup } = usePopup();
   const [hasShown, setHasShown] = useState(false);
+  const router = useRouter();
   const t = useTranslations("Welcome");
 
   useEffect(() => {
@@ -44,22 +46,26 @@ export function WelcomePopup() {
             {t("description")}
           </p>
           <div className="flex flex-col md:flex-row gap-3">
-            <Link
-              href="/gallery"
-              className="bg-transparent border border-cream/20 text-cream/60 px-6 py-3.5 font-jost text-xs tracking-[2px] uppercase cursor-pointer flex-1 transition-colors hover:border-gold hover:text-gold text-center flex items-center justify-center"
-              onClick={closePopup}
-            >
-              {t("explore")}
-            </Link>
-            <button
-              className="bg-gold hover:bg-gold-dark hover:translate-y-[-2px] transition-all duration-300 text-white border-none px-6 py-3.5 font-jost text-xs tracking-[3px] uppercase cursor-pointer flex-1"
+            <Button
+              variant="outline"
+              className="flex-1"
               onClick={() => {
                 closePopup();
-                openPopup("booking-popup");
+                router.push("/gallery");
+              }}
+            >
+              {t("explore")}
+            </Button>
+            <Button
+              variant="gold"
+              className="flex-1"
+              onClick={() => {
+                closePopup();
+                router.push("/booking");
               }}
             >
               {t("book")}
-            </button>
+            </Button>
           </div>
         </div>
       </div>

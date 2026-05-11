@@ -10,7 +10,7 @@ import { ServicePopup } from "@/components/ui/ServicePopup";
 import { WelcomePopup } from "@/components/ui/WelcomePopup";
 import { Navbar } from "@/components/layout/Navbar";
 import { MobileSidebar } from "@/components/layout/MobileSidebar";
-import { BottomNav } from "@/components/layout/BottomNav";
+
 import { Footer } from "@/components/layout/Footer";
 
 export default function HomeView() {
@@ -29,7 +29,7 @@ export default function HomeView() {
       <Location />
 
       <Footer />
-      <BottomNav />
+
 
       <FloatBookBtn />
       <ServicePopup />

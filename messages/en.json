@@ -30,6 +30,7 @@
     "guests": "Guests",
     "roomType": "Room Type",
     "checkAvailability": "Check Availability",
+    "next": "Next",
     "reserve": "Reserve",
     "bookYourStay": "Book Your Stay",
     "bookSubtext": "Fill in your details and our reservations team will confirm your stay within 2 hours.",
@@ -333,5 +334,27 @@
       "kingBed": "king bed",
       "glasses": "glasses"
     }
+  },
+  "DatePicker": {
+    "months": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+    "weekDays": ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"],
+    "checkInOut": "Check-in — Check-out",
+    "selectDates": "Select Dates",
+    "chooseStayDates": "Choose your stay dates",
+    "bestPricesNote": "Best prices for 1 guest per night in UZS",
+    "notAvailable": "Not available"
+  },
+  "GuestPicker": {
+    "guests": "Guests",
+    "numGuests": "Number of Guests",
+    "adults": "Adults",
+    "children": "Children (under 3 years)",
+    "childAge": "Child {index} Age",
+    "under1": "Under 1 year",
+    "1year": "1 year",
+    "2years": "2 years",
+    "done": "Done",
+    "adult": "Adult",
+    "child": "Child"
   }
 }

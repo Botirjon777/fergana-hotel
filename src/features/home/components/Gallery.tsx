@@ -13,6 +13,7 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 import { useRouter } from "next/navigation";
 import { SwiperNavButtons } from "@/components/ui/SwiperNavButtons";
 
+import Link from "next/link";
 import "swiper/css";
 
 export function Gallery() {
@@ -29,22 +30,18 @@ export function Gallery() {
   return (
     <section
       id="gallery"
-      className="px-5 py-10 md:px-12 md:py-30 bg-sand overflow-hidden relative"
+      className="px-5 py-10 md:px-12 md:py-20 bg-sand overflow-hidden relative"
     >
-      <div className="max-w-[1200px] mx-auto">
+      <div className="max-w-[1200px] mx-auto mb-12">
         <SectionHeader
           label={t("visualJourney")}
           title={t("throughOur")}
           subtitle={t("spaces")}
           description="Discover our curated selection of suites and halls, each designed with a unique blend of comfort and weightless elegance."
-          action={{
-            label: t("viewFullGallery"),
-            href: "/gallery",
-          }}
         />
       </div>
 
-      <div className="max-w-[1200px] mx-auto relative px-4 md:px-0">
+      <div className="max-w-[1200px] mx-auto relative px-4 md:px-0 mb-12">
         <Swiper
           onSwiper={setSwiper}
           modules={[Navigation, Autoplay]}
@@ -112,6 +109,15 @@ export function Gallery() {
           swiper={swiper}
           className="absolute inset-x-[-20px] md:inset-x-[-60px] top-1/2 -translate-y-1/2 z-20 flex justify-between pointer-events-none [&_button]:pointer-events-auto"
         />
+      </div>
+
+      <div className="flex justify-center">
+        <Link
+          href="/gallery"
+          className="inline-flex items-center justify-center px-5 py-2.5 border border-gold/30 text-gold text-sm tracking-[4px] font-bold hover:bg-gold hover:text-white transition-all duration-500"
+        >
+          {t("viewFullGallery")}
+        </Link>
       </div>
     </section>
   );

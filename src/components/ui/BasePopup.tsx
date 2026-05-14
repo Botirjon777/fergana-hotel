@@ -3,6 +3,7 @@
 import { usePopup } from "@/lib/PopupContext";
 import { ServicePopup } from "./ServicePopup";
 import { WelcomePopup } from "./WelcomePopup";
+import { AvailabilityModal } from "./AvailabilityModal";
 
 export function BasePopup() {
   const { activePopup } = usePopup();
@@ -14,6 +15,8 @@ export function BasePopup() {
       return <ServicePopup />;
     case "welcome-popup":
       return <WelcomePopup />;
+    case "availability-popup":
+      return <AvailabilityModal />;
     default:
       return null;
   }

@@ -30,7 +30,8 @@
     "guests": "Mehmonlar",
     "roomType": "Xona turi",
     "checkAvailability": "Mavjudligini tekshirish",
-    "reserve": "Bron qilish",
+    "next": "Keyingi",
+    "reserve": "Band qilish",
     "bookYourStay": "Dam olishni band qiling",
     "bookSubtext": "Ma'lumotlaringizni to'ldiring va bizning jamoamiz 2 soat ichida siz bilan bog'lanadi.",
     "fullName": "To'liq ism",
@@ -332,5 +333,27 @@
       "kingBed": "King-size yotoq",
       "glasses": "Stakanlar"
     }
+  },
+  "DatePicker": {
+    "months": ["Yanvar", "Fevral", "Mart", "Aprel", "May", "Iyun", "Iyul", "Avgust", "Sentyabr", "Oktyabr", "Noyabr", "Dekabr"],
+    "weekDays": ["Du", "Se", "Ch", "Pa", "Ju", "Sh", "Ya"],
+    "checkInOut": "Kirish — Chiqish",
+    "selectDates": "Sanalarni tanlang",
+    "chooseStayDates": "Yashash sanalarini tanlang",
+    "bestPricesNote": "1 mehmon uchun bir kecha uchun eng yaxshi narxlar UZS da",
+    "notAvailable": "Mavjud emas"
+  },
+  "GuestPicker": {
+    "guests": "Mehmonlar",
+    "numGuests": "Mehmonlar soni",
+    "adults": "Kattalar",
+    "children": "3 yoshgacha bo'lgan bolalar",
+    "childAge": "{index}-bola yoshi",
+    "under1": "1 yoshgacha",
+    "1year": "1 yosh",
+    "2years": "2 yosh",
+    "done": "Tayyor",
+    "adult": "Kattalar",
+    "child": "Bolalar"
   }
 }

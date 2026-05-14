@@ -6,7 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { newsItems } from "@/lib/data";
-import { FiCalendar, FiArrowRight } from "react-icons/fi";
+import { FiCalendar, FiArrowRight, FiArrowLeft } from "react-icons/fi";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 
@@ -26,20 +26,29 @@ export default function NewsView() {
       <MobileSidebar />
 
       {/* Hero Section */}
-      <section className="pt-25 pb-10 px-6 bg-[#1a1108] text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-linear-to-b from-black/40 to-transparent"></div>
-        <div className="max-w-[1200px] mx-auto relative z-10 text-center">
-          <h1 className="font-cormorant text-5xl md:text-8xl font-light text-gold mb-6 animate-[fadeUp_0.8s_ease-out]">
-            {t("title")}
-          </h1>
-          <p className="font-jost text-sand/70 tracking-[2px] uppercase text-xs md:text-sm max-w-2xl mx-auto">
-            {t("subtitle")}
-          </p>
+      <section className="pt-24 md:pt-32 pb-10 px-5 bg-[#1a1108] text-white relative overflow-hidden">
+        <div className="max-w-[1200px] mx-auto relative z-10">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 text-gold/60 hover:text-gold text-[10px] uppercase tracking-[3px] font-bold mb-8 transition-all group"
+          >
+            <FiArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
+            <span>Back to Home</span>
+          </Link>
+
+          <div className="text-center">
+            <h1 className="font-cormorant text-5xl md:text-8xl font-light text-gold mb-6 animate-[fadeUp_0.8s_ease-out]">
+              {t("title")}
+            </h1>
+            <p className="font-jost text-sand/70 tracking-[2px] uppercase text-xs md:text-sm max-w-2xl mx-auto">
+              {t("subtitle")}
+            </p>
+          </div>
         </div>
       </section>
 
       {/* News Grid */}
-      <section className="py-10 px-4 md:px-6 max-w-[1200px] mx-auto">
+      <section className="py-5 px-5 md:px-6 max-w-[1200px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {newsItems.map((item, index) => (
             <article
@@ -66,7 +75,7 @@ export default function NewsView() {
               )}
 
               {/* Content */}
-              <div className="p-8">
+              <div className="p-2.5 md:p-5">
                 <h2 className="font-cormorant text-2xl text-text-dark mb-4 line-clamp-2 group-hover:text-gold transition-colors duration-300">
                   {t(`items.${item.id}.title`)}
                 </h2>

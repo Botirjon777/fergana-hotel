@@ -5,6 +5,8 @@ import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { Button } from "./Button";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
+import { Modal } from "./Modal";
 
 export function WelcomePopup() {
   const { activePopup, openPopup, closePopup } = usePopup();
@@ -13,62 +15,90 @@ export function WelcomePopup() {
   const t = useTranslations("Welcome");
 
   useEffect(() => {
+    // Check if popup has already been shown in this session
+    const isShownSession = sessionStorage.getItem("welcome-popup-shown");
+    if (isShownSession) {
+      setHasShown(true);
+      return;
+    }
+
     const timer = setTimeout(() => {
       if (!hasShown && !activePopup) {
         openPopup("welcome-popup");
         setHasShown(true);
+        // Mark as shown for this session
+        sessionStorage.setItem("welcome-popup-shown", "true");
       }
     }, 1800);
     return () => clearTimeout(timer);
   }, [hasShown, activePopup, openPopup]);
 
-  if (activePopup !== "welcome-popup") return null;
-
   return (
-    <div className="fixed inset-0 bg-[#1a1108]/75 z-4000 flex items-center justify-center p-6">
-      <div className="bg-[#1a1108] w-full max-w-[600px] relative overflow-hidden animate-[popup-in_0.5s_cubic-bezier(.34,1.56,.64,1)]">
+    <Modal
+      isOpen={activePopup === "welcome-popup"}
+      onClose={closePopup}
+      type="center"
+      id="welcome-popup-modal"
+    >
+      <div className="bg-[#1a1108] w-full max-w-[600px] relative overflow-hidden border border-white/10 shadow-2xl">
+        {/* Background Image with Overlays */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/hotel/general/reception.webp"
+            alt="Welcome to Safir Hotel"
+            fill
+            className="object-cover opacity-50"
+            priority
+          />
+          <div className="absolute inset-0 bg-linear-to-b from-[#1a1108]/90 via-[#1a1108]/40 to-[#1a1108]/95" />
+        </div>
+
         <button
-          className="absolute top-4 right-4 bg-white/20 border-none text-white w-8 h-8 rounded-full cursor-pointer text-base z-2 hover:bg-white/30 transition-colors"
+          className="absolute top-4 right-4 bg-white/20 border-none text-white w-8 h-8 rounded-full cursor-pointer text-base z-10 hover:bg-white/30 transition-colors"
           onClick={closePopup}
         >
           ✕
         </button>
-        <div className="welcome-top-star bg-linear-to-br from-gold to-gold-dark px-6 py-12 md:px-12 md:pt-[60px] md:pb-10 text-center relative overflow-hidden">
-          <h2 className="text-5xl font-light text-white mb-2 relative z-1">
-            {t("title")}
-          </h2>
-          <p className="text-sm text-white/75 font-light tracking-[1px] relative z-1">
-            {t("subtitle")}
-          </p>
-        </div>
-        <div className="px-6 py-8 md:px-12 md:py-10">
-          <p className="text-cream/70 text-[15px] leading-[1.8] font-light text-center mb-7">
-            {t("description")}
-          </p>
-          <div className="flex flex-col md:flex-row gap-3">
-            <Button
-              variant="outline"
-              className="flex-1"
-              onClick={() => {
-                closePopup();
-                router.push("/gallery");
-              }}
-            >
-              {t("explore")}
-            </Button>
-            <Button
-              variant="gold"
-              className="flex-1"
-              onClick={() => {
-                closePopup();
-                router.push("/booking");
-              }}
-            >
-              {t("book")}
-            </Button>
+
+        <div className="relative z-1">
+          <div className="welcome-top-star px-6 py-12 md:px-12 md:pt-[60px] md:pb-10 text-center relative overflow-hidden">
+            <h2 className="text-5xl font-light text-white mb-2 relative z-1 drop-shadow-lg">
+              {t("title")}
+            </h2>
+            <p className="text-sm text-white/75 font-light tracking-[1px] relative z-1">
+              {t("subtitle")}
+            </p>
+          </div>
+          <div className="px-6 py-8 md:px-12 md:py-10 bg-linear-to-t from-[#1a1108] to-transparent">
+            <p className="text-cream/90 text-[15px] leading-[1.8] font-light text-center mb-7 drop-shadow-md">
+              {t("description")}
+            </p>
+            <div className="flex flex-col md:flex-row gap-3">
+              <Button
+                variant="outline"
+                className="flex-1 border-white/20 hover:bg-white/10"
+                onClick={() => {
+                  closePopup();
+                  router.push("/gallery");
+                }}
+              >
+                {t("explore")}
+              </Button>
+              <Button
+                variant="gold"
+                className="flex-1"
+                onClick={() => {
+                  closePopup();
+                  router.push("/booking");
+                }}
+              >
+                {t("book")}
+              </Button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </Modal>
   );
 }
+

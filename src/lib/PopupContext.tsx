@@ -2,7 +2,7 @@
 
 import React, { createContext, useContext, useState, ReactNode } from "react";
 
-type PopupType = "booking-popup" | "confirm-popup" | "service-popup" | "welcome-popup" | "gallery-popup" | null;
+type PopupType = "booking-popup" | "confirm-popup" | "service-popup" | "welcome-popup" | "gallery-popup" | "availability-popup" | null;
 
 interface PopupContextType {
   activePopup: PopupType;

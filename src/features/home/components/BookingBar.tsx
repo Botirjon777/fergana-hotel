@@ -34,7 +34,7 @@ export function BookingBar() {
         />
         <button
           className="bg-gold hover:bg-gold-dark transition-all duration-300 text-white border-none px-10 font-jost text-[11px] tracking-[4px] uppercase cursor-pointer whitespace-nowrap self-end w-full lg:w-auto shadow-xl shadow-gold/20 font-bold active:scale-95 h-[58px] flex items-center justify-center"
-          onClick={() => router.push("/booking")}
+          onClick={() => openPopup("availability-popup")}
         >
           {t("checkAvailability")}
         </button>

@@ -1,8 +1,8 @@
-"use client";
-
 import React, { useState, useRef, useEffect } from "react";
 import { FiCalendar, FiChevronLeft, FiChevronRight, FiArrowRight } from "react-icons/fi";
 import { useAvailability } from "@/hooks/useAvailability";
+import { useTranslations } from "next-intl";
+import { Modal } from "@/components/ui/Modal";
 
 interface CustomDatePickerProps {
   checkIn: string; // ISO string or YYYY-MM-DD
@@ -22,6 +22,8 @@ export function CustomDatePicker({
   theme = "dark",
 }: CustomDatePickerProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [coords, setCoords] = useState({ top: 0, left: 0 });
+  const t = useTranslations("DatePicker");
   
   // Selection step: 0 = needs checkIn, 1 = needs checkOut
   const [selectionStep, setSelectionStep] = useState<0 | 1>(0);
@@ -39,22 +41,14 @@ export function CustomDatePicker({
   const { forbiddenDates, lowestPrices, isLoading } = useAvailability(viewDate);
 
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        containerRef.current &&
-        !containerRef.current.contains(event.target as Node)
-      ) {
-        setIsOpen(false);
-        // Reset selection if incomplete
-        if (selectionStep === 1) {
-          setSelectionStep(0);
-          setTempCheckIn(checkIn);
-        }
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [selectionStep, checkIn]);
+    if (isOpen && containerRef.current) {
+      const rect = containerRef.current.getBoundingClientRect();
+      setCoords({
+        top: rect.bottom + window.scrollY,
+        left: rect.left + window.scrollX,
+      });
+    }
+  }, [isOpen]);
 
   const daysInMonth = (year: number, month: number) =>
     new Date(year, month + 1, 0).getDate();
@@ -81,11 +75,9 @@ export function CustomDatePicker({
       const end = new Date(dateString);
       
       if (end <= start) {
-        // If selected end is before start, make the new date the start date
         setTempCheckIn(dateString);
         setSelectionStep(1);
       } else {
-        // Valid range! Check if there are forbidden dates in between
         let hasForbidden = false;
         let curr = new Date(start);
         while (curr <= end) {
@@ -98,7 +90,6 @@ export function CustomDatePicker({
         }
         
         if (hasForbidden) {
-          // Reset to just the new start date
           setTempCheckIn(dateString);
           setSelectionStep(1);
         } else {
@@ -110,15 +101,18 @@ export function CustomDatePicker({
     }
   };
 
+  const monthNames = t.raw("months");
+  const weekDays = t.raw("weekDays");
+
   const renderCalendar = (monthOffset: number) => {
-    const targetYear = new Date(viewDate.getFullYear(), viewDate.getMonth() + monthOffset, 1).getFullYear();
-    const targetMonth = new Date(viewDate.getFullYear(), viewDate.getMonth() + monthOffset, 1).getMonth();
+    const targetDate = new Date(viewDate.getFullYear(), viewDate.getMonth() + monthOffset, 1);
+    const targetYear = targetDate.getFullYear();
+    const targetMonth = targetDate.getMonth();
 
     const days = [];
     const totalDays = daysInMonth(targetYear, targetMonth);
     const firstDay = firstDayOfMonth(targetYear, targetMonth);
 
-    // Padding for first day of week
     for (let i = 0; i < firstDay; i++) {
       days.push(<div key={`empty-${i}`} className="p-2 border border-transparent"></div>);
     }
@@ -177,7 +171,7 @@ export function CustomDatePicker({
           className={`h-12 border ${theme === "light" ? "border-gray-200" : "border-gold/10"} flex flex-col items-center justify-center text-center transition-all duration-200 ${cellBgClasses} ${
             isToday && !isStart && !isEnd ? "font-bold text-gold" : ""
           }`}
-          title={disabled ? "Not available" : ""}
+          title={disabled ? t("notAvailable") : ""}
         >
           <span className="text-[13px] leading-tight font-medium">{d}</span>
           {!disabled && priceInfo ? (
@@ -192,13 +186,6 @@ export function CustomDatePicker({
     }
     return days;
   };
-
-  const monthNames = [
-    "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь",
-    "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь",
-  ];
-  
-  const weekDays = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
 
   const formatDate = (dateStr: string) => {
     if (!dateStr) return "";
@@ -235,50 +222,42 @@ export function CustomDatePicker({
         }}
       >
         <div className="flex flex-col">
-          <span className={`text-[9px] ${theme === "light" ? "text-gray-500" : "text-white/50"}`}>Заезд &mdash; Выезд</span>
+          <span className={`text-[9px] ${theme === "light" ? "text-gray-500" : "text-white/50"}`}>
+            {t("checkInOut")}
+          </span>
           <span className={`text-sm font-medium tracking-[0.5px] ${theme === "light" ? "text-text-dark" : "text-white"}`}>
-            {checkIn && checkOut ? `${formatDate(checkIn)} — ${formatDate(checkOut)}` : "Select Dates"}
+            {checkIn && checkOut ? `${formatDate(checkIn)} — ${formatDate(checkOut)}` : t("selectDates")}
           </span>
         </div>
         <FiCalendar className="text-gold text-lg" />
       </div>
 
-      {isOpen && (
-        <div className="fixed inset-0 z-[1500] md:absolute md:top-full md:inset-auto md:left-0 md:mt-2 md:w-[680px] animate-[fadeIn_0.2s_ease-out]">
-          {/* Mobile Overlay */}
-          <div 
-            className="md:hidden absolute inset-0 bg-black/60 backdrop-blur-sm" 
-            onClick={() => {
-              setIsOpen(false);
-              if (selectionStep === 1) {
-                setSelectionStep(0);
-                setTempCheckIn(checkIn);
-              }
-            }}
-          ></div>
-          
-          <div className={`absolute bottom-0 left-0 right-0 w-full md:relative md:bottom-auto rounded-t-2xl md:rounded-md border-t md:border ${
+      <Modal
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+        type="full"
+        coords={coords}
+        id="datepicker-modal"
+      >
+        <div 
+          className={`w-full md:w-[680px] h-full md:h-auto rounded-none md:rounded-md border-none md:border ${
             theme === "light" ? "border-gray-200 bg-white" : "border-gold/20 bg-[#1a1108]"
-          } p-5 pb-8 md:pb-5 shadow-2xl overflow-y-auto max-h-[85vh] md:max-h-none custom-scrollbar`}>
-          
+          } p-5 pb-8 md:pb-5 shadow-2xl overflow-y-auto custom-scrollbar flex flex-col`}
+        >
           {/* Mobile Header with close button */}
-          <div className="md:hidden flex justify-between items-center mb-6 pb-2 border-b border-gold/10">
-             <span className={`font-bold tracking-widest uppercase text-sm ${theme === "light" ? "text-gray-800" : "text-white"}`}>Select Dates</span>
+          <div className="md:hidden flex justify-between items-center mb-6 pb-2 border-b border-gold/10 shrink-0">
+             <span className={`font-bold tracking-widest uppercase text-sm ${theme === "light" ? "text-gray-800" : "text-white"}`}>
+               {t("selectDates")}
+             </span>
              <button 
-               onClick={() => {
-                 setIsOpen(false);
-                 if (selectionStep === 1) {
-                   setSelectionStep(0);
-                   setTempCheckIn(checkIn);
-                 }
-               }} 
+               onClick={() => setIsOpen(false)} 
                className={`text-2xl leading-none ${theme === "light" ? "text-gray-500" : "text-white/70"}`}
              >
                &times;
              </button>
           </div>
 
-          <div className="flex justify-between relative mb-6">
+          <div className="flex justify-between relative mb-6 shrink-0">
             <button
               onClick={handlePrevMonth}
               className={`absolute left-0 top-1/2 -translate-y-1/2 z-10 p-1 hover:opacity-50 ${theme === "light" ? "text-gray-400" : "text-gold"}`}
@@ -306,10 +285,10 @@ export function CustomDatePicker({
             </button>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-6">
+          <div className="flex flex-col sm:flex-row gap-6 overflow-y-auto">
             <div className="flex-1">
               <div className="grid grid-cols-7 mb-2">
-                {weekDays.map((day, index) => (
+                {weekDays.map((day: string, index: number) => (
                   <div
                     key={`w1-${index}`}
                     className={`text-center text-[11px] font-medium pb-2 ${index > 4 ? "text-red-500" : theme === "light" ? "text-gray-600" : "text-gold/60"}`}
@@ -323,7 +302,7 @@ export function CustomDatePicker({
             
             <div className="flex-1 hidden sm:block">
               <div className="grid grid-cols-7 mb-2">
-                {weekDays.map((day, index) => (
+                {weekDays.map((day: string, index: number) => (
                   <div
                     key={`w2-${index}`}
                     className={`text-center text-[11px] font-medium pb-2 ${index > 4 ? "text-red-500" : theme === "light" ? "text-gray-600" : "text-gold/60"}`}
@@ -336,14 +315,14 @@ export function CustomDatePicker({
             </div>
           </div>
 
-          <div className={`mt-6 pt-4 border-t ${theme === "light" ? "border-gray-200 text-gray-600" : "border-gold/10 text-white/70"} flex flex-col gap-1`}>
-            <span className={`text-[15px] font-medium ${theme === "light" ? "text-gray-800" : "text-white"}`}>Выберите даты проживания</span>
-            <span className="text-[12px]">Лучшие цены для 1 гостя за ночь в UZS</span>
-          </div>
-
+          <div className={`mt-6 pt-4 border-t ${theme === "light" ? "border-gray-200 text-gray-600" : "border-gold/10 text-white/70"} flex flex-col gap-1 shrink-0`}>
+            <span className={`text-[15px] font-medium ${theme === "light" ? "text-gray-800" : "text-white"}`}>
+              {t("chooseStayDates")}
+            </span>
+            <span className="text-[12px]">{t("bestPricesNote")}</span>
           </div>
         </div>
-      )}
+      </Modal>
     </div>
   );
 }

@@ -40,7 +40,9 @@ export function Footer() {
               </a>
               <a
                 className="w-9 h-9 md:w-10 md:h-10 border border-cream/10 rounded-full flex items-center justify-center text-lg cursor-pointer transition-all duration-300 text-cream/40 hover:border-gold hover:text-gold hover:bg-gold/5"
-                href="#"
+                href="https://www.instagram.com/safir_hotell/"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <FaInstagram className="w-3.5 h-3.5 md:w-4 md:h-4" />
               </a>

@@ -32,7 +32,7 @@ export default function RoomsView() {
       <MobileSidebar />
 
       {/* Hero Section */}
-      <section className="pt-25 pb-10 px-6 bg-[#1a1108] text-white relative overflow-hidden">
+      <section className="pt-24 md:pt-32 pb-10 px-6 bg-[#1a1108] text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-linear-to-b from-black/40 to-transparent"></div>
         <div className="max-w-[1200px] mx-auto relative z-10 text-center">
           <h1 className="font-cormorant text-5xl md:text-8xl font-light text-gold mb-6 animate-[fadeUp_0.8s_ease-out]">

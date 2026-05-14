@@ -52,7 +52,7 @@ export default function NewsDetailView({ id }: NewsDetailViewProps) {
         )}
         <div className="absolute inset-0 bg-linear-to-t from-[#1a1108] via-[#1a1108]/50 to-transparent"></div>
 
-        <div className="max-w-[1000px] mx-auto w-full px-6 pb-10 relative z-10">
+        <div className="max-w-[1000px] mx-auto w-full px-5 pb-10 relative z-10">
           <div className="flex items-center gap-3 text-sand/60 mb-2.5">
             <FiCalendar className="w-4 h-4" />
             <span className="text-xs font-medium tracking-[2px] uppercase">
@@ -67,7 +67,7 @@ export default function NewsDetailView({ id }: NewsDetailViewProps) {
       </section>
 
       {/* Article Content */}
-      <section className="py-10 px-5 max-w-[1000px] mx-auto">
+      <section className="py-5 px-5 max-w-[1000px] mx-auto">
         <div className="bg-white p-5 md:p-10 border border-sand/10 shadow-sm">
           <div className="prose prose-gold max-w-none">
             {t(`items.${item.id}.content`)
@@ -82,12 +82,13 @@ export default function NewsDetailView({ id }: NewsDetailViewProps) {
               ))}
           </div>
 
-          <div className="mt-5 border-t border-sand/10 flex flex-col md:flex-row justify-center items-center gap-5">
+          <div className="mt-5 border-t border-sand/10 flex flex-col md:flex-row justify-center md:items-center gap-2.5">
             <Button
               variant="outline"
-              size="md"
+              size="sm"
               onClick={() => router.push("/news")}
-              className="min-w-[180px] w-full"
+              fullWidth
+              className="md:w-auto md:min-w-[180px]"
             >
               <FiArrowLeft className="mr-2 w-4 h-4" />
               All News
@@ -96,9 +97,10 @@ export default function NewsDetailView({ id }: NewsDetailViewProps) {
             {nextItem && (
               <Button
                 variant="gold"
-                size="md"
+                size="sm"
                 onClick={() => router.push(`/news/${nextItem.id}`)}
-                className="min-w-[180px] w-full"
+                fullWidth
+                className="md:w-auto md:min-w-[180px]"
               >
                 Next:{" "}
                 {nextItem.id.length > 15

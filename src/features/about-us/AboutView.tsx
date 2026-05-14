@@ -12,7 +12,9 @@ import {
   FiFileText,
   FiCheckCircle,
   FiMapPin,
+  FiArrowLeft,
 } from "react-icons/fi";
+import Link from "next/link";
 
 export default function AboutView() {
   const t = useTranslations("AboutPage");
@@ -23,19 +25,29 @@ export default function AboutView() {
       <MobileSidebar />
 
       {/* Hero Section */}
-      <section className="pt-40 pb-20 px-4 md:px-6 bg-[#1a1108] text-white overflow-hidden relative">
+      <section className="pt-24 md:pt-32 pb-20 px-4 md:px-6 bg-[#1a1108] text-white overflow-hidden relative">
         <div className="absolute inset-0 bg-linear-to-br from-[#1a1108] via-[#2d1f0a] to-[#3d2c12] opacity-50"></div>
-        <div className="max-w-[1200px] mx-auto relative z-10 text-center">
-          <h1 className="font-cormorant text-5xl md:text-7xl font-light text-gold mb-6 animate-[fadeUp_0.8s_ease-out]">
-            {t("title")}
-          </h1>
-          <div className="w-20 h-px bg-gold/50 mx-auto mb-8"></div>
+        <div className="max-w-[1200px] mx-auto relative z-10">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 text-gold/60 hover:text-gold text-[10px] uppercase tracking-[3px] font-bold mb-10 transition-all group"
+          >
+            <FiArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
+            <span>Back to Home</span>
+          </Link>
+
+          <div className="text-center">
+            <h1 className="font-cormorant text-5xl md:text-7xl font-light text-gold mb-6 animate-[fadeUp_0.8s_ease-out]">
+              {t("title")}
+            </h1>
+            <div className="w-20 h-px bg-gold/50 mx-auto mb-8"></div>
+          </div>
         </div>
       </section>
 
       {/* Welcome & Image Section */}
-      <section className="py-20 px-4 md:px-6 max-w-[1200px] mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center bg-white p-8 md:p-12 shadow-[0_20px_80px_rgba(0,0,0,0.05)] rounded-sm -mt-32 relative z-20 border border-sand/20">
+      <section className="pt-20 pb-5 px-5 md:px-6 max-w-[1200px] mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center bg-white p-2.5 md:p-5 shadow-[0_20px_80px_rgba(0,0,0,0.05)] rounded-sm -mt-32 relative z-20 border border-sand/20">
           <div className="relative aspect-video md:aspect-square w-full overflow-hidden rounded-sm">
             <Image
               src="/images/hotel/rooms/lux/king/2.jpg"
@@ -45,7 +57,7 @@ export default function AboutView() {
               priority
             />
           </div>
-          <div className="space-y-6">
+          <div className="space-y-5">
             <div className="w-12 h-px bg-gold"></div>
             <p className="font-jost text-lg md:text-xl font-light leading-relaxed text-text-mid italic">
               "{t("welcome")}"
@@ -55,9 +67,9 @@ export default function AboutView() {
       </section>
 
       {/* Terms & Conditions Section */}
-      <section className="py-16 px-4 md:px-6 max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+      <section className="py-5 px-5 md:px-6 max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
         {/* Check-in / Check-out */}
-        <div className="space-y-8 animate-[fadeUp_0.8s_0.2s_forwards] opacity-0">
+        <div className="space-y-5 animate-[fadeUp_0.8s_0.2s_forwards] opacity-0">
           <div className="flex items-center gap-4 mb-8">
             <div className="w-12 h-12 bg-gold/10 flex items-center justify-center rounded-full text-gold">
               <FiClock size={24} />
@@ -122,8 +134,8 @@ export default function AboutView() {
         </div>
 
         {/* Cancellation & Policies */}
-        <div className="space-y-8 animate-[fadeUp_0.8s_0.4s_forwards] opacity-0">
-          <div className="flex items-center gap-4 mb-8">
+        <div className="space-y-5 animate-[fadeUp_0.8s_0.4s_forwards] opacity-0">
+          <div className="flex items-center gap-4 mb-5">
             <div className="w-12 h-12 bg-gold/10 flex items-center justify-center rounded-full text-gold">
               <FiFileText size={24} />
             </div>
@@ -132,7 +144,7 @@ export default function AboutView() {
             </h2>
           </div>
 
-          <div className="bg-white p-8 md:p-10 shadow-sm border border-sand/20 space-y-8">
+          <div className="bg-white p-2.5 md:p-5 shadow-sm border border-sand/20 space-y-5">
             <div>
               <h3 className="text-text-dark font-cormorant text-2xl mb-4">
                 {t("cancellationTitle")}
@@ -161,7 +173,7 @@ export default function AboutView() {
       </section>
 
       {/* Map Section */}
-      <section className="py-20 px-4 md:px-6 max-w-[1200px] mx-auto">
+      <section className="py-5 md:py-10 px-4 md:px-6 max-w-[1200px] mx-auto">
         <div className="flex items-center gap-4 mb-10">
           <div className="w-12 h-12 bg-gold/10 flex items-center justify-center rounded-full text-gold">
             <FiMapPin size={24} />

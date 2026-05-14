@@ -17,6 +17,7 @@ import { useTranslations } from "next-intl";
 import { useState } from "react";
 import type { Swiper as SwiperType } from "swiper";
 import { SwiperNavButtons } from "@/components/ui/SwiperNavButtons";
+import Link from "next/link";
 
 const images = [
   {
@@ -99,18 +100,14 @@ export function ImageBanner() {
 
   return (
     <section className="bg-cream">
-      <div className="max-w-[1200px] mx-auto px-5 py-10 md:py-32">
+      <div className="max-w-[1200px] mx-auto px-5 py-5 md:py-10">
         <SectionHeader
           label={t("featuredAmenities")}
           title="Designed for Your"
           subtitle="Ultimate Comfort"
-          action={{
-            label: t("allAmenities"),
-            href: "/services",
-          }}
         />
 
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-6 gap-y-12 gap-x-6 md:gap-x-10">
+        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-y-10 gap-x-6 md:gap-x-10 mb-10">
           {amenities.map((item, i) => (
             <div key={i} className="flex items-center gap-4 text-text-dark">
               <div className="text-gold shrink-0">{item.icon}</div>
@@ -119,6 +116,15 @@ export function ImageBanner() {
               </span>
             </div>
           ))}
+        </div>
+
+        <div className="flex justify-center">
+          <Link
+            href="/services"
+            className="inline-flex items-center justify-center px-5 py-2.5 border border-gold/30 text-gold text-sm tracking-[4px] font-bold hover:bg-gold hover:text-white transition-all duration-500"
+          >
+            {t("allAmenities")}
+          </Link>
         </div>
       </div>
 

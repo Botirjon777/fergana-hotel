@@ -15,10 +15,17 @@ import { useState, useEffect } from "react";
 export default function NewsView() {
   const t = useTranslations("NewsPage");
   const [mounted, setMounted] = useState(false);
+  const [sortOrder, setSortOrder] = useState<"newest" | "oldest">("newest");
 
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  const sortedNews = [...newsItems].sort((a, b) => {
+    const dateA = new Date(a.date).getTime();
+    const dateB = new Date(b.date).getTime();
+    return sortOrder === "newest" ? dateB - dateA : dateA - dateB;
+  });
 
   return (
     <main className="min-h-screen bg-cream">
@@ -49,8 +56,29 @@ export default function NewsView() {
 
       {/* News Grid */}
       <section className="py-5 px-5 md:px-6 max-w-[1200px] mx-auto">
+        <div className="flex justify-end mb-6">
+          <div className="flex items-center gap-3">
+            <span className="text-xs font-jost text-text-mid uppercase tracking-[2px]">{t("sortBy")}:</span>
+            <div className="relative">
+              <select
+                value={sortOrder}
+                onChange={(e) => setSortOrder(e.target.value as "newest" | "oldest")}
+                className="bg-white border border-sand/20 text-text-dark font-jost text-sm py-2 pl-4 pr-10 focus:outline-none focus:border-gold transition-colors appearance-none cursor-pointer rounded-none min-w-[150px]"
+              >
+                <option value="newest">{t("newestFirst")}</option>
+                <option value="oldest">{t("oldestFirst")}</option>
+              </select>
+              <div className="absolute inset-y-0 right-0 flex items-center px-3 pointer-events-none text-sand">
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                  <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {newsItems.map((item, index) => (
+          {sortedNews.map((item, index) => (
             <article
               key={item.id}
               className="bg-white border border-sand/20 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 group animate-[fadeUp_0.8s_ease-out_forwards]"

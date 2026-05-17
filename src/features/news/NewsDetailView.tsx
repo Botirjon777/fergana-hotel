@@ -6,7 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { newsItems } from "@/lib/data";
-import { FiCalendar, FiArrowRight, FiArrowLeft } from "react-icons/fi";
+import { FiCalendar, FiArrowRight, FiArrowLeft, FiDownload } from "react-icons/fi";
 import { notFound } from "next/navigation";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/Button";
@@ -75,14 +75,25 @@ export default function NewsDetailView({ id }: NewsDetailViewProps) {
               .map((paragraph, i) => (
                 <p
                   key={i}
-                  className="font-jost text-text-mid text-md leading-relaxed mb-8 last:mb-0"
+                  className="font-jost text-text-mid text-md leading-relaxed mb-8 last:mb-0 whitespace-pre-line"
                 >
                   {paragraph}
                 </p>
               ))}
           </div>
 
-          <div className="mt-5 border-t border-sand/10 flex flex-col md:flex-row justify-center md:items-center gap-2.5">
+          {(item as any).pdfUrl && (
+            <div className="mt-8 mb-4">
+              <a href={(item as any).pdfUrl} target="_blank" rel="noopener noreferrer">
+                <Button variant="outline">
+                  <FiDownload className="mr-2 w-4 h-4" />
+                  {t("viewCertificate")}
+                </Button>
+              </a>
+            </div>
+          )}
+
+          <div className="mt-8 pt-5 border-t border-sand/10 flex flex-col md:flex-row justify-center md:items-center gap-2.5">
             <Button
               variant="outline"
               size="sm"

@@ -27,19 +27,21 @@ export const navLinks = [
 
 export const newsItems = [
   {
-    id: "spring-promo",
-    date: "2024-05-01",
-    image: "/images/hotel/general/hotel-day.webp",
+    id: "smart-in-room-service",
+    date: "2025-01-01",
+    image: "/news/safir-news-3.png",
   },
   {
-    id: "new-spa-menu",
-    date: "2024-04-15",
-    image: "/images/hotel/general/pool.webp",
+    id: "quality-management-cert",
+    date: "2015-01-01",
+    image: "/images/hotel/general/reception.webp",
+    pdfUrl: "/news/safir-news-2.pdf",
   },
   {
-    id: "award-2024",
-    date: "2024-03-20",
-    image: "/images/hotel/general/restaurant.webp",
+    id: "food-safety-cert",
+    date: "2019-01-01",
+    image: "/images/hotel/general/restaurant-2.webp",
+    pdfUrl: "/news/safir-news-1.pdf",
   },
 ];
 

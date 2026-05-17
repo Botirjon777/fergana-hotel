@@ -1,8 +1,8 @@
 import { newsItems } from "@/lib/data";
 import { notFound } from "next/navigation";
-import SpringPromo from "@/features/news/articles/SpringPromo";
-import NewSpaMenu from "@/features/news/articles/NewSpaMenu";
-import Award2024 from "@/features/news/articles/Award2024";
+import FoodSafetyCert from "@/features/news/articles/FoodSafetyCert";
+import QualityManagementCert from "@/features/news/articles/QualityManagementCert";
+import SmartInRoomService from "@/features/news/articles/SmartInRoomService";
 
 export async function generateStaticParams() {
   return newsItems.map((item) => ({
@@ -21,9 +21,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 }
 
 const articleMap: Record<string, React.ComponentType> = {
-  "spring-promo": SpringPromo,
-  "new-spa-menu": NewSpaMenu,
-  "award-2024": Award2024,
+  "food-safety-cert": FoodSafetyCert,
+  "quality-management-cert": QualityManagementCert,
+  "smart-in-room-service": SmartInRoomService,
 };
 
 export default async function NewsArticlePage({ params }: { params: Promise<{ slug: string }> }) {

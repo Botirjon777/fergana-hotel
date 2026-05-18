@@ -12,20 +12,21 @@ import Link from "next/link";
 
 export default function MeetingsView() {
   const t = useTranslations("Meetings");
+  const tc = useTranslations("Common");
 
   const rooms = [
     {
-      name: "Executive Suite",
+      name: t("rooms.executiveSuite"),
       capacity: "22",
       image: "/images/hotel/conference-rooms/22-person/1.jpg",
     },
     {
-      name: "Boardroom",
+      name: t("rooms.boardroom"),
       capacity: "32",
       image: "/images/hotel/conference-rooms/32-person/1.jpg",
     },
     {
-      name: "Grand Hall",
+      name: t("rooms.grandHall"),
       capacity: "52",
       image: "/images/hotel/conference-rooms/52-person/1.jpg",
     },
@@ -44,7 +45,7 @@ export default function MeetingsView() {
             className="inline-flex items-center gap-2 text-gold/60 hover:text-gold text-[10px] uppercase tracking-[3px] font-bold mb-8 transition-all group"
           >
             <FiArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
-            <span>Back to Home</span>
+            <span>{tc("backToHome")}</span>
           </Link>
 
           <div className="text-center">
@@ -82,7 +83,7 @@ export default function MeetingsView() {
                 />
                 <div className="absolute bottom-0 left-0 right-0 p-5 bg-linear-to-t from-black to-transparent">
                   <span className="text-gold font-jost text-[10px] tracking-[2px] uppercase">
-                    Capacity: {room.capacity} Persons
+                    {t("rooms.capacityPersons", { capacity: room.capacity })}
                   </span>
                 </div>
               </div>
@@ -100,34 +101,34 @@ export default function MeetingsView() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
             <div className="text-center">
               <span className="text-gold font-cormorant text-3xl block mb-2">
-                Pro
+                {t("services.pro")}
               </span>
               <p className="text-[10px] tracking-[2px] uppercase text-text-mid">
-                Audio-Visual
+                {t("services.audioVisual")}
               </p>
             </div>
             <div className="text-center">
               <span className="text-gold font-cormorant text-3xl block mb-2">
-                Wi-Fi
+                {t("services.wifi")}
               </span>
               <p className="text-[10px] tracking-[2px] uppercase text-text-mid">
-                High-Speed Fiber
+                {t("services.highSpeed")}
               </p>
             </div>
             <div className="text-center">
               <span className="text-gold font-cormorant text-3xl block mb-2">
-                Catering
+                {t("services.catering")}
               </span>
               <p className="text-[10px] tracking-[2px] uppercase text-text-mid">
-                Custom Menus
+                {t("services.customMenus")}
               </p>
             </div>
             <div className="text-center">
               <span className="text-gold font-cormorant text-3xl block mb-2">
-                Support
+                {t("services.support")}
               </span>
               <p className="text-[10px] tracking-[2px] uppercase text-text-mid">
-                Event Manager
+                {t("services.eventManager")}
               </p>
             </div>
           </div>

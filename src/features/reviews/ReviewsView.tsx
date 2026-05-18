@@ -4,7 +4,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { MobileSidebar } from "@/components/layout/MobileSidebar";
 import { Footer } from "@/components/layout/Footer";
 import { useDetailedReviews, useRateSummary, Review } from "@/hooks/useReviews";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { FiChevronDown, FiArrowLeft } from "react-icons/fi";
 import { ReviewCard } from "./ReviewCard";
 import Link from "next/link";
@@ -13,6 +13,8 @@ type SortType = "date-desc" | "date-asc" | "rate-desc" | "rate-asc";
 
 export default function ReviewsView() {
   const locale = useLocale();
+  const t = useTranslations("ReviewsPage");
+  const tc = useTranslations("Common");
   const [sortBy, setSortBy] = useState<SortType>("date-desc");
   const [isSortOpen, setIsSortOpen] = useState(false);
   const [pageSize, setPageSize] = useState(5);
@@ -51,10 +53,10 @@ export default function ReviewsView() {
   );
 
   const sortOptions = [
-    { label: "Date: newer to older", value: "date-desc" as SortType },
-    { label: "Date: older to newer", value: "date-asc" as SortType },
-    { label: "Score: High to Low", value: "rate-desc" as SortType },
-    { label: "Score: Low to High", value: "rate-asc" as SortType },
+    { label: t("sortNewest"), value: "date-desc" as SortType },
+    { label: t("sortOldest"), value: "date-asc" as SortType },
+    { label: t("sortHighRate"), value: "rate-desc" as SortType },
+    { label: t("sortLowRate"), value: "rate-asc" as SortType },
   ];
 
   const pageSizeOptions = [5, 10, 15, 20];
@@ -87,15 +89,15 @@ export default function ReviewsView() {
           className="inline-flex items-center gap-2 text-gold/60 hover:text-gold text-[10px] uppercase tracking-[3px] font-bold mb-5 transition-all group"
         >
           <FiArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
-          <span>Back to Home</span>
+          <span>{tc("backToHome")}</span>
         </Link>
 
         <div className="text-center mb-5 md:mb-10">
           <h1 className="font-cormorant text-4xl md:text-6xl font-light text-gold mb-4">
-            Guest Reviews
+            {t("title")}
           </h1>
           <p className="text-white/60 font-jost tracking-widest uppercase text-xs md:text-sm">
-            What our guests say about their stay at Safir Hotel
+            {t("subtitle")}
           </p>
         </div>
 
@@ -105,12 +107,12 @@ export default function ReviewsView() {
           </div>
         ) : errorReviews && !reviewsData ? (
           <div className="text-center py-20">
-            <p className="text-red-400 mb-4">Failed to load reviews. Please try again later.</p>
+            <p className="text-red-400 mb-4">{t("failedToLoad")}</p>
             <button 
               onClick={() => window.location.reload()}
               className="px-6 py-2 bg-gold/20 border border-gold/50 text-gold rounded hover:bg-gold/30 transition-all"
             >
-              Retry
+              {t("retry")}
             </button>
           </div>
         ) : (
@@ -131,14 +133,11 @@ export default function ReviewsView() {
                       {paginatedReviews.length}
                     </span>
                     <span>/</span>
-                    <span>{allSortedReviews.length} reviews</span>
+                    <span>{t("reviewsInfo", { count: paginatedReviews.length, total: allSortedReviews.length }).split(paginatedReviews.length.toString() + " / ")[1] || t("reviewsInfo", { count: "", total: allSortedReviews.length }).replace(" / ", "")}</span>
                   </div>
                   <span className="hidden md:block mx-4 opacity-20">|</span>
                   <div className="flex items-center gap-2">
-                    <span>Page</span>
-                    <span className="text-gold/60">{currentPage}</span>
-                    <span>/</span>
-                    <span>{totalPages}</span>
+                    <span>{t("pageInfo", { current: currentPage, total: totalPages })}</span>
                   </div>
                 </div>
 
@@ -153,7 +152,7 @@ export default function ReviewsView() {
                       className="w-full flex items-center justify-between bg-white/5 border border-white/10 px-3 py-2 rounded text-[10px] md:text-xs text-white hover:border-gold/50 transition-colors"
                     >
                       <span className="flex items-center gap-1 md:gap-2">
-                        <span className="text-white/40">Show:</span>
+                        <span className="text-white/40">{t("show")}</span>
                         {pageSize}
                       </span>
                       <FiChevronDown
@@ -171,7 +170,7 @@ export default function ReviewsView() {
                             }}
                             className={`w-full text-left px-4 py-2.5 text-xs transition-colors hover:bg-gold/10 ${pageSize === size ? "text-gold bg-gold/5 font-bold" : "text-white/70"}`}
                           >
-                            {size} per page
+                            {size} {t("perPage")}
                           </button>
                         ))}
                       </div>
@@ -188,7 +187,7 @@ export default function ReviewsView() {
                       className="w-full flex items-center justify-between bg-white/5 border border-white/10 px-3 py-2 rounded text-[10px] md:text-xs text-white hover:border-gold/50 transition-colors"
                     >
                       <span className="flex items-center gap-1 md:gap-2 overflow-hidden">
-                        <span className="text-white/40 shrink-0">Sort:</span>
+                        <span className="text-white/40 shrink-0">{t("sort")}</span>
                         <span className="truncate">{currentSortLabel}</span>
                       </span>
                       <FiChevronDown
@@ -228,7 +227,7 @@ export default function ReviewsView() {
 
                 {allSortedReviews.length === 0 && (
                   <div className="text-center py-20 text-white/40">
-                    No reviews found for this selection.
+                    {t("noReviews")}
                   </div>
                 )}
               </div>
@@ -298,6 +297,7 @@ export default function ReviewsView() {
 
 function SummaryCard({ summary }: { summary: any }) {
   const [showAll, setShowAll] = useState(false);
+  const t = useTranslations("ReviewsPage");
   const categories = summary.providerRates;
   const visibleCategories = categories.slice(0, 4);
   const extraCategories = categories.slice(4);
@@ -319,7 +319,7 @@ function SummaryCard({ summary }: { summary: any }) {
             {summary.rate.textRate}
           </div>
           <div className="text-white/40 text-[8px] md:text-[9px] uppercase tracking-[2px] font-medium whitespace-nowrap">
-            Based on {summary.reviewsCount} reviews
+            {t("basedOn", { count: summary.reviewsCount })}
           </div>
         </div>
 
@@ -383,7 +383,7 @@ function SummaryCard({ summary }: { summary: any }) {
               onClick={() => setShowAll(!showAll)}
               className="text-gold/60 hover:text-gold text-[8px] md:text-[9px] uppercase tracking-[2px] font-bold mt-3 transition-all flex items-center gap-2"
             >
-              {showAll ? "Show Less" : `+${categories.length - 4} more`}
+              {showAll ? t("showLess") : t("moreCategories", { count: categories.length - 4 })}
               <FiChevronDown
                 className={`w-3 h-3 transition-transform duration-500 ${
                   showAll ? "rotate-180" : ""

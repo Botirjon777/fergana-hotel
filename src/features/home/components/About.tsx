@@ -35,7 +35,7 @@ export function About() {
                   {stat.num}
                 </span>
                 <span className="text-[11px] tracking-[3px] uppercase text-text-mid font-medium">
-                  {stat.label}
+                  {t(`stats.${stat.key}` as any)}
                 </span>
               </div>
             ))}
@@ -45,7 +45,7 @@ export function About() {
             <div className="hidden md:block w-full aspect-4/5 relative overflow-hidden">
               <Image
                 src="/images/slides/1.jpg"
-                alt="Fergana Hotel Atmosphere"
+                alt="Safir Hotel Atmosphere"
                 fill
                 className="object-cover z-0"
                 sizes="(max-width: 768px) 100vw, 600px"
@@ -60,7 +60,7 @@ export function About() {
                 <span className="text-[32px] font-light leading-none">★</span>
               </div>
               <span className="text-[11px] tracking-[3px] opacity-80 font-jost uppercase">
-                3 Stars
+                {t("stars")}
               </span>
             </div>
           </div>
@@ -71,7 +71,7 @@ export function About() {
             href="/about"
             className="inline-flex items-center justify-center px-5 py-2.5 border border-gold/30 text-gold text-sm tracking-[4px] font-bold hover:bg-gold hover:text-white transition-all duration-500"
           >
-            Read More
+            {t("readMore")}
           </Link>
         </div>
       </div>

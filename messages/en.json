@@ -37,7 +37,8 @@
     "fullName": "Full Name",
     "emailAddress": "Email Address",
     "phoneNumber": "Phone Number",
-    "requestReservation": "Request Reservation"
+    "requestReservation": "Request Reservation",
+    "luxurySubtitle": "Luxury Above the Ordinary"
   },
   "About": {
     "storyLabel": "Our Story",
@@ -45,7 +46,15 @@
     "storyTitleEm": "Defies",
     "storyTitle2": "Convention",
     "description1": "Safir Hotel was born from a single, audacious question: what if a hotel could make you feel weightless? Set high above the city in a building that seems to float against the skyline, we have crafted an experience where every detail conspires to lift your spirit.",
-    "description2": "Each of our 87 rooms is a sanctuary of calm — where light pours freely, textures breathe, and the boundaries between inside and outside dissolve into pure presence. We believe luxury is not about excess; it is about the absence of weight."
+    "description2": "Each of our 87 rooms is a sanctuary of calm — where light pours freely, textures breathe, and the boundaries between inside and outside dissolve into pure presence. We believe luxury is not about excess; it is about the absence of weight.",
+    "stats": {
+      "rooms": "Rooms & Suites",
+      "dining": "Dining Venues",
+      "years": "Years of Grace",
+      "views": "Sky Views"
+    },
+    "readMore": "Read More",
+    "stars": "3 Stars"
   },
   "Location": {
     "findUs": "Find Us",
@@ -57,7 +66,8 @@
     "phone": "+998 73 226 00 77",
     "email": "Email",
     "emailAddress": "ferghanahotel@gmail.com",
-    "checkInOut": "Check-in / Check-out"
+    "checkInOut": "Check-in / Check-out",
+    "checkInOutValue": "From 14:00 / Until 12:00"
   },
   "ImageBanner": {
     "featuredAmenities": "Featured Amenities",
@@ -91,13 +101,27 @@
         "subtitle": "Leisure & Play",
         "title": "Refined Leisure"
       }
+    },
+    "title": "Designed for Your",
+    "subtitle": "Ultimate Comfort",
+    "amenities": {
+      "breakfast": "Buffet Breakfast Available",
+      "wifi": "Free WiFi",
+      "ev": "EV Charging",
+      "restaurant": "Restaurant",
+      "bar": "Bar",
+      "shuttle": "Airport Shuttle"
     }
   },
   "Gallery": {
     "visualJourney": "Visual Journey",
     "throughOur": "Through Our",
     "spaces": "Spaces",
-    "viewFullGallery": "View Full Gallery"
+    "viewFullGallery": "View Full Gallery",
+    "description": "Discover our curated selection of suites and halls, each designed with a unique blend of comfort and weightless elegance.",
+    "roomType": "Room Type",
+    "exploreGallery": "Explore Gallery",
+    "conferenceLabel": "Conference Hall"
   },
   "Welcome": {
     "title": "Welcome",
@@ -119,7 +143,9 @@
       "hotel": "Safir Hotel",
       "conference": "Conference Halls",
       "rooms": "Rooms & Suites"
-    }
+    },
+    "visual": "Visual",
+    "excellence": "Excellence"
   },
   "Recommendations": {
     "title": "Our Recommendations",
@@ -137,7 +163,11 @@
       "bed": "King Bed",
       "size": "65 m²",
       "view": "Sky View"
-    }
+    },
+    "premium": "Premium",
+    "discoverAll": "Discover All",
+    "roomTypes": "Room Types",
+    "viewRooms": "View Rooms"
   },
   "AboutPage": {
     "title": "About Safir Hotel",
@@ -246,7 +276,9 @@
     "breakfastTitle": "Buffet Breakfast",
     "breakfastDesc": "Start your day with a delicious and varied buffet breakfast! Every day we offer a wide selection of fresh dishes: hot snacks, fresh vegetables and fruits, pastries, cereals, yoghurts and much more. Regardless of your preferences, you will find something to your liking to recharge your batteries for the whole day. Breakfast is available to all guests and is served in a cozy atmosphere, creating ideal conditions for a pleasant start to the day.",
     "discountTitle": "10% Direct Booking Discount",
-    "discountDesc": "Book a room on our official website and get a 10% discount at the hotel's main restaurant! Enjoy the exquisite cuisine and cozy atmosphere — the offer is valid only for guests who have made a reservation online."
+    "discountDesc": "Book a room on our official website and get a 10% discount at the hotel's main restaurant! Enjoy the exquisite cuisine and cozy atmosphere — the offer is valid only for guests who have made a reservation online.",
+    "exquisite": "Exquisite Cuisine",
+    "exquisiteDesc": "The perfect atmosphere for your dining experience."
   },
   "Spa": {
     "title": "Fitness & SPA",
@@ -254,13 +286,33 @@
     "poolTitle": "Indoor Swimming Pool",
     "poolDesc": "Immerse yourself in an atmosphere of complete relaxation in our modern indoor pool. The comfortable water temperature and cozy atmosphere create ideal conditions for relaxation at any time of the year. The pool is open to all hotel guests, but access is only available upon prior reservation to ensure maximum comfort and privacy. Enjoy the tranquility and recuperate after a busy day!",
     "fitnessTitle": "Fitness Room",
-    "fitnessDesc": "Keep in excellent physical shape even while relaxing! In our modern fitness room you will find all the necessary equipment for effective workouts, from cardio equipment to power plants. The spacious and bright room creates a comfortable atmosphere for sports at any time of the day."
+    "fitnessDesc": "Keep in excellent physical shape even while relaxing! In our modern fitness room you will find all the necessary equipment for effective workouts, from cardio equipment to power plants. The spacious and bright room creates a comfortable atmosphere for sports at any time of the day.",
+    "modernCardio": "Modern Cardio",
+    "modernCardioDesc": "State-of-the-art equipment",
+    "strengthArea": "Strength Area",
+    "strengthAreaDesc": "Comprehensive weights"
   },
   "Meetings": {
     "title": "Meetings & Events",
     "subtitle": "Excellence in Every Detail",
     "conferenceTitle": "Conference Rooms",
-    "conferenceDesc": "Versatile spaces designed for success. From intimate board meetings to large-scale events, we provide state-of-the-art technology and exceptional service. Our 22, 32, and 52-person conference rooms are equipped with everything needed for a productive session."
+    "conferenceDesc": "Versatile spaces designed for success. From intimate board meetings to large-scale events, we provide state-of-the-art technology and exceptional service. Our 22, 32, and 52-person conference rooms are equipped with everything needed for a productive session.",
+    "rooms": {
+      "executiveSuite": "Executive Suite",
+      "boardroom": "Boardroom",
+      "grandHall": "Grand Hall",
+      "capacityPersons": "Capacity: {capacity} Persons"
+    },
+    "services": {
+      "pro": "Pro",
+      "audioVisual": "Audio-Visual",
+      "wifi": "Wi-Fi",
+      "highSpeed": "High-Speed Fiber",
+      "catering": "Catering",
+      "customMenus": "Custom Menus",
+      "support": "Support",
+      "eventManager": "Event Manager"
+    }
   },
   "GeneralServices": {
     "title": "Services & Amenities",
@@ -337,11 +389,40 @@
       "parkView": "park view",
       "kingBed": "king bed",
       "glasses": "glasses"
-    }
+    },
+    "showLess": "Show Less",
+    "showMore": "Show More",
+    "gastrobarTitle": "Gastrobar",
+    "gastrobarDesc": "Exquisite cuisine and the perfect atmosphere for your dining experience.",
+    "spaTitle": "Fitness & SPA",
+    "spaDesc": "State-of-the-art equipment and comprehensive free weights for your workout.",
+    "meetingsTitle": "Meetings & Events",
+    "meetingsDesc": "Fully equipped conference rooms for successful business events and celebrations."
   },
   "DatePicker": {
-    "months": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-    "weekDays": ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"],
+    "months": [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ],
+    "weekDays": [
+      "Mo",
+      "Tu",
+      "We",
+      "Th",
+      "Fr",
+      "Sa",
+      "Su"
+    ],
     "checkInOut": "Check-in — Check-out",
     "selectDates": "Select Dates",
     "chooseStayDates": "Choose your stay dates",
@@ -360,5 +441,98 @@
     "done": "Done",
     "adult": "Adult",
     "child": "Child"
+  },
+  "Services": {
+    "label": "What We Offer",
+    "title": "Elevated",
+    "subtitle": "Experiences",
+    "items": {
+      "gastrobar": {
+        "title": "Gastrobar",
+        "description": "Experience exquisite flavors at our Gastrobar. From artisanal cocktails to a rich buffet breakfast, every bite is a journey of taste.",
+        "linkText": "Explore Gastrobar →"
+      },
+      "spa": {
+        "title": "Fitness & SPA",
+        "description": "A sanctuary of wellness featuring our modern fitness room and a serene indoor swimming pool for complete physical and mental rejuvenation.",
+        "linkText": "Relax & Recharge →"
+      },
+      "meetings": {
+        "title": "Meetings & Events",
+        "description": "Elegant venues for any occasion. Our versatile conference rooms and expert planning services ensure your meetings and events are truly extraordinary.",
+        "linkText": "Plan Your Event →"
+      },
+      "amenities": {
+        "title": "Amenities",
+        "description": "Thoughtfully curated details for your ultimate comfort. From smart home systems to premium toiletries, we provide everything you need for a seamless stay.",
+        "linkText": "View Amenities →"
+      },
+      "guest_services": {
+        "title": "Guest Services",
+        "description": "Enjoy effortless hospitality with our inclusive services: laundry, 24/7 housekeeping, and a 10% discount at our main restaurant for direct bookings.",
+        "linkText": "Our Services →"
+      },
+      "pool": {
+        "title": "Infinity Pool",
+        "description": "Immerse yourself in the tranquility of our indoor pool. Controlled temperature and a cozy atmosphere provide the perfect escape year-round.",
+        "linkText": "Dive In →"
+      }
+    }
+  },
+  "Footer": {
+    "explore": "Explore",
+    "services": "Services",
+    "legal": "Legal",
+    "links": {
+      "about": "About Us",
+      "rooms": "Rooms & Suites",
+      "gallery": "Gallery",
+      "services": "Services",
+      "location": "Location",
+      "gastrobar": "Gastrobar",
+      "spa": "Fitness & SPA",
+      "meetings": "Meetings & Events",
+      "amenities": "Amenities",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "cookies": "Cookie Policy",
+      "cancellation": "Cancellation"
+    },
+    "rights": "All rights reserved."
+  },
+  "ReviewsWidget": {
+    "googleReviews": "Google Reviews",
+    "reviewsCount": "reviews"
+  },
+  "Common": {
+    "backToHome": "Back to Home"
+  },
+  "ReviewsPage": {
+    "title": "Guest Reviews",
+    "subtitle": "What our guests say about their stay at Safir Hotel",
+    "failedToLoad": "Failed to load reviews. Please try again later.",
+    "retry": "Retry",
+    "reviewsInfo": "{count} / {total} reviews",
+    "pageInfo": "Page {current} / {total}",
+    "show": "Show:",
+    "perPage": "per page",
+    "sort": "Sort:",
+    "sortNewest": "Date: newer to older",
+    "sortOldest": "Date: older to newer",
+    "sortHighRate": "Score: High to Low",
+    "sortLowRate": "Score: Low to High",
+    "noReviews": "No reviews found for this selection.",
+    "basedOn": "Based on {count} reviews",
+    "showLess": "Show Less",
+    "moreCategories": "+{count} more",
+    "onSource": "on {source}",
+    "showOriginal": "Show original",
+    "showTranslation": "Show translation",
+    "reviewResponse": "Review response:"
+  },
+  "NotFound": {
+    "title": "Lost your room?",
+    "desc": "Want to find your room? Let us guide you back to luxury.",
+    "returnHome": "Return to Homepage"
   }
 }

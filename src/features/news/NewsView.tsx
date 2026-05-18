@@ -14,6 +14,7 @@ import { useState, useEffect } from "react";
 
 export default function NewsView() {
   const t = useTranslations("NewsPage");
+  const tc = useTranslations("Common");
   const [mounted, setMounted] = useState(false);
   const [sortOrder, setSortOrder] = useState<"newest" | "oldest">("newest");
 
@@ -40,7 +41,7 @@ export default function NewsView() {
             className="inline-flex items-center gap-2 text-gold/60 hover:text-gold text-[10px] uppercase tracking-[3px] font-bold mb-8 transition-all group"
           >
             <FiArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
-            <span>Back to Home</span>
+            <span>{tc("backToHome")}</span>
           </Link>
 
           <div className="text-center">

@@ -18,6 +18,7 @@ import Link from "next/link";
 
 export default function AboutView() {
   const t = useTranslations("AboutPage");
+  const tc = useTranslations("Common");
 
   return (
     <main className="min-h-screen bg-cream text-text-dark">
@@ -33,7 +34,7 @@ export default function AboutView() {
             className="inline-flex items-center gap-2 text-gold/60 hover:text-gold text-[10px] uppercase tracking-[3px] font-bold mb-10 transition-all group"
           >
             <FiArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
-            <span>Back to Home</span>
+            <span>{tc("backToHome")}</span>
           </Link>
 
           <div className="text-center">

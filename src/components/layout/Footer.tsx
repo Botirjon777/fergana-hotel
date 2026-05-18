@@ -9,8 +9,10 @@ import {
 import Link from "next/link";
 import { useState } from "react";
 import { FiChevronDown } from "react-icons/fi";
+import { useTranslations } from "next-intl";
 
 export function Footer() {
+  const t = useTranslations("Footer");
   const [openSections, setOpenSections] = useState<{ [key: string]: boolean }>({
     explore: false,
     services: false,
@@ -69,7 +71,7 @@ export function Footer() {
             className="flex items-center justify-between w-full md:cursor-default md:pointer-events-none group"
           >
             <h4 className="font-jost text-[10px] tracking-[4px] uppercase text-gold mb-5 md:mb-6 font-normal py-2.5 md:py-0">
-              Explore
+              {t("explore")}
             </h4>
             <FiChevronDown
               className={`md:hidden transition-transform duration-300 ${openSections.explore ? "rotate-180" : ""}`}
@@ -83,7 +85,7 @@ export function Footer() {
                 className="text-sm text-cream/55 no-underline font-light transition-colors duration-300 hover:text-gold"
                 href="/about"
               >
-                About Us
+                {t("links.about")}
               </Link>
             </li>
             <li>
@@ -91,7 +93,7 @@ export function Footer() {
                 className="text-sm text-cream/55 no-underline font-light transition-colors duration-300 hover:text-gold"
                 href="/rooms"
               >
-                Rooms & Suites
+                {t("links.rooms")}
               </Link>
             </li>
             <li>
@@ -99,7 +101,7 @@ export function Footer() {
                 className="text-sm text-cream/55 no-underline font-light transition-colors duration-300 hover:text-gold"
                 href="/gallery"
               >
-                Gallery
+                {t("links.gallery")}
               </Link>
             </li>
             <li>
@@ -107,7 +109,7 @@ export function Footer() {
                 className="text-sm text-cream/55 no-underline font-light transition-colors duration-300 hover:text-gold"
                 href="/services"
               >
-                Services
+                {t("links.services")}
               </Link>
             </li>
             <li>
@@ -115,7 +117,7 @@ export function Footer() {
                 className="text-sm text-cream/55 no-underline font-light transition-colors duration-300 hover:text-gold"
                 href="/#location"
               >
-                Location
+                {t("links.location")}
               </Link>
             </li>
           </ul>
@@ -128,7 +130,7 @@ export function Footer() {
             className="flex items-center justify-between w-full md:cursor-default md:pointer-events-none group"
           >
             <h4 className="font-jost text-[10px] tracking-[4px] uppercase text-gold mb-5 md:mb-6 font-normal py-2.5 md:py-0">
-              Services
+              {t("services")}
             </h4>
             <FiChevronDown
               className={`md:hidden transition-transform duration-300 ${openSections.services ? "rotate-180" : ""}`}
@@ -140,25 +142,25 @@ export function Footer() {
             <li>
               <Link
                 className="text-sm text-cream/55 no-underline font-light transition-colors duration-300 hover:text-gold"
-                href="/gastrobar"
+                href="/services/gastrobar"
               >
-                Gastrobar
+                {t("links.gastrobar")}
               </Link>
             </li>
             <li>
               <Link
                 className="text-sm text-cream/55 no-underline font-light transition-colors duration-300 hover:text-gold"
-                href="/spa"
+                href="/services/spa"
               >
-                Fitness & SPA
+                {t("links.spa")}
               </Link>
             </li>
             <li>
               <Link
                 className="text-sm text-cream/55 no-underline font-light transition-colors duration-300 hover:text-gold"
-                href="/meetings"
+                href="/services/meetings"
               >
-                Meetings & Events
+                {t("links.meetings")}
               </Link>
             </li>
             <li>
@@ -166,7 +168,7 @@ export function Footer() {
                 className="text-sm text-cream/55 no-underline font-light transition-colors duration-300 hover:text-gold"
                 href="/services"
               >
-                Amenities
+                {t("links.amenities")}
               </Link>
             </li>
           </ul>
@@ -179,7 +181,7 @@ export function Footer() {
             className="flex items-center justify-between w-full md:cursor-default md:pointer-events-none group"
           >
             <h4 className="font-jost text-[10px] tracking-[4px] uppercase text-gold mb-5 md:mb-6 font-normal py-2.5 md:py-0">
-              Legal
+              {t("legal")}
             </h4>
             <FiChevronDown
               className={`md:hidden transition-transform duration-300 ${openSections.legal ? "rotate-180" : ""}`}
@@ -193,7 +195,7 @@ export function Footer() {
                 className="text-sm text-cream/55 no-underline font-light transition-colors duration-300 hover:text-gold"
                 href="/privacy"
               >
-                Privacy Policy
+                {t("links.privacy")}
               </Link>
             </li>
             <li>
@@ -201,7 +203,7 @@ export function Footer() {
                 className="text-sm text-cream/55 no-underline font-light transition-colors duration-300 hover:text-gold"
                 href="/terms"
               >
-                Terms of Service
+                {t("links.terms")}
               </Link>
             </li>
             <li>
@@ -209,7 +211,7 @@ export function Footer() {
                 className="text-sm text-cream/55 no-underline font-light transition-colors duration-300 hover:text-gold"
                 href="/cookies"
               >
-                Cookie Policy
+                {t("links.cookies")}
               </Link>
             </li>
             <li>
@@ -217,7 +219,7 @@ export function Footer() {
                 className="text-sm text-cream/55 no-underline font-light transition-colors duration-300 hover:text-gold"
                 href="/cancellation"
               >
-                Cancellation
+                {t("links.cancellation")}
               </Link>
             </li>
           </ul>
@@ -225,7 +227,7 @@ export function Footer() {
       </div>
       <div className="max-w-[1200px] mx-auto pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
         <p className="text-xs text-cream/35 tracking-[1px]">
-          &copy; {new Date().getFullYear()} Safir Hotel. All rights reserved.
+          &copy; {new Date().getFullYear()} Safir Hotel. {t("rights")}
         </p>
       </div>
     </footer>

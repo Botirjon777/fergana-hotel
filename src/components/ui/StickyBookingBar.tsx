@@ -71,7 +71,7 @@ export function StickyBookingBar() {
               Safir Hotel
             </span>
             <span className="text-white text-[10px] font-light">
-              Luxury Above the Ordinary
+              {t("luxurySubtitle")}
             </span>
           </div>
           <button

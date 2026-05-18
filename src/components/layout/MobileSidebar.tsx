@@ -10,7 +10,7 @@ import { IoIosClose } from "react-icons/io";
 import { Button } from "@/components/ui/Button";
 
 export function MobileSidebar() {
-  const { isSidebarOpen, closeSidebar } = usePopup();
+  const { isSidebarOpen, closeSidebar, openPopup } = usePopup();
   const router = useRouter();
   const t = useTranslations("Navbar");
   const [openSubMenu, setOpenSubMenu] = useState<string | null>(null);
@@ -107,7 +107,7 @@ export function MobileSidebar() {
           <Button
             onClick={() => {
               closeSidebar();
-              router.push("/booking");
+              openPopup("availability-popup");
             }}
             fullWidth
           >

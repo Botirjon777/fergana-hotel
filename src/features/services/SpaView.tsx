@@ -12,6 +12,7 @@ import Link from "next/link";
 
 export default function SpaView() {
   const t = useTranslations("Spa");
+  const tc = useTranslations("Common");
 
   return (
     <main className="min-h-screen bg-cream">
@@ -26,7 +27,7 @@ export default function SpaView() {
             className="inline-flex items-center gap-2 text-gold/60 hover:text-gold text-[10px] uppercase tracking-[3px] font-bold mb-8 transition-all group"
           >
             <FiArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
-            <span>Back to Home</span>
+            <span>{tc("backToHome")}</span>
           </Link>
 
           <div className="text-center">
@@ -88,17 +89,17 @@ export default function SpaView() {
             <div className="grid grid-cols-2 gap-5 mt-10">
               <div className="p-2.5 bg-white border border-gold/10">
                 <span className="text-gold font-cormorant text-xl block mb-1">
-                  Modern Cardio
+                  {t("modernCardio")}
                 </span>
                 <p className="text-xs text-text-mid">
-                  State-of-the-art equipment
+                  {t("modernCardioDesc")}
                 </p>
               </div>
               <div className="p-2.5 bg-white border border-gold/10">
                 <span className="text-gold font-cormorant text-xl block mb-1">
-                  Strength Area
+                  {t("strengthArea")}
                 </span>
-                <p className="text-xs text-text-mid">Comprehensive weights</p>
+                <p className="text-xs text-text-mid">{t("strengthAreaDesc")}</p>
               </div>
             </div>
           </div>

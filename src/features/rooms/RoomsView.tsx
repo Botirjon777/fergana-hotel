@@ -108,22 +108,10 @@ export default function RoomsView() {
                 </div>
               )}
               <div>
-                <div className="flex justify-between items-start mb-2">
-                  <div className="flex flex-col gap-1">
-                    <h2 className="font-jost text-xl md:text-2xl font-medium text-text-dark tracking-tight">
-                      {t(`details.${room.id}.title`)}
-                    </h2>
-                  </div>
-                  <div className="mt-1">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => handleBook(room.hopenId)}
-                    >
-                      {t("moreDetails")}
-                      <FiArrowRight className="ml-2 w-3.5 h-3.5" />
-                    </Button>
-                  </div>
+                <div className="mb-2">
+                  <h2 className="font-jost text-xl md:text-2xl font-medium text-text-dark tracking-tight">
+                    {t(`details.${room.id}.title`)}
+                  </h2>
                 </div>
 
                 <p className="text-text-mid font-jost text-sm leading-relaxed mb-6 line-clamp-3 md:line-clamp-4">
@@ -132,11 +120,18 @@ export default function RoomsView() {
               </div>
 
               <div className="flex justify-between items-center pt-4 border-t border-sand/10">
-                <div className="flex gap-4 text-xs text-gold tracking-widest uppercase font-medium">
+                <div className="flex flex-col gap-1 text-[10px] text-gold tracking-[1.5px] uppercase font-medium">
                   <span>{t(`details.${room.id}.size`)}</span>
-                  <span className="text-sand">|</span>
                   <span>{t(`details.${room.id}.capacity`)}</span>
                 </div>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => handleBook(room.hopenId)}
+                >
+                  {t("moreDetails")}
+                  <FiArrowRight className="ml-2 w-3.5 h-3.5" />
+                </Button>
               </div>
             </div>
           </div>

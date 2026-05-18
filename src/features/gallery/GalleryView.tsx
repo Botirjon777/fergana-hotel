@@ -15,6 +15,7 @@ import Image from "next/image";
 export default function GalleryView() {
   const { openPopup, setGalleryImages } = usePopup();
   const t = useTranslations("GalleryPage");
+  const tc = useTranslations("Common");
   const [expandedSections, setExpandedSections] = useState<string[]>(["hotel"]);
   const sectionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
   const [lastOpened, setLastOpened] = useState<string | null>(null);
@@ -37,21 +38,18 @@ export default function GalleryView() {
     {
       id: "hotel",
       title: t("sections.hotel"),
-      label: "Safir Hotel",
       images: generalGallery,
       isPriority: true,
     },
     {
       id: "conference",
       title: t("sections.conference"),
-      label: "Conference Hall",
       images: conferenceCategory?.images || [],
       isPriority: false,
     },
     {
       id: "rooms",
       title: t("sections.rooms"),
-      label: "Rooms & Suites",
       images: allRoomImages,
       isPriority: false,
     },
@@ -95,7 +93,7 @@ export default function GalleryView() {
             className="inline-flex items-center gap-2 text-gold/60 hover:text-gold text-[10px] uppercase tracking-[3px] font-bold mb-10 transition-all group"
           >
             <FiArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
-            <span>Back to Home</span>
+            <span>{tc("backToHome")}</span>
           </Link>
 
           <div className="text-center">
@@ -103,7 +101,7 @@ export default function GalleryView() {
               {t("title")}
             </span>
             <h1 className="font-cormorant text-[clamp(48px,8vw,90px)] font-light leading-none text-text-dark mb-8">
-              Visual <span className="italic text-gold">Excellence</span>
+              {t("visual")} <span className="italic text-gold">{t("excellence")}</span>
             </h1>
             <p className="text-text-mid text-[16px] md:text-[18px] font-light leading-relaxed max-w-[600px] mx-auto">
               {t("subtitle")}
@@ -171,7 +169,7 @@ export default function GalleryView() {
                           >
                             <Image
                               src={src}
-                              alt={section.label}
+                              alt={section.title}
                               fill
                               loading={section.isPriority && index === 0 ? "eager" : "lazy"}
                               priority={section.isPriority && index === 0}
@@ -187,7 +185,7 @@ export default function GalleryView() {
 
                             <div className="absolute bottom-6 left-6 right-6 text-white opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
                               <span className="text-[9px] tracking-[3px] uppercase text-white/80 block">
-                                {section.label}
+                                {section.title}
                               </span>
                             </div>
                           </motion.div>

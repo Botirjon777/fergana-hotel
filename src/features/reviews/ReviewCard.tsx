@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Review } from "@/hooks/useReviews";
 import { FiStar } from "react-icons/fi";
+import { useTranslations } from "next-intl";
 
 interface ReviewCardProps {
   review: Review;
@@ -50,6 +51,7 @@ const getFlagUrl = (lang?: string) => {
 
 export function ReviewCard({ review, locale }: ReviewCardProps) {
   const [showTranslation, setShowTranslation] = useState(false);
+  const t = useTranslations("ReviewsPage");
 
   const rating = review.reviewRates[0];
   const stars = Math.round((rating.rate / rating.maxRate) * 5);
@@ -104,7 +106,7 @@ export function ReviewCard({ review, locale }: ReviewCardProps) {
             </div>
           </div>
           <div className="text-white/40 text-[11px]">
-            {formattedDate} on {review.source.name}
+            {formattedDate} {t("onSource", { source: review.source.name })}
           </div>
         </div>
       </div>
@@ -124,7 +126,7 @@ export function ReviewCard({ review, locale }: ReviewCardProps) {
             onClick={() => setShowTranslation(!showTranslation)}
             className="text-gold/80 text-xs font-medium underline underline-offset-4 hover:text-gold transition-colors text-left w-fit"
           >
-            {showTranslation ? "Show original" : "Show translation"}
+            {showTranslation ? t("showOriginal") : t("showTranslation")}
           </button>
         )}
       </div>
@@ -139,7 +141,7 @@ export function ReviewCard({ review, locale }: ReviewCardProps) {
             >
               <div className="flex justify-between items-center mb-3">
                 <span className="text-gold/90 font-bold text-sm tracking-wide uppercase">
-                  Review response:
+                  {t("reviewResponse")}
                 </span>
                 <span className="text-white/30 text-[11px]">
                   {(() => {

@@ -32,18 +32,13 @@ export function PopupProvider({ children }: { children: ReactNode }) {
   React.useEffect(() => {
     if (typeof document !== 'undefined') {
       if (activePopup || isSidebarOpen) {
-        const scrollY = window.scrollY;
-        document.body.style.top = `-${scrollY}px`;
+        document.documentElement.classList.add('lenis-stopped', 'no-scroll');
         document.body.classList.add('no-scroll');
         document.body.style.paddingRight = 'var(--scrollbar-width, 0px)';
       } else {
-        const scrollY = document.body.style.top;
+        document.documentElement.classList.remove('lenis-stopped', 'no-scroll');
         document.body.classList.remove('no-scroll');
-        document.body.style.top = '';
         document.body.style.paddingRight = '';
-        if (scrollY) {
-          window.scrollTo(0, parseInt(scrollY || '0') * -1);
-        }
       }
     }
   }, [activePopup, isSidebarOpen]);

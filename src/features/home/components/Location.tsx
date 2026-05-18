@@ -77,7 +77,7 @@ export function Location() {
                   {t("checkInOut")}
                 </strong>
                 <span className="text-sm text-text-mid font-light leading-relaxed">
-                  From 2:00 PM / Until 12:00 PM
+                  {t("checkInOutValue")}
                 </span>
               </div>
             </div>

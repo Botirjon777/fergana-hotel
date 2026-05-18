@@ -19,6 +19,7 @@ import "swiper/css";
 export function Gallery() {
   const { openPopup, setGalleryImages } = usePopup();
   const t = useTranslations("Gallery");
+  const tr = useTranslations("RoomsPage");
   const [swiper, setSwiper] = useState<SwiperType | null>(null);
   const router = useRouter();
 
@@ -37,7 +38,7 @@ export function Gallery() {
           label={t("visualJourney")}
           title={t("throughOur")}
           subtitle={t("spaces")}
-          description="Discover our curated selection of suites and halls, each designed with a unique blend of comfort and weightless elegance."
+          description={t("description")}
         />
       </div>
 
@@ -81,12 +82,12 @@ export function Gallery() {
                 <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-end text-white z-10 drop-shadow-md">
                   <div className="overflow-hidden mb-1 md:mb-2">
                     <span className="text-[10px] tracking-[5px] uppercase text-gold md:group-hover:text-white transition-colors duration-500 block md:transform md:translate-y-full md:group-hover:translate-y-0">
-                      Room Type
+                      {t("roomType")}
                     </span>
                   </div>
                   <div className="overflow-hidden">
                     <h3 className="font-cormorant text-2xl md:text-3xl tracking-[1px] md:transform md:translate-y-full md:group-hover:translate-y-0 transition-transform duration-700 md:delay-100">
-                      {item.label}
+                      {item.id === "conference" ? t("conferenceLabel") : tr(`details.${item.id}.title` as any)}
                     </h3>
                   </div>
 
@@ -95,7 +96,7 @@ export function Gallery() {
                       <FiPlus className="w-4 h-4 md:w-5 md:h-5" />
                     </div>
                     <span className="text-[9px] md:text-[10px] tracking-[2px] uppercase font-medium">
-                      Explore Gallery
+                      {t("exploreGallery")}
                     </span>
                   </div>
                 </div>

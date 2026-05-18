@@ -11,6 +11,7 @@ import Link from "next/link";
 
 export default function GastrobarView() {
   const t = useTranslations("Gastrobar");
+  const tc = useTranslations("Common");
 
   return (
     <main className="min-h-screen bg-cream">
@@ -25,7 +26,7 @@ export default function GastrobarView() {
             className="inline-flex items-center gap-2 text-gold/60 hover:text-gold text-[10px] uppercase tracking-[3px] font-bold mb-8 transition-all group"
           >
             <FiArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
-            <span>Back to Home</span>
+            <span>{tc("backToHome")}</span>
           </Link>
 
           <div className="text-center">
@@ -73,10 +74,10 @@ export default function GastrobarView() {
             </p>
             <div className="p-5 bg-white border border-gold/20 shadow-sm">
               <span className="text-gold font-cormorant text-2xl italic block mb-2">
-                Exquisite Cuisine
+                {t("exquisite")}
               </span>
               <p className="text-sm text-text-mid italic">
-                The perfect atmosphere for your dining experience.
+                {t("exquisiteDesc")}
               </p>
             </div>
           </div>

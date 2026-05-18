@@ -3,8 +3,10 @@
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { servicesItems } from "@/lib/data";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 export function Services() {
+  const t = useTranslations("Services");
   return (
     <section
       id="services"
@@ -12,9 +14,9 @@ export function Services() {
     >
       <div className="max-w-[1200px] mx-auto">
         <SectionHeader
-          label="What We Offer"
-          title="Elevated"
-          subtitle="Experiences"
+          label={t("label")}
+          title={t("title")}
+          subtitle={t("subtitle")}
         />
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-px md:gap-[2px]">
           {servicesItems.map((service, i) => (
@@ -28,13 +30,13 @@ export function Services() {
                 {service.icon}
               </span>
               <h3 className="text-sm md:text-2xl font-normal text-text-dark mb-1 md:mb-3">
-                {service.title}
+                {t(`items.${service.key}.title` as any)}
               </h3>
               <p className="hidden md:block text-sm leading-[1.8] text-text-mid font-light">
-                {service.description}
+                {t(`items.${service.key}.description` as any)}
               </p>
               <span className="inline-flex items-center gap-2 mt-3 md:mt-5 text-[9px] md:text-[11px] tracking-[2px] uppercase text-gold no-underline font-normal">
-                {service.linkText}
+                {t(`items.${service.key}.linkText` as any)}
               </span>
             </Link>
           ))}

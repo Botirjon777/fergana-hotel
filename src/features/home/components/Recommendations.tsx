@@ -104,11 +104,11 @@ export function Recommendations() {
                       onClick={() => openPopup("booking-popup")}
                       className="flex items-center gap-2 group/btn text-[9px] tracking-[2px] uppercase font-bold text-text-dark hover:text-gold transition-all duration-300"
                     >
-                      Book Now
+                      {tr("bookNow")}
                       <FiArrowRight className="group-hover/btn:translate-x-1.5 transition-transform duration-300" />
                     </button>
                     <span className="text-[8px] tracking-[2px] uppercase text-text-mid italic opacity-30">
-                      Premium
+                      {t("premium")}
                     </span>
                   </div>
                 </div>
@@ -129,13 +129,13 @@ export function Recommendations() {
                   {t("subtitle")}
                 </span>
                 <h3 className="font-cormorant text-3xl md:text-4xl font-light mb-8">
-                  Discover All <br /> <span className="italic">Room Types</span>
+                  {t("discoverAll")} <br /> <span className="italic">{t("roomTypes")}</span>
                 </h3>
                 <div className="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center mx-auto group-hover:border-white transition-colors duration-300">
                   <FiArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                 </div>
                 <span className="font-jost text-[9px] tracking-[2px] uppercase mt-6 block font-bold">
-                  View Rooms
+                  {t("viewRooms")}
                 </span>
               </div>
             </Link>

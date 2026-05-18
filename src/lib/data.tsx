@@ -14,9 +14,9 @@ export const navLinks = [
     label: "Services",
     href: "/services",
     subLinks: [
-      { label: "Gastrobar", href: "/gastrobar" },
-      { label: "Fitness & SPA", href: "/spa" },
-      { label: "Meetings & Events", href: "/meetings" },
+      { label: "Gastrobar", href: "/services/gastrobar" },
+      { label: "Fitness & SPA", href: "/services/spa" },
+      { label: "Meetings & Events", href: "/services/meetings" },
     ],
   },
   { label: "Gallery", href: "/gallery" },
@@ -28,28 +28,28 @@ export const navLinks = [
 export const newsItems = [
   {
     id: "smart-in-room-service",
-    date: "2025-01-01",
+    date: "2026-01-01",
     image: "/news/safir-news-3.png",
   },
   {
     id: "quality-management-cert",
-    date: "2015-01-01",
+    date: "2025-09-05",
     image: "/images/hotel/general/reception.webp",
     pdfUrl: "/news/safir-news-2.pdf",
   },
   {
     id: "food-safety-cert",
-    date: "2019-01-01",
+    date: "2025-09-10",
     image: "/images/hotel/general/restaurant-2.webp",
     pdfUrl: "/news/safir-news-1.pdf",
   },
 ];
 
 export const stats = [
-  { num: "63", label: "Rooms & Suites" },
-  { num: "4", label: "Dining Venues" },
-  { num: "10", label: "Years of Grace" },
-  { num: "∞", label: "Sky Views" },
+  { num: "63", key: "rooms" },
+  { num: "4", key: "dining" },
+  { num: "10", key: "years" },
+  { num: "∞", key: "views" },
 ];
 
 export const roomCategories = [
@@ -154,50 +154,32 @@ export const generalGallery = [
 export const servicesItems = [
   {
     icon: <LiaWineGlassSolid />,
-    title: "Gastrobar",
-    description:
-      "Experience exquisite flavors at our Gastrobar. From artisanal cocktails to a rich buffet breakfast, every bite is a journey of taste.",
-    linkText: "Explore Gastrobar →",
-    href: "/gastrobar",
+    key: "gastrobar",
+    href: "/services/gastrobar",
   },
   {
     icon: <LiaSpaSolid />,
-    title: "Fitness & SPA",
-    description:
-      "A sanctuary of wellness featuring our modern fitness room and a serene indoor swimming pool for complete physical and mental rejuvenation.",
-    linkText: "Relax & Recharge →",
-    href: "/spa",
+    key: "spa",
+    href: "/services/spa",
   },
   {
     icon: <LiaUsersSolid />,
-    title: "Meetings & Events",
-    description:
-      "Elegant venues for any occasion. Our versatile conference rooms and expert planning services ensure your meetings and events are truly extraordinary.",
-    linkText: "Plan Your Event →",
-    href: "/meetings",
+    key: "meetings",
+    href: "/services/meetings",
   },
   {
     icon: <LiaBedSolid />,
-    title: "Amenities",
-    description:
-      "Thoughtfully curated details for your ultimate comfort. From smart home systems to premium toiletries, we provide everything you need for a seamless stay.",
-    linkText: "View Amenities →",
+    key: "amenities",
     href: "/services",
   },
   {
     icon: <LiaConciergeBellSolid />,
-    title: "Guest Services",
-    description:
-      "Enjoy effortless hospitality with our inclusive services: laundry, 24/7 housekeeping, and a 10% discount at our main restaurant for direct bookings.",
-    linkText: "Our Services →",
+    key: "guest_services",
     href: "/services",
   },
   {
     icon: <LiaSwimmingPoolSolid />,
-    title: "Infinity Pool",
-    description:
-      "Immerse yourself in the tranquility of our indoor pool. Controlled temperature and a cozy atmosphere provide the perfect escape year-round.",
-    linkText: "Dive In →",
-    href: "/spa",
+    key: "pool",
+    href: "/services/spa",
   },
 ];

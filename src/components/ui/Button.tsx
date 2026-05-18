@@ -10,7 +10,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 /**
- * Reusable Button component for the Fergana Hotel design system.
+ * Reusable Button component for the Safir Hotel design system.
  * Supports Gold, Creamy, and Outlined variants with smooth transitions and disabled states.
  */
 export function Button({

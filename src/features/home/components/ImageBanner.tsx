@@ -57,16 +57,16 @@ const images = [
   },
 ];
 
-const amenities = [
+const amenitiesList = [
   {
     icon: <MdOutlineBreakfastDining className="w-5 h-5" />,
-    label: "Buffet Breakfast Available",
+    key: "breakfast",
   },
-  { icon: <FiWifi className="w-5 h-5" />, label: "Free WiFi" },
-  { icon: <MdEvStation className="w-5 h-5" />, label: "EV Charging" },
-  { icon: <MdOutlineRestaurant className="w-5 h-5" />, label: "Restaurant" },
-  { icon: <MdOutlineLocalBar className="w-5 h-5" />, label: "Bar" },
-  { icon: <FiTruck className="w-5 h-5" />, label: "Airport Shuttle" },
+  { icon: <FiWifi className="w-5 h-5" />, key: "wifi" },
+  { icon: <MdEvStation className="w-5 h-5" />, key: "ev" },
+  { icon: <MdOutlineRestaurant className="w-5 h-5" />, key: "restaurant" },
+  { icon: <MdOutlineLocalBar className="w-5 h-5" />, key: "bar" },
+  { icon: <FiTruck className="w-5 h-5" />, key: "shuttle" },
 ];
 
 function BannerImage({ img, priority }: { img: any; priority: boolean }) {
@@ -103,16 +103,16 @@ export function ImageBanner() {
       <div className="max-w-[1200px] mx-auto px-5 py-5 md:py-10">
         <SectionHeader
           label={t("featuredAmenities")}
-          title="Designed for Your"
-          subtitle="Ultimate Comfort"
+          title={t("title")}
+          subtitle={t("subtitle")}
         />
 
         <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-y-10 gap-x-6 md:gap-x-10 mb-10">
-          {amenities.map((item, i) => (
+          {amenitiesList.map((item, i) => (
             <div key={i} className="flex items-center gap-4 text-text-dark">
               <div className="text-gold shrink-0">{item.icon}</div>
               <span className="text-[13px] font-medium tracking-[0.5px]">
-                {item.label}
+                {t(`amenities.${item.key}` as any)}
               </span>
             </div>
           ))}

@@ -1,11 +1,12 @@
 "use client";
 
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { useRateSummary } from '@/hooks/useReviews';
 import Link from 'next/link';
 
 export function ReviewsWidget() {
   const locale = useLocale();
+  const t = useTranslations("ReviewsWidget");
   const { data, isLoading, error } = useRateSummary(locale);
 
   if (isLoading || error || !data) {
@@ -28,8 +29,8 @@ export function ReviewsWidget() {
       <div className="w-px h-8 bg-white/20"></div>
 
       <div className="flex flex-col">
-        <span className="text-white/90 text-sm font-medium leading-tight">Google Reviews</span>
-        <span className="text-white/60 text-[11px] hover:text-gold transition-colors">{data.reviewsCount} reviews</span>
+        <span className="text-white/90 text-sm font-medium leading-tight">{t("googleReviews")}</span>
+        <span className="text-white/60 text-[11px] hover:text-gold transition-colors">{data.reviewsCount} {t("reviewsCount")}</span>
       </div>
     </Link>
   );

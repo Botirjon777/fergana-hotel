@@ -50,19 +50,25 @@ export function Modal({
 
   // Determine animation classes based on type and state
   let animationClass = "";
-  if (type === "full" && typeof window !== "undefined" && window.innerWidth < 768) {
-    animationClass = isAnimatingOut ? "animate-slide-up-out" : "animate-slide-up-in";
+  if (
+    type === "full" &&
+    typeof window !== "undefined" &&
+    window.innerWidth < 768
+  ) {
+    animationClass = isAnimatingOut
+      ? "animate-slide-up-out"
+      : "animate-slide-up-in";
   } else {
     animationClass = isAnimatingOut ? "animate-modal-out" : "animate-modal-in";
   }
 
   return createPortal(
-    <div 
-      className="fixed inset-0 z-6000 flex items-center justify-center pointer-events-none"
+    <div
+      className="fixed inset-0 z-[9999] flex items-center justify-center pointer-events-none"
       id={id}
     >
       {/* Backdrop */}
-      <div 
+      <div
         className={`absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300 pointer-events-auto ${
           isAnimatingOut ? "opacity-0" : "opacity-100"
         }`}
@@ -70,20 +76,27 @@ export function Modal({
       />
 
       {/* Content */}
-      <div 
-        className={`relative z-1 pointer-events-auto ${animationClass} ${className} ${
+      <div
+        className={`relative z-10 pointer-events-auto ${animationClass} ${className} ${
           type === "full" ? "w-full h-full md:h-auto md:w-auto" : ""
         }`}
-        style={type === "dropdown" && coords && typeof window !== "undefined" && window.innerWidth >= 768 ? {
-          position: "absolute",
-          top: coords.top + 8,
-          left: coords.left,
-          margin: 0,
-        } : {}}
+        style={
+          type === "dropdown" &&
+          coords &&
+          typeof window !== "undefined" &&
+          window.innerWidth >= 768
+            ? {
+                position: "absolute",
+                top: coords.top + 8,
+                left: coords.left,
+                margin: 0,
+              }
+            : {}
+        }
       >
         {children}
       </div>
     </div>,
-    document.body
+    document.body,
   );
 }

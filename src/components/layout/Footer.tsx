@@ -1,11 +1,6 @@
 "use client";
 import Logo from "@/components/ui/Logo";
-import {
-  FaXTwitter,
-  FaLinkedinIn,
-  FaInstagram,
-  FaYoutube,
-} from "react-icons/fa6";
+import { FaInstagram, FaTelegram } from "react-icons/fa6";
 import Link from "next/link";
 import { useState } from "react";
 import { FiChevronDown } from "react-icons/fi";
@@ -36,12 +31,6 @@ export function Footer() {
             <div className="flex gap-2.5">
               <a
                 className="w-9 h-9 md:w-10 md:h-10 border border-cream/10 rounded-full flex items-center justify-center text-lg cursor-pointer transition-all duration-300 text-cream/40 hover:border-gold hover:text-gold hover:bg-gold/5"
-                href="#"
-              >
-                <FaXTwitter className="w-3.5 h-3.5 md:w-4 md:h-4" />
-              </a>
-              <a
-                className="w-9 h-9 md:w-10 md:h-10 border border-cream/10 rounded-full flex items-center justify-center text-lg cursor-pointer transition-all duration-300 text-cream/40 hover:border-gold hover:text-gold hover:bg-gold/5"
                 href="https://www.instagram.com/safir_hotell/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -50,15 +39,11 @@ export function Footer() {
               </a>
               <a
                 className="w-9 h-9 md:w-10 md:h-10 border border-cream/10 rounded-full flex items-center justify-center text-lg cursor-pointer transition-all duration-300 text-cream/40 hover:border-gold hover:text-gold hover:bg-gold/5"
-                href="#"
+                href="https://t.me/safir_hotel"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <FaLinkedinIn className="w-3.5 h-3.5 md:w-4 md:h-4" />
-              </a>
-              <a
-                className="w-9 h-9 md:w-10 md:h-10 border border-cream/10 rounded-full flex items-center justify-center text-lg cursor-pointer transition-all duration-300 text-cream/40 hover:border-gold hover:text-gold hover:bg-gold/5"
-                href="#"
-              >
-                <FaYoutube className="w-3.5 h-3.5 md:w-4 md:h-4" />
+                <FaTelegram className="w-3.5 h-3.5 md:w-4 md:h-4" />
               </a>
             </div>
           </div>
@@ -70,7 +55,7 @@ export function Footer() {
             onClick={() => toggleSection("explore")}
             className="flex items-center justify-between w-full md:cursor-default md:pointer-events-none group"
           >
-            <h4 className="font-jost text-[10px] tracking-[4px] uppercase text-gold mb-5 md:mb-6 font-normal py-2.5 md:py-0">
+            <h4 className="font-jost text-[13px] md:text-[10px] tracking-[3px] md:tracking-[4px] uppercase text-gold mb-5 md:mb-6 font-normal py-2.5 md:py-0">
               {t("explore")}
             </h4>
             <FiChevronDown
@@ -129,7 +114,7 @@ export function Footer() {
             onClick={() => toggleSection("services")}
             className="flex items-center justify-between w-full md:cursor-default md:pointer-events-none group"
           >
-            <h4 className="font-jost text-[10px] tracking-[4px] uppercase text-gold mb-5 md:mb-6 font-normal py-2.5 md:py-0">
+            <h4 className="font-jost text-[13px] md:text-[10px] tracking-[3px] md:tracking-[4px] uppercase text-gold mb-5 md:mb-6 font-normal py-2.5 md:py-0">
               {t("services")}
             </h4>
             <FiChevronDown
@@ -180,7 +165,7 @@ export function Footer() {
             onClick={() => toggleSection("legal")}
             className="flex items-center justify-between w-full md:cursor-default md:pointer-events-none group"
           >
-            <h4 className="font-jost text-[10px] tracking-[4px] uppercase text-gold mb-5 md:mb-6 font-normal py-2.5 md:py-0">
+            <h4 className="font-jost text-[13px] md:text-[10px] tracking-[3px] md:tracking-[4px] uppercase text-gold mb-5 md:mb-6 font-normal py-2.5 md:py-0">
               {t("legal")}
             </h4>
             <FiChevronDown

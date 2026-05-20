@@ -86,7 +86,7 @@ export function Location() {
         <div className="w-full aspect-4/3 bg-[#e8e0d0] relative overflow-hidden shadow-[0_8px_40px_rgba(176,113,55,0.12)]">
           <iframe
             suppressHydrationWarning
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3036.877!2d71.782!3d40.369!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDIyJzA4LjAiTiA3McKwNDYnNTcuMSJF!5e0!3m2!1sen!2s!4v1234567890"
+            src="https://www.google.com/maps?q=40.3693934,71.7868168&hl=en&z=17&output=embed"
             className="w-full h-full border-none sepia-[0.1] contrast-[1.1] grayscale-[0.2]"
             allowFullScreen={false}
             loading="lazy"

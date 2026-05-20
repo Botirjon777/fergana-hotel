@@ -3,7 +3,6 @@ import { navLinks } from "@/lib/data";
 import { usePopup } from "@/lib/PopupContext";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FiChevronDown } from "react-icons/fi";
 import { IoIosClose } from "react-icons/io";
@@ -11,7 +10,6 @@ import { Button } from "@/components/ui/Button";
 
 export function MobileSidebar() {
   const { isSidebarOpen, closeSidebar, openPopup } = usePopup();
-  const router = useRouter();
   const t = useTranslations("Navbar");
   const [openSubMenu, setOpenSubMenu] = useState<string | null>(null);
 
@@ -26,7 +24,7 @@ export function MobileSidebar() {
         onClick={closeSidebar}
       />
       <div
-        className={`fixed top-0 right-0 bottom-0 w-[320px] bg-cream z-2000 px-10 pt-[100px] pb-10 flex flex-col gap-8 shadow-[-10px_0_50px_rgba(26,17,8,0.2)] transition-all duration-500 ease-in-out ${isSidebarOpen ? "translate-x-0" : "translate-x-full"}`}
+        className={`fixed top-0 right-0 bottom-0 w-[320px] bg-cream z-2000 px-10 pt-25 pb-10 flex flex-col gap-8 shadow-[-10px_0_50px_rgba(26,17,8,0.2)] transition-all duration-500 ease-in-out ${isSidebarOpen ? "translate-x-0" : "translate-x-full"}`}
       >
         <button
           className="absolute top-7 right-7 w-12 h-12 cursor-pointer flex items-center justify-center text-gold bg-transparent border-none hover:rotate-90 transition-transform duration-300"

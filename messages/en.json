@@ -61,11 +61,11 @@
     "heartOfEverything": "At the Heart of Fergana",
     "subtext": "Our hotel is conveniently located in the heart of Fergana city, near major attractions and main transport arteries. You can easily reach us by car, taxi or public transport. Use the map to build the most convenient route.",
     "address": "Address",
-    "addressText": "30 B Moturudiy Str., Fergana, Uzbekistan",
+    "addressText": "Farg'ona shahar, Moturudiy ko'chasi, 30V/2 (9Q9P+QP)",
     "reservations": "Reservations",
-    "phone": "+998 73 226 00 77",
+    "phone": "+998 94 559 00 77",
     "email": "Email",
-    "emailAddress": "ferghanahotel@gmail.com",
+    "emailAddress": "safirhotel2024@gmail.com",
     "checkInOut": "Check-in / Check-out",
     "checkInOutValue": "From 14:00 / Until 12:00"
   },
@@ -414,15 +414,7 @@
       "November",
       "December"
     ],
-    "weekDays": [
-      "Mo",
-      "Tu",
-      "We",
-      "Th",
-      "Fr",
-      "Sa",
-      "Su"
-    ],
+    "weekDays": ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"],
     "checkInOut": "Check-in — Check-out",
     "selectDates": "Select Dates",
     "chooseStayDates": "Choose your stay dates",

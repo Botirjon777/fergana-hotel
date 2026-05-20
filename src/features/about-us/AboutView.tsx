@@ -186,7 +186,7 @@ export default function AboutView() {
 
         <div className="w-full aspect-video md:aspect-21/9 bg-[#e8e0d0] relative overflow-hidden shadow-[0_20px_80px_rgba(0,0,0,0.1)] border border-sand/20">
           <iframe
-            src="https://yandex.com/map-widget/v1/?ll=71.789258%2C40.371206&z=16&pt=71.789258%2C40.371206%2Cpm2rdm"
+            src="https://www.google.com/maps?q=40.3693934,71.7868168&hl=en&z=17&output=embed"
             className="w-full h-full border-none grayscale-[0.2] contrast-[1.1]"
             allowFullScreen={true}
           ></iframe>

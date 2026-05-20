@@ -37,10 +37,10 @@ export function WelcomePopup() {
     <Modal
       isOpen={activePopup === "welcome-popup"}
       onClose={closePopup}
-      type="center"
+      type="full"
       id="welcome-popup-modal"
     >
-      <div className="bg-[#1a1108] w-full max-w-[600px] relative overflow-hidden border border-white/10 shadow-2xl">
+      <div className="bg-[#1a1108] w-full max-w-150 relative overflow-hidden border border-white/10 shadow-2xl">
         {/* Background Image with Overlays */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -60,12 +60,12 @@ export function WelcomePopup() {
           ✕
         </button>
 
-        <div className="relative z-1">
-          <div className="welcome-top-star px-6 py-12 md:px-12 md:pt-[60px] md:pb-10 text-center relative overflow-hidden">
-            <h2 className="text-5xl font-light text-white mb-2 relative z-1 drop-shadow-lg">
+        <div className="relative z-10">
+          <div className="welcome-top-star px-6 py-12 md:px-12 md:pt-15 md:pb-10 text-center relative overflow-hidden">
+            <h2 className="text-5xl font-light text-white mb-2 relative z-10 drop-shadow-lg">
               {t("title")}
             </h2>
-            <p className="text-sm text-white/75 font-light tracking-[1px] relative z-1">
+            <p className="text-sm text-white/75 font-light tracking-[1px] relative z-10">
               {t("subtitle")}
             </p>
           </div>
@@ -101,4 +101,3 @@ export function WelcomePopup() {
     </Modal>
   );
 }
-

@@ -61,11 +61,11 @@
     "heartOfEverything": "Farg'ona markazida",
     "subtext": "Mehmonxonamiz Farg'ona shahrining qoq markazida, asosiy diqqatga sazovor joylar va transport yo'llari yaqinida joylashgan. Bizga avtomobil, taksi yoki jamoat transportida osonlik bilan yetib kelishingiz mumkin.",
     "address": "Manzil",
-    "addressText": "Farg'ona sh., Moturudiy ko'chasi 30 B",
+    "addressText": "Farg'ona shahar, Moturudiy ko'chasi, 30V/2 (9Q9P+QP)",
     "reservations": "Bron qilish",
-    "phone": "+998 73 226 00 77",
+    "phone": "+998 94 559 00 77",
     "email": "Email",
-    "emailAddress": "ferghanahotel@gmail.com",
+    "emailAddress": "safirhotel2024@gmail.com",
     "checkInOut": "Kirish / Chiqish",
     "checkInOutValue": "14:00 dan / 12:00 gacha"
   },
@@ -414,15 +414,7 @@
       "Noyabr",
       "Dekabr"
     ],
-    "weekDays": [
-      "Du",
-      "Se",
-      "Ch",
-      "Pa",
-      "Ju",
-      "Sh",
-      "Ya"
-    ],
+    "weekDays": ["Du", "Se", "Ch", "Pa", "Ju", "Sh", "Ya"],
     "checkInOut": "Kirish — Chiqish",
     "selectDates": "Sanalarni tanlang",
     "chooseStayDates": "Yashash sanalarini tanlang",

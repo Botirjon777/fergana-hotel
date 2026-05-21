@@ -45,8 +45,8 @@
     "storyTitle1": "Sizning qulayligingiz",
     "storyTitleEm": "uchun",
     "storyTitle2": "qurilgan mehmonxona",
-    "description1": "Safir mehmonxonasi aniq bir maqsad bilan tashkil etilgan: har bir mehmonni iliq qabul qilish, qulay xona va e'tiborli xizmat ko'rsatish. Farg'ona shahrining qulay hududida joylashgan bo'lib, ish safarilari va dam olish uchun bir xil darajada mos keladi.",
-    "description2": "Bizning 87 ta xonamizning har biri g'amxo'rlik bilan jihozlangan — qulay yotoqlar, sifatli choyshab-ko'rpalar, zamonaviy qulayliklar va tinch muhit, dam olishga va kuchni tiklashga yordam beradi. Safirda biz yaxshi mehmondo'stlik — bu uyda o'zingizni his qilishingizni ta'minlaydigan tafsilotlarga e'tibordan iborat deb hisoblaymiz.",
+    "description1": "Safir mehmonxonasi aniq bir maqsad bilan tashkil etilgan: har bir mehmonni iliq qabul qilish, qulay xona va e'tiborli xizmat ko'rsatish. Farg'ona shahrining qulay hududida joylashgan bo'lib, ish safarlari va dam olish uchun bir xil darajada mos keladi.",
+    "description2": "Bizning 63 ta xonamizning har biri did bilan jihozlangan — qulay yotoqlar, sifatli choyshab-ko'rpalar, zamonaviy qulayliklar va tinch muhit, dam olishga va kuchni tiklashga yordam beradi. Safirda biz yaxshi mehmondo'stlik — bu uyda o'zingizni his qilishingizni ta'minlaydigan tafsilotlarga e'tibordan iborat deb hisoblaymiz.",
     "stats": {
       "rooms": "Xonalar va lyukslar",
       "dining": "Ovqatlanish joylari",
@@ -118,15 +118,15 @@
     "throughOur": "Bizning",
     "spaces": "Joylarimiz",
     "viewFullGallery": "To'liq galereyani ko'rish",
-    "description": "Xonalarimiz, zallarimiz va mehmonxona hududlarini ko'rib chiqing — har bir joy sizning qulayligingiz haqida o'ylangan.",
+    "description": "Xonalarimiz, zallarimiz va mehmonxona hududlarini ko'rib chiqing.",
     "roomType": "Xona turi",
     "exploreGallery": "Galereyani ko'rish",
-    "conferenceLabel": "Konferentsiya zali"
+    "conferenceLabel": "Konferensiya zali"
   },
   "Welcome": {
     "title": "Xush Kelibsiz",
     "subtitle": "Farg'onada qulaylik va sifatli xizmat",
-    "description": "Safir mehmonxonasi qulay jihozlangan xonalar, e'tiborli xodimlar va qulay hamda yoqimli dam olish uchun zarur bo'lgan barcha narsalarni taklif etadi.",
+    "description": "Safir mehmonxonasi qulay jihozlangan xonalar, e'tiborli xodimlar hamda yoqimli dam olish uchun zarur bo'lgan barcha narsalarni taklif etadi.",
     "explore": "Mehmonxonani Ko'rish",
     "book": "Band Qilish"
   },
@@ -171,7 +171,7 @@
   },
   "AboutPage": {
     "title": "Safir Hotel haqida",
-    "welcome": "Safir mehmonxonasiga xush kelibsiz — qulaylik va uslub yuqori darajadagi xizmat bilan uyg'unlashgan joy. Mehmonxonamiz Farg'ona shahrining qulay hududida joylashgan bo'lib, ish safarilari va dam olish uchun ajoyib tanlovdir. Biz mehmonlarga qulay xonalar, zamonaviy qulayliklar va to'liq dam olishga yordam beradigan muhitni taqdim etamiz. Safir mehmonxonasida biz har bir mehmon haqida qayg'uramiz: bepul Wi-Fi, restoran, 24 soatlik qabulxona va boshqa qulayliklar — hammasi qulay yashash uchun. Har bir xona tafsilotlarga e'tibor bilan jihozlangan, turli xil tariflarimiz esa har qanday sayohatchiga mos keladi. Biz bilan qoling va Safir mehmonxonasida qolishingizni unutilmas qiladigan mehmondo'stlikdan zavqlaning.",
+    "welcome": "Safir mehmonxonasiga xush kelibsiz — qulaylik va uslub yuqori darajadagi xizmat bilan uyg'unlashgan joy. Mehmonxonamiz Farg'ona shahrining qulay hududida joylashgan bo'lib, ish safarlari va dam olish uchun ajoyib tanlovdir. Biz mehmonlarga qulay xonalar, zamonaviy qulayliklar va to'liq dam olishga yordam beradigan muhitni taqdim etamiz. Safir mehmonxonasida biz har bir mehmon haqida qayg'uramiz: bepul Wi-Fi, restoran, 24 soatlik qabulxona va boshqa qulayliklar — hammasi qulay dam olish uchun. Har bir xona did bilan jihozlangan, turli xil tariflarimiz esa har qanday sayohatchiga mos keladi. Biz bilan qoling va Safir mehmonxonasida qolishingizni unutilmas qiladigan mehmondo'stlikdan zavqlaning.",
     "termsTitle": "Yashash shartlari",
     "earlyCheckIn": "Erta kirish:",
     "early1": "00:00 dan 05:59 gacha — bir kecha narxining 100% miqdorida qo'shimcha to'lov.",
@@ -232,7 +232,7 @@
       },
       "standart": {
         "title": "Standart bir kishilik xona",
-        "description": "Yolg'iz sayohatchi uchun qulay variant: 2.10 × 1.00 m o'lchamdagi yotoq va qulay hamda tinch qolish uchun barcha zaruriy jihozlar.",
+        "description": "Yolg'iz sayohatchi uchun qulay variant: 2.10 × 1.00 m o'lchamdagi yotoq, tinch dam olish uchun barcha zaruriy jihozlar.",
         "capacity": "1 Kattalar",
         "size": "15m²"
       },
@@ -266,7 +266,7 @@
       "smart-in-room-service": {
         "title": "Safir mehmonxonasi xona xizmati ilovasini taqdim etadi",
         "excerpt": "Safir mehmonxonasi har bir mehmonning qolishini tezroq, osonroq va qulayroq qilish uchun yaratilgan yangi zamonaviy In-Room Service ilovasini taqdim etishdan faxrlanadi.",
-        "content": "Safir mehmonxonasi raqamli qulaylik va zamonaviy mehmondo'stlik yechimlari orqali har bir mehmonning qolishini tezroq, osonroq va qulayroq qilish uchun yaratilgan yangi zamonaviy In-Room Service ilovasini taqdim etishdan faxrlanadi.\n\nYangi platforma mehmonlarga har bir xonaga joylashtirilgan noyob QR kodni skanerlash orqali to'g'ridan-to'g'ri smartfonlaridan mehmonxona xizmatlaridan foydalanish imkonini beradi. Ilova qulay interfeysga ega bo'lib, dunyoning eng ko'p ishlatiladigan 10 ta tilida mavjud — mahalliy va xalqaro sayohatchilar uchun qulay.\n\nYangi tizim yordamida mehmonlar qabulxonaga qo'ng'iroq qilmasdan xodimlar bilan bog'lanishlari va xizmat so'rashlari mumkin. Ilova quyidagi imkoniyatlarni o'z ichiga oladi:\n- Uyg'otish xizmati – kerakli vaqtni ilova orqali belgilash mumkin.\n- Taksi chaqirish – aeroport transferlari, shahar sayohatlari yoki ishbilarmonlik uchrashuvlari uchun.\n- Muammo haqida xabar berish – qolish davomida yuzaga kelgan muammolarni ilova orqali darhol bildirish.\n- Sharhlar bo'limi – Google, Yandex, TripAdvisor va boshqa platformalarda fikr qoldirish.\n- Qo'shimcha xizmatlar – bolalar beshigi, aeroport transferi, konferentsiya zali bron qilish va boshqalar.\n\nPlatformaning asosiy xususiyatlaridan biri har kuni 10:00 dan 22:00 gacha mavjud bo'lgan raqamli restoran menyusidir. Ilova orqali mehmonlar restoran taklif qiladigan taomlar va ichimliklarning keng tanlovini ko'rishlari mumkin:\n- Yangi salatlar\n- Birinchi taomlar va sho'rvalar\n- Issiq gazaklar\n- Asosiy taomlar\n- Pasta va spagetti\n- Shirinliklar\n- Choy va qahva\n- Gazaklar va tezkor taomlar\n- Moxito va sutli kokteyllar\n- Va boshqa ko'plab mazali taomlar\n\nUshbu platformaning ishga tushirilishi Safir mehmonxonasining innovatsiyalar va xizmat sifatiga sodiqligini aks ettiradi. Mehmonxona har bir mehmon uchun qulayroq va shaxsiylashtirilgan tajriba yaratishni maqsad qiladi."
+        "content": "Safir mehmonxonasi raqamli qulaylik va zamonaviy mehmondo'stlik yechimlari orqali har bir mehmonning qolishini tezroq, osonroq va qulayroq qilish uchun yaratilgan yangi zamonaviy In-Room Service ilovasini taqdim etishdan faxrlanadi.\n\nYangi platforma mehmonlarga har bir xonaga joylashtirilgan noyob QR kodni skanerlash orqali to'g'ridan-to'g'ri smartfonlaridan mehmonxona xizmatlaridan foydalanish imkonini beradi. Ilova qulay interfeysga ega bo'lib, dunyoning eng ko'p ishlatiladigan 10 ta tilida mavjud — mahalliy va xalqaro sayohatchilar uchun qulay.\n\nYangi tizim yordamida mehmonlar qabulxonaga qo'ng'iroq qilmasdan xodimlar bilan bog'lanishlari va xizmat so'rashlari mumkin. Ilova quyidagi imkoniyatlarni o'z ichiga oladi:\n- Uyg'otish xizmati – kerakli vaqtni ilova orqali belgilash mumkin.\n- Taksi chaqirish – aeroport transferlari, shahar sayohatlari yoki ishbilarmonlik uchrashuvlari uchun.\n- Muammo haqida xabar berish – qolish davomida yuzaga kelgan muammolarni ilova orqali darhol bildirish.\n- Sharhlar bo'limi – Google, Yandex, TripAdvisor va boshqa platformalarda fikr qoldirish.\n- Qo'shimcha xizmatlar – bolalar beshigi, aeroport transferi, konferensiya zali bron qilish va boshqalar.\n\nPlatformaning asosiy xususiyatlaridan biri har kuni 10:00 dan 22:00 gacha mavjud bo'lgan raqamli restoran menyusidir. Ilova orqali mehmonlar restoran taklif qiladigan taomlar va ichimliklarning keng tanlovini ko'rishlari mumkin:\n- Yangi salatlar\n- Birinchi taomlar va sho'rvalar\n- Issiq gazaklar\n- Asosiy taomlar\n- Pasta va spagetti\n- Shirinliklar\n- Choy va qahva\n- Gazaklar va tezkor taomlar\n- Moxito va sutli kokteyllar\n- Va boshqa ko'plab mazali taomlar\n\nUshbu platformaning ishga tushirilishi Safir mehmonxonasining innovatsiyalar va xizmat sifatiga sodiqligini aks ettiradi. Mehmonxona har bir mehmon uchun qulayroq va shaxsiylashtirilgan tajriba yaratishni maqsad qiladi."
       }
     }
   },
@@ -295,8 +295,8 @@
   "Meetings": {
     "title": "Uchrashuvlar va tadbirlar",
     "subtitle": "Har qanday tadbir uchun professional joylar",
-    "conferenceTitle": "Konferentsiya zallari",
-    "conferenceDesc": "Ishbilarmonlik uchrashuvlari, seminarlar va xususiy tadbirlar uchun moslashuvchan joylar. Kichik guruhlardan tortib kattaroq tadbirlargacha — zalamiz kerakli texnika va yordamchi xizmatlar bilan jihozlangan. 22, 32 va 52 kishilik konferentsiya zallari mavjud.",
+    "conferenceTitle": "Konferensiya zallari",
+    "conferenceDesc": "Biznes uchrashuvlari, seminarlar va xususiy tadbirlar uchun moslashuvchan joylar. Kichik guruhlardan tortib kattaroq tadbirlargacha — zalamiz kerakli texnika va qurulmalar bilan jihozlangan. 22, 32 va 52 kishilik konferensiya zallari mavjud.",
     "rooms": {
       "executiveSuite": "Ekspertlar zali",
       "boardroom": "Muzokaralar xonasi",
@@ -319,7 +319,7 @@
     "subtitle": "Sizning qulayligingiz — bizning ustuvorligimiz",
     "roomStayTitle": "Yashash davridagi xizmatlar",
     "laundryTitle": "Kir yuvish xizmati",
-    "laundryDesc": "Kiyimlaringizni yuvish va dazmollash xizmatini taqdim etamiz — tez va sifatli. Narxni va buyurtma berish uchun administrator bilan bog'laning.",
+    "laundryDesc": "Kiyimlaringizni yuvish va dazmollash xizmatini taqdim etamiz — tez va sifatli. Narxni va buyurtma berish haqida ma'lumot uchun administrator bilan bog'laning.",
     "billiardTitle": "Bilyard",
     "billiardDesc": "Mehmonxonamizning qulay muhitida bilyard o'ynashdan zavqlaning. Band kundan keyin dam olish yoki do'stlar bilan vaqt o'tkazish uchun ajoyib joy.",
     "wifiTitle": "Yuqori tezlikdagi Wi-Fi",
@@ -370,7 +370,7 @@
       "nightstand": "Tumbochka",
       "desk": "Ish stoli",
       "armchair": "Kreslo",
-      "safe": "Seif",
+      "safe": "Xavfsizlik",
       "pool": "Yopiq suzish havzasi",
       "disabled": "Imkoniyati cheklanganlar uchun qulayliklar",
       "centralAc": "Markaziy konditsioner",
@@ -397,7 +397,7 @@
     "spaTitle": "Fitnes va SPA",
     "spaDesc": "Zamonaviy jihozlar va fitnes zal.",
     "meetingsTitle": "Uchrashuvlar va tadbirlar",
-    "meetingsDesc": "Ishbilarmonlik uchrashuvlari va tadbirlar uchun to'liq jihozlangan konferentsiya zallari."
+    "meetingsDesc": "Biznes uchrashuvlari va tadbirlar uchun to'liq jihozlangan konferensiya zallari."
   },
   "DatePicker": {
     "months": [

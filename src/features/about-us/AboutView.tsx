@@ -54,6 +54,7 @@ export default function AboutView() {
               src="/images/hotel/rooms/lux/king/2.jpg"
               alt="Safir Hotel Interior"
               fill
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover"
               priority
             />

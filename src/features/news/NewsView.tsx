@@ -59,11 +59,15 @@ export default function NewsView() {
       <section className="py-5 px-5 md:px-6 max-w-[1200px] mx-auto">
         <div className="flex justify-end mb-6">
           <div className="flex items-center gap-3">
-            <span className="text-xs font-jost text-text-mid uppercase tracking-[2px]">{t("sortBy")}:</span>
+            <span className="text-xs font-jost text-text-mid uppercase tracking-[2px]">
+              {t("sortBy")}:
+            </span>
             <div className="relative">
               <select
                 value={sortOrder}
-                onChange={(e) => setSortOrder(e.target.value as "newest" | "oldest")}
+                onChange={(e) =>
+                  setSortOrder(e.target.value as "newest" | "oldest")
+                }
                 className="bg-white border border-sand/20 text-text-dark font-jost text-sm py-2 pl-4 pr-10 focus:outline-none focus:border-gold transition-colors appearance-none cursor-pointer rounded-none min-w-[150px]"
               >
                 <option value="newest">{t("newestFirst")}</option>
@@ -92,6 +96,7 @@ export default function NewsView() {
                     src={item.image}
                     alt={t(`items.${item.id}.title`)}
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1.5 flex items-center gap-2 shadow-sm">

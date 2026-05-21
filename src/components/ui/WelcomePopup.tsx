@@ -47,6 +47,7 @@ export function WelcomePopup() {
             src="/images/hotel/general/reception.webp"
             alt="Welcome to Safir Hotel"
             fill
+            sizes="100vw"
             className="object-cover opacity-50"
             priority
           />

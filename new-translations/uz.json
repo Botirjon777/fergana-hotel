@@ -18,7 +18,7 @@
   },
   "Hero": {
     "titlePart1": "— Safir Hotel —",
-    "titleEm": "qulaylik va nafosatning",
+    "titleEm": "qulaylik va nafosat",
     "titlePart2": "uyg'unligi",
     "reserveStay": "Dam olishni band qiling",
     "discoverMore": "Batafsil ma'lumot",
@@ -57,9 +57,9 @@
     "stars": "3 Yulduz"
   },
   "Location": {
-    "findUs": "Bizni toping",
+    "findUs": "Joylashuv Manzilimiz",
     "heartOfEverything": "Farg'ona markazida",
-    "subtext": "Mehmonxonamiz Farg'ona shahrining qoq markazida, asosiy diqqatga sazovor joylar va transport yo'llari yaqinida joylashgan. Bizga avtomobil, taksi yoki jamoat transportida osonlik bilan yetib kelishingiz mumkin.",
+    "subtext": "Mehmonxonamiz Farg'ona shahrining qoq markazida, diqqatga sazovor joylar va asosiy transport yo'llari yaqinida joylashgan. Bizga avtomobil, taksi yoki jamoat transportida osonlik bilan yetib kelishingiz mumkin.",
     "address": "Manzil",
     "addressText": "Farg'ona shahar, Moturudiy ko'chasi, 30V/2 (9Q9P+QP)",
     "reservations": "Bron qilish",
@@ -74,7 +74,7 @@
     "allAmenities": "Barcha qulayliklar",
     "slides": {
       "hotel-day": {
-        "subtitle": "Safirga xush kelibsiz",
+        "subtitle": "Safirga xush kelibsiz!",
         "title": "O'zingizni uydagidek his qiling"
       },
       "hotel-night": {
@@ -103,7 +103,7 @@
       }
     },
     "title": "Sizning",
-    "subtitle": "Qulayligingiz va Rohatingiz Uchun",
+    "subtitle": "Qulayligingiz va Osoyishtaligingiz Uchun",
     "amenities": {
       "breakfast": "Shved stoli nonushtasi",
       "wifi": "Bepul WiFi",
@@ -124,7 +124,7 @@
     "conferenceLabel": "Konferensiya zali"
   },
   "Welcome": {
-    "title": "Xush Kelibsiz",
+    "title": "Xush Kelibsiz!",
     "subtitle": "Farg'onada qulaylik va sifatli xizmat",
     "description": "Safir mehmonxonasi qulay jihozlangan xonalar, e'tiborli xodimlar hamda yoqimli dam olish uchun zarur bo'lgan barcha narsalarni taklif etadi.",
     "explore": "Mehmonxonani Ko'rish",
@@ -319,7 +319,7 @@
     "subtitle": "Sizning qulayligingiz — bizning ustuvorligimiz",
     "roomStayTitle": "Yashash davridagi xizmatlar",
     "laundryTitle": "Kir yuvish xizmati",
-    "laundryDesc": "Kiyimlaringizni yuvish va dazmollash xizmatini taqdim etamiz — tez va sifatli. Narxni va buyurtma berish haqida ma'lumot uchun administrator bilan bog'laning.",
+    "laundryDesc": "Kiyimlaringizni yuvish va dazmollash xizmatini taqdim etamiz — tez va sifatli. Narxni bilish va buyurtma berish haqida ma'lumot uchun administrator bilan bog'laning.",
     "billiardTitle": "Bilyard",
     "billiardDesc": "Mehmonxonamizning qulay muhitida bilyard o'ynashdan zavqlaning. Band kundan keyin dam olish yoki do'stlar bilan vaqt o'tkazish uchun ajoyib joy.",
     "wifiTitle": "Yuqori tezlikdagi Wi-Fi",

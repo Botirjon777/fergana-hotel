@@ -40,13 +40,14 @@ export function WelcomePopup() {
       type="full"
       id="welcome-popup-modal"
     >
-      <div className="bg-[#1a1108] w-full max-w-150 relative overflow-hidden border border-white/10 shadow-2xl">
+      <div className="bg-[#1a1108] w-screen h-[100dvh] flex flex-col items-center justify-center relative overflow-hidden">
         {/* Background Image with Overlays */}
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/hotel/general/reception.webp"
             alt="Welcome to Safir Hotel"
             fill
+            sizes="100vw"
             className="object-cover opacity-50"
             priority
           />
@@ -54,13 +55,13 @@ export function WelcomePopup() {
         </div>
 
         <button
-          className="absolute top-4 right-4 bg-white/20 border-none text-white w-8 h-8 rounded-full cursor-pointer text-base z-10 hover:bg-white/30 transition-colors"
+          className="absolute top-6 right-6 md:top-10 md:right-10 bg-white/20 border-none text-white w-10 h-10 rounded-full cursor-pointer text-lg z-10 hover:bg-white/30 transition-colors flex items-center justify-center"
           onClick={closePopup}
         >
           ✕
         </button>
 
-        <div className="relative z-10">
+        <div className="relative z-10 w-full max-w-150">
           <div className="welcome-top-star px-6 py-12 md:px-12 md:pt-15 md:pb-10 text-center relative overflow-hidden">
             <h2 className="text-5xl font-light text-white mb-2 relative z-10 drop-shadow-lg">
               {t("title")}

@@ -54,6 +54,7 @@ export default function AboutView() {
               src="/images/hotel/rooms/lux/king/2.jpg"
               alt="Safir Hotel Interior"
               fill
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover"
               priority
             />
@@ -61,7 +62,7 @@ export default function AboutView() {
           <div className="space-y-5">
             <div className="w-12 h-px bg-gold"></div>
             <p className="font-jost text-lg md:text-xl font-light leading-relaxed text-text-mid italic">
-              "{t("welcome")}"
+              &ldquo;{t("welcome")}&rdquo;
             </p>
           </div>
         </div>

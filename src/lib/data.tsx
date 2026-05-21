@@ -25,7 +25,14 @@ export const navLinks = [
   { label: "Reviews", href: "/reviews" },
 ];
 
-export const newsItems = [
+export interface NewsItem {
+  id: string;
+  date: string;
+  image: string;
+  pdfUrl?: string;
+}
+
+export const newsItems: NewsItem[] = [
   {
     id: "smart-in-room-service",
     date: "2026-01-01",

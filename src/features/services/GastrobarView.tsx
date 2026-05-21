@@ -48,6 +48,7 @@ export default function GastrobarView() {
               src="/images/hotel/general/breakfast.webp"
               alt={t("breakfastTitle")}
               fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"
             />
           </div>
@@ -86,6 +87,7 @@ export default function GastrobarView() {
               src="/images/hotel/general/restaurant.webp"
               alt="Restaurant"
               fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"
             />
           </div>
@@ -100,6 +102,7 @@ export default function GastrobarView() {
               src="/images/hotel/general/restaurant-2.webp"
               alt="Gastrobar Interior"
               fill
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover hover:scale-105 transition-transform duration-700"
             />
           </div>
@@ -108,6 +111,7 @@ export default function GastrobarView() {
               src="/images/hotel/general/reception-2.webp"
               alt="Bar Service"
               fill
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover hover:scale-105 transition-transform duration-700"
             />
           </div>

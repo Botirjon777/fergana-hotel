@@ -57,6 +57,7 @@ export default function SpaView() {
               src="/images/hotel/general/pool.webp"
               alt={t("poolTitle")}
               fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"
             />
           </div>
@@ -71,6 +72,7 @@ export default function SpaView() {
               src="/images/hotel/general/billiard.webp"
               alt={t("fitnessTitle")}
               fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
             />
             {/* Note: I'm using billiard image as a placeholder for fitness if not specifically available, 
@@ -91,9 +93,7 @@ export default function SpaView() {
                 <span className="text-gold font-cormorant text-xl block mb-1">
                   {t("modernCardio")}
                 </span>
-                <p className="text-xs text-text-mid">
-                  {t("modernCardioDesc")}
-                </p>
+                <p className="text-xs text-text-mid">{t("modernCardioDesc")}</p>
               </div>
               <div className="p-2.5 bg-white border border-gold/10">
                 <span className="text-gold font-cormorant text-xl block mb-1">

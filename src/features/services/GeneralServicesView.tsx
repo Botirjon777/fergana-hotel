@@ -117,6 +117,7 @@ export default function GeneralServicesView() {
                       src={service.image}
                       alt={service.title}
                       fill
+                      sizes="(min-width: 768px) 160px, 96px"
                       className="object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                   </div>
@@ -136,7 +137,8 @@ export default function GeneralServicesView() {
               </>
             );
 
-            const className = "flex flex-row gap-4 md:gap-8 items-center bg-white p-3 md:p-6 border border-sand shadow-sm hover:shadow-md hover:border-gold/30 transition-all group cursor-pointer";
+            const className =
+              "flex flex-row gap-4 md:gap-8 items-center bg-white p-3 md:p-6 border border-sand shadow-sm hover:shadow-md hover:border-gold/30 transition-all group cursor-pointer";
 
             return service.link ? (
               <Link href={service.link} key={i} className={className}>
@@ -173,7 +175,7 @@ export default function GeneralServicesView() {
             ))}
           </div>
 
-          <div 
+          <div
             className={`grid transition-all duration-500 ease-in-out overflow-hidden ${showAllAmenities ? "grid-rows-[1fr] opacity-100 mt-12" : "grid-rows-[0fr] opacity-0 mt-0"}`}
           >
             <div className="min-h-0">

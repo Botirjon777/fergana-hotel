@@ -26,7 +26,6 @@ async function optimizeImages() {
       const ext = path.extname(file);
       const basename = path.basename(file, ext);
       
-      const compressedJpgPath = path.join(dirPath, `${basename}-optimized${ext}`);
       const webpPath = path.join(dirPath, `${basename}.webp`);
 
       console.log(`Processing ${file}...`);

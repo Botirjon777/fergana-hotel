@@ -64,7 +64,7 @@ function getCache(key: string) {
   return data;
 }
 
-function setCache(key: string, data: any) {
+function setCache(key: string, data: unknown) {
   if (typeof window === "undefined") return;
   localStorage.setItem(key, JSON.stringify({
     data,
@@ -102,8 +102,8 @@ export function useRateSummary(language: string = 'ru') {
           setCache(cacheKey, json);
           setError(null);
         }
-      } catch (err: any) {
-        if (isMounted) setError(err);
+      } catch (err) {
+        if (isMounted) setError(err instanceof Error ? err : new Error(String(err)));
       } finally {
         if (isMounted) setIsLoading(false);
       }
@@ -146,8 +146,8 @@ export function useDetailedReviews(language: string = 'ru', limit: number = 10) 
           setCache(cacheKey, json);
           setError(null);
         }
-      } catch (err: any) {
-        if (isMounted) setError(err);
+      } catch (err) {
+        if (isMounted) setError(err instanceof Error ? err : new Error(String(err)));
       } finally {
         if (isMounted) setIsLoading(false);
       }
@@ -159,4 +159,5 @@ export function useDetailedReviews(language: string = 'ru', limit: number = 10) 
 
   return { data, isLoading, error };
 }
+
 

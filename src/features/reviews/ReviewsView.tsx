@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Navbar } from "@/components/layout/Navbar";
 import { MobileSidebar } from "@/components/layout/MobileSidebar";
 import { Footer } from "@/components/layout/Footer";
-import { useDetailedReviews, useRateSummary, Review } from "@/hooks/useReviews";
+import { useDetailedReviews, useRateSummary, Review, RateSummary } from "@/hooks/useReviews";
 import { useLocale, useTranslations } from "next-intl";
 import { FiChevronDown, FiArrowLeft } from "react-icons/fi";
 import { ReviewCard } from "./ReviewCard";
@@ -295,7 +295,7 @@ export default function ReviewsView() {
   );
 }
 
-function SummaryCard({ summary }: { summary: any }) {
+function SummaryCard({ summary }: { summary: RateSummary }) {
   const [showAll, setShowAll] = useState(false);
   const t = useTranslations("ReviewsPage");
   const categories = summary.providerRates;
@@ -326,7 +326,7 @@ function SummaryCard({ summary }: { summary: any }) {
         {/* Right Side: Bars */}
         <div className="flex-1 min-w-0">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 md:gap-x-12 gap-y-4">
-            {visibleCategories.map((cat: any, i: number) => (
+            {visibleCategories.map((cat, i: number) => (
               <div key={i}>
                 <div className="flex justify-between text-[9px] md:text-[10px] mb-1.5 uppercase tracking-widest font-medium">
                   <span className="text-white/80 truncate pr-2">
@@ -356,7 +356,7 @@ function SummaryCard({ summary }: { summary: any }) {
           >
             <div className="min-h-0">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 md:gap-x-12 gap-y-4">
-                {extraCategories.map((cat: any, i: number) => (
+                {extraCategories.map((cat, i: number) => (
                   <div key={i}>
                     <div className="flex justify-between text-[9px] md:text-[10px] mb-1.5 uppercase tracking-widest font-medium">
                       <span className="text-white/80 truncate pr-2">

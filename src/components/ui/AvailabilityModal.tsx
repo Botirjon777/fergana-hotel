@@ -99,17 +99,18 @@ export function AvailabilityModal() {
   const isOpen = activePopup === "availability-popup";
 
   useEffect(() => {
-    if (isOpen) {
-      // Defer state updates to avoid synchronous setState inside effect
-      const t = setTimeout(() => {
-        if (step !== 1) setStep(1);
-        setSelectionStep(0);
-        setTempCheckIn(checkIn);
-      }, 0);
+    if (!isOpen) return;
 
-      return () => clearTimeout(t);
-    }
-  }, [isOpen, checkIn, step]);
+    // Reset modal state only when it opens, not on every step change.
+    const t = setTimeout(() => {
+      setStep(1);
+      setSelectionStep(0);
+      setTempCheckIn(checkIn);
+    }, 0);
+
+    return () => clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isOpen]);
 
   const handleNext = () => {
     if (step === 1 && checkIn && checkOut) {
@@ -124,8 +125,8 @@ export function AvailabilityModal() {
   };
 
   const handleSearch = () => {
-    closePopup();
     router.push("/booking");
+    closePopup();
   };
 
   // Calendar Logic
@@ -152,6 +153,7 @@ export function AvailabilityModal() {
         setCheckIn(tempCheckIn!);
         setCheckOut(dateString);
         setSelectionStep(0);
+        setStep(2);
       }
     }
   };

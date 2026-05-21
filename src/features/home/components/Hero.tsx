@@ -8,16 +8,22 @@ import { useBookingStore } from "@/store/useBookingStore";
 import { ReviewsWidget } from "@/components/ui/ReviewsWidget";
 import { useRouter } from "next/navigation";
 
-import { usePopup } from "@/lib/PopupContext";
-
 export function Hero() {
-  const { openPopup } = usePopup();
   const containerRef = useRef<HTMLDivElement>(null);
   const t = useTranslations("Hero");
   const tb = useTranslations("Booking");
   const router = useRouter();
 
-  const { checkIn, checkOut, adults, childrenAges, setCheckIn, setCheckOut, setAdults, setChildrenAges } = useBookingStore();
+  const {
+    checkIn,
+    checkOut,
+    adults,
+    childrenAges,
+    setCheckIn,
+    setCheckOut,
+    setAdults,
+    setChildrenAges,
+  } = useBookingStore();
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -56,7 +62,11 @@ export function Hero() {
       <div className="relative z-2 text-center px-4 md:px-6 max-w-[1200px] w-full flex flex-col items-center pt-20 md:pt-24">
         <div className="max-w-[900px] mb-8 md:mb-12">
           <h1 className="font-cormorant text-[clamp(42px,10vw,110px)] font-light leading-[0.9] text-cream mb-5 md:mb-7 opacity-0 animate-[fadeUp_0.8s_0.5s_forwards]">
-            {t("titlePart1")} <em className="italic text-gold">{t("titleEm")}</em>
+            {t("titlePart1")}{" "}
+            <em className="italic text-gold">
+              <br />
+              {t("titleEm")}
+            </em>
             <br />
             {t("titlePart2")}
           </h1>
@@ -76,20 +86,26 @@ export function Hero() {
                 label={`${tb("checkIn")} — ${tb("checkOut")}`}
                 checkIn={checkIn}
                 checkOut={checkOut}
-                onChange={(inDate, outDate) => { setCheckIn(inDate); setCheckOut(outDate); }}
+                onChange={(inDate, outDate) => {
+                  setCheckIn(inDate);
+                  setCheckOut(outDate);
+                }}
                 className="flex-[1.5] w-full min-w-[280px]"
                 theme="light"
               />
               <GuestPicker
                 adults={adults}
                 childrenAges={childrenAges}
-                onChange={(a, c) => { setAdults(a); setChildrenAges(c); }}
+                onChange={(a, c) => {
+                  setAdults(a);
+                  setChildrenAges(c);
+                }}
                 className="flex-1 w-full"
                 theme="light"
               />
               <button
                 className="bg-gold hover:bg-gold-dark transition-all duration-300 text-white border-none px-6 md:px-10 font-jost text-[10px] md:text-[11px] tracking-[2px] md:tracking-[4px] uppercase cursor-pointer whitespace-nowrap self-end w-full lg:w-auto shadow-xl shadow-gold/20 font-bold active:scale-95 h-[58px] flex items-center justify-center"
-                onClick={() => openPopup("availability-popup")}
+                onClick={() => router.push("/booking")}
               >
                 {tb("checkAvailability")}
               </button>

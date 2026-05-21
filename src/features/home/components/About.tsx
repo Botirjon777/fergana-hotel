@@ -35,7 +35,7 @@ export function About() {
                   {stat.num}
                 </span>
                 <span className="text-[11px] tracking-[3px] uppercase text-text-mid font-medium">
-                  {t(`stats.${stat.key}` as any)}
+                  {t(`stats.${stat.key}` as Parameters<typeof t>[0])}
                 </span>
               </div>
             ))}

@@ -6,7 +6,12 @@ import { Footer } from "@/components/layout/Footer";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { newsItems } from "@/lib/data";
-import { FiCalendar, FiArrowRight, FiArrowLeft, FiDownload } from "react-icons/fi";
+import {
+  FiCalendar,
+  FiArrowRight,
+  FiArrowLeft,
+  FiDownload,
+} from "react-icons/fi";
 import { notFound } from "next/navigation";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/Button";
@@ -46,6 +51,7 @@ export default function NewsDetailView({ id }: NewsDetailViewProps) {
             src={item.image}
             alt={t(`items.${item.id}.title`)}
             fill
+            sizes="100vw"
             className="object-cover"
             priority
           />
@@ -82,9 +88,13 @@ export default function NewsDetailView({ id }: NewsDetailViewProps) {
               ))}
           </div>
 
-          {(item as any).pdfUrl && (
+          {item.pdfUrl && (
             <div className="mt-8 mb-4">
-              <a href={(item as any).pdfUrl} target="_blank" rel="noopener noreferrer">
+              <a
+                href={item.pdfUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Button variant="outline">
                   <FiDownload className="mr-2 w-4 h-4" />
                   {t("viewCertificate")}

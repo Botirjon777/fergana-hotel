@@ -14,9 +14,58 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const item = newsItems.find((n) => n.id === slug);
   
+  if (!item) {
+    return {
+      title: "News Article | Safir Hotel Fergana",
+      description: "Read the latest news and updates from Safir Hotel.",
+    };
+  }
+
+  let title = "";
+  let description = "";
+
+  if (item.id === "smart-in-room-service") {
+    title = "Innovative Smart In-Room Service Launched";
+    description = "Safir Hotel Fergana elevates guest experience with the introduction of intelligent smart in-room service controls and digital assistant systems.";
+  } else if (item.id === "quality-management-cert") {
+    title = "ISO 9001:2015 Quality Management System Certification";
+    description = "Safir Hotel Fergana achieves the prestigious ISO 9001:2015 certification, reflecting our commitment to premium service quality and guest satisfaction.";
+  } else if (item.id === "food-safety-cert") {
+    title = "ISO 22000:2018 Food Safety Management Certification";
+    description = "Safir Hotel Gastrobar receives the ISO 22000:2018 certification, confirming our absolute adherence to elite international food safety and culinary hygiene standards.";
+  } else {
+    title = item.id.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+    description = "Read this article to learn more about the latest news, announcements, and events at Safir Hotel Fergana.";
+  }
+
+  const imageUrl = item.image;
+
   return {
-    title: `${item ? item.id.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ') : 'News'} | Safir Hotel`,
-    description: "Read the latest news and updates from Safir Hotel.",
+    title,
+    description,
+    openGraph: {
+      type: "article",
+      title: `${title} | Safir Hotel Fergana`,
+      description,
+      url: `https://safirhotel.uz/news/${item.id}`,
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${title} | Safir Hotel Fergana`,
+      description,
+      images: [imageUrl],
+    },
+    alternates: {
+      canonical: `https://safirhotel.uz/news/${item.id}`,
+    },
   };
 }
 

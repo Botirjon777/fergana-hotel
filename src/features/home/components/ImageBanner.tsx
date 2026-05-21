@@ -69,7 +69,7 @@ const amenitiesList = [
   { icon: <FiTruck className="w-5 h-5" />, key: "shuttle" },
 ];
 
-function BannerImage({ img, priority }: { img: any; priority: boolean }) {
+function BannerImage({ img, priority }: { img: { src: string; alt: string; id: string }; priority: boolean }) {
   const [loading, setLoading] = useState(true);
 
   return (
@@ -112,7 +112,7 @@ export function ImageBanner() {
             <div key={i} className="flex items-center gap-4 text-text-dark">
               <div className="text-gold shrink-0">{item.icon}</div>
               <span className="text-[13px] font-medium tracking-[0.5px]">
-                {t(`amenities.${item.key}` as any)}
+                {t(`amenities.${item.key}` as Parameters<typeof t>[0])}
               </span>
             </div>
           ))}

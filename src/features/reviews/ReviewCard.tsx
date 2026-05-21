@@ -97,6 +97,7 @@ export function ReviewCard({ review, locale }: ReviewCardProps) {
               {review.authorName || "Guest"}
             </span>
             <div className="flex items-center gap-1.5 bg-white/10 px-2 py-0.5 rounded text-[10px] text-white/70">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={getFlagUrl(review.language)}
                 alt={review.language}

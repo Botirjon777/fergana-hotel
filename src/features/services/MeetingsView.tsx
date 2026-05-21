@@ -79,6 +79,7 @@ export default function MeetingsView() {
                   src={room.image}
                   alt={room.name}
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover grayscale hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
                 />
                 <div className="absolute bottom-0 left-0 right-0 p-5 bg-linear-to-t from-black to-transparent">

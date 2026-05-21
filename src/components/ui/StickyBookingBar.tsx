@@ -6,13 +6,12 @@ import { useTranslations } from "next-intl";
 import { GuestPicker } from "./form/GuestPicker";
 import { CustomDatePicker } from "./form/CustomDatePicker";
 import { useBookingStore } from "@/store/useBookingStore";
-import { useRouter } from "next/navigation";
 
 export function StickyBookingBar() {
   const [show, setShow] = useState(false);
   const { openPopup, activePopup, isSidebarOpen } = usePopup();
   const t = useTranslations("Booking");
-  const router = useRouter();
+
 
   const {
     checkIn,

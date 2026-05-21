@@ -10,7 +10,6 @@ import { useState } from "react";
 import type { Swiper as SwiperType } from "swiper";
 import { FiPlus } from "react-icons/fi";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import { useRouter } from "next/navigation";
 import { SwiperNavButtons } from "@/components/ui/SwiperNavButtons";
 
 import Link from "next/link";
@@ -21,7 +20,6 @@ export function Gallery() {
   const t = useTranslations("Gallery");
   const tr = useTranslations("RoomsPage");
   const [swiper, setSwiper] = useState<SwiperType | null>(null);
-  const router = useRouter();
 
   const handleOpenGallery = (images: string[]) => {
     setGalleryImages(images);
@@ -87,7 +85,7 @@ export function Gallery() {
                   </div>
                   <div className="overflow-hidden">
                     <h3 className="font-cormorant text-2xl md:text-3xl tracking-[1px] md:transform md:translate-y-full md:group-hover:translate-y-0 transition-transform duration-700 md:delay-100">
-                      {item.id === "conference" ? t("conferenceLabel") : tr(`details.${item.id}.title` as any)}
+                      {item.id === "conference" ? t("conferenceLabel") : tr(`details.${item.id}.title` as Parameters<typeof tr>[0])}
                     </h3>
                   </div>
 

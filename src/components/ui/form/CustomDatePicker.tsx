@@ -11,6 +11,8 @@ interface CustomDatePickerProps {
   label?: string;
   className?: string;
   theme?: "light" | "dark";
+  /** Set true when this picker lives inside a position:fixed container (e.g. sticky bar) */
+  dropdownFixed?: boolean;
 }
 
 export function CustomDatePicker({
@@ -20,6 +22,7 @@ export function CustomDatePicker({
   label,
   className = "",
   theme = "dark",
+  dropdownFixed = false,
 }: CustomDatePickerProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [coords, setCoords] = useState({ top: 0, left: 0 });
@@ -43,12 +46,15 @@ export function CustomDatePicker({
   useEffect(() => {
     if (isOpen && containerRef.current) {
       const rect = containerRef.current.getBoundingClientRect();
-      setCoords({
-        top: rect.bottom + window.scrollY,
-        left: rect.left + window.scrollX,
-      });
+      if (dropdownFixed) {
+        // Inside a fixed bar: use viewport-relative coords (no scroll offset)
+        setCoords({ top: rect.bottom, left: rect.left });
+      } else {
+        // Normal flow: use document-relative coords so dropdown scrolls with page
+        setCoords({ top: rect.bottom + window.scrollY, left: rect.left + window.scrollX });
+      }
     }
-  }, [isOpen]);
+  }, [isOpen, dropdownFixed]);
 
   const daysInMonth = (year: number, month: number) =>
     new Date(year, month + 1, 0).getDate();
@@ -235,8 +241,9 @@ export function CustomDatePicker({
       <Modal
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
-        type="full"
+        type="dropdown"
         coords={coords}
+        dropdownFixed={dropdownFixed}
         id="datepicker-modal"
       >
         <div 

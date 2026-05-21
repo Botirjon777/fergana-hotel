@@ -6,12 +6,13 @@ import { useTranslations } from "next-intl";
 import { GuestPicker } from "./form/GuestPicker";
 import { CustomDatePicker } from "./form/CustomDatePicker";
 import { useBookingStore } from "@/store/useBookingStore";
+import { useRouter } from "next/navigation";
 
 export function StickyBookingBar() {
   const [show, setShow] = useState(false);
   const { openPopup, activePopup, isSidebarOpen } = usePopup();
   const t = useTranslations("Booking");
-
+  const router = useRouter();
 
   const {
     checkIn,
@@ -40,6 +41,7 @@ export function StickyBookingBar() {
       }`}
     >
       <div className="bg-[#1a1108]/95 backdrop-blur-md border-b border-gold/20 px-4 py-3 md:px-12 md:py-4 flex flex-wrap items-center justify-between gap-4">
+        {/* Desktop: inline date + guest pickers with dropdowns */}
         <div className="hidden lg:flex items-center gap-6 flex-1">
           <CustomDatePicker
             label={`${t("checkIn")} — ${t("checkOut")}`}
@@ -50,6 +52,7 @@ export function StickyBookingBar() {
               setCheckOut(outDate);
             }}
             className="flex-[1.5] min-w-[280px]"
+            dropdownFixed={true}
           />
           <div className="w-px h-6 bg-gold/20"></div>
           <GuestPicker
@@ -61,10 +64,12 @@ export function StickyBookingBar() {
               setChildrenAges(c);
             }}
             className="flex-1"
+            dropdownFixed={true}
           />
         </div>
 
         <div className="flex items-center justify-between w-full lg:w-auto gap-4">
+          {/* Mobile: show hotel name, tapping Check Availability opens the full modal */}
           <div className="lg:hidden flex flex-col">
             <span className="text-sm uppercase text-gold font-bold">
               Safir Hotel
@@ -73,9 +78,17 @@ export function StickyBookingBar() {
               {t("luxurySubtitle")}
             </span>
           </div>
+
+          {/* Mobile: open availability modal / Desktop: go to booking page */}
           <button
             className="bg-gold hover:bg-[#b08d4a] text-white border-none py-2.5 px-6 md:py-3.5 md:px-10 font-jost text-[10px] md:text-xs tracking-[2px] uppercase cursor-pointer transition-all duration-300 shadow-lg shadow-gold/20 font-bold active:scale-95"
-            onClick={() => openPopup("availability-popup")}
+            onClick={() => {
+              if (window.innerWidth >= 1024) {
+                router.push("/booking");
+              } else {
+                openPopup("availability-popup");
+              }
+            }}
           >
             {t("checkAvailability")}
           </button>

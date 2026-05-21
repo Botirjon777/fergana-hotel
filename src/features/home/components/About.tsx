@@ -53,11 +53,11 @@ export function About() {
               />
               <div className="absolute inset-0 bg-black/5 z-10"></div>
             </div>
-            <div className="hidden lg:flex absolute bottom-[-30px] left-[-30px] w-[200px] h-[200px] bg-gold flex-col items-center justify-center text-white font-cormorant">
+            <div className="hidden lg:flex absolute top-[-20px] right-[-20px] w-[180px] h-[180px] bg-gold flex-col items-center justify-center text-white font-cormorant shadow-2xl">
               <div className="flex gap-1 mb-2">
-                <span className="text-[32px] font-light leading-none">★</span>
-                <span className="text-[32px] font-light leading-none">★</span>
-                <span className="text-[32px] font-light leading-none">★</span>
+                <span className="text-[28px] font-light leading-none">★</span>
+                <span className="text-[28px] font-light leading-none">★</span>
+                <span className="text-[28px] font-light leading-none">★</span>
               </div>
               <span className="text-[11px] tracking-[3px] opacity-80 font-jost uppercase">
                 {t("stars")}

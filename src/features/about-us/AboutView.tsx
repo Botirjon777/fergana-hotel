@@ -62,7 +62,7 @@ export default function AboutView() {
           <div className="space-y-5">
             <div className="w-12 h-px bg-gold"></div>
             <p className="font-jost text-lg md:text-xl font-light leading-relaxed text-text-mid italic">
-              "{t("welcome")}"
+              &ldquo;{t("welcome")}&rdquo;
             </p>
           </div>
         </div>

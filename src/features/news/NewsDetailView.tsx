@@ -88,10 +88,10 @@ export default function NewsDetailView({ id }: NewsDetailViewProps) {
               ))}
           </div>
 
-          {(item as any).pdfUrl && (
+          {item.pdfUrl && (
             <div className="mt-8 mb-4">
               <a
-                href={(item as any).pdfUrl}
+                href={item.pdfUrl}
                 target="_blank"
                 rel="noopener noreferrer"
               >

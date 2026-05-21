@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { FiCalendar, FiChevronLeft, FiChevronRight, FiArrowRight } from "react-icons/fi";
+import { FiCalendar, FiChevronLeft, FiArrowRight } from "react-icons/fi";
 import { useAvailability } from "@/hooks/useAvailability";
 import { useTranslations } from "next-intl";
 import { Modal } from "@/components/ui/Modal";
@@ -38,7 +38,7 @@ export function CustomDatePicker({
   
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const { forbiddenDates, lowestPrices, isLoading } = useAvailability(viewDate);
+  const { forbiddenDates, lowestPrices } = useAvailability(viewDate);
 
   useEffect(() => {
     if (isOpen && containerRef.current) {
@@ -79,7 +79,7 @@ export function CustomDatePicker({
         setSelectionStep(1);
       } else {
         let hasForbidden = false;
-        let curr = new Date(start);
+        const curr = new Date(start);
         while (curr <= end) {
           const currStr = `${curr.getFullYear()}-${String(curr.getMonth() + 1).padStart(2, '0')}-${String(curr.getDate()).padStart(2, '0')}`;
           if (forbiddenDates.has(currStr)) {

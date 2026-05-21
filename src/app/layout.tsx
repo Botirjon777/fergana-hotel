@@ -23,8 +23,57 @@ const jost = Jost({
 });
 
 export const metadata: Metadata = {
-  title: "Safir Hotel — Above the Ordinary",
-  description: "Suspended between earth and sky, Safir Hotel redefines luxury with weightless elegance and timeless design.",
+  metadataBase: new URL("https://safirhotel.uz"),
+  title: {
+    default: "Safir Hotel Fergana — Above the Ordinary",
+    template: "%s | Safir Hotel Fergana"
+  },
+  description: "Experience genuine hospitality, premium rooms, and modern comfort in the heart of Fergana. Safir Hotel — a place you will want to return to.",
+  keywords: [
+    "safir hotel", "safir hotel fergana", "hotel fergana", "fergana hotel", 
+    "mehmonxona fargona", "fargona mehmonxona", "гостиница фергана", 
+    "фергана гостиница", "safir mehmonxonasi", "best hotel in fergana", 
+    "luxury accommodation fergana", "гостиница в фергане", "отель фергана"
+  ],
+  authors: [{ name: "Safir Hotel" }],
+  creator: "Safir Hotel",
+  publisher: "Safir Hotel",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "uz_UZ",
+    url: "https://safirhotel.uz",
+    siteName: "Safir Hotel Fergana",
+    title: "Safir Hotel — Above the Ordinary",
+    description: "Experience genuine hospitality, premium rooms, and modern comfort in the heart of Fergana. Safir Hotel — a place you will want to return to.",
+    images: [
+      {
+        url: "/images/hotel/general/hotel-day.webp",
+        width: 1200,
+        height: 630,
+        alt: "Safir Hotel Fergana Exterior View",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Safir Hotel — Above the Ordinary",
+    description: "Experience genuine hospitality, premium rooms, and modern comfort in the heart of Fergana. Safir Hotel — a place you will want to return to.",
+    images: ["/images/hotel/general/hotel-day.webp"],
+  },
+  alternates: {
+    canonical: "https://safirhotel.uz",
+  },
 };
 
 export default function RootLayout({

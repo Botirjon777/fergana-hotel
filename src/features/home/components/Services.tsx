@@ -30,13 +30,13 @@ export function Services() {
                 {service.icon}
               </span>
               <h3 className="text-sm md:text-2xl font-normal text-text-dark mb-1 md:mb-3">
-                {t(`items.${service.key}.title` as any)}
+                {t(`items.${service.key}.title` as Parameters<typeof t>[0])}
               </h3>
               <p className="hidden md:block text-sm leading-[1.8] text-text-mid font-light">
-                {t(`items.${service.key}.description` as any)}
+                {t(`items.${service.key}.description` as Parameters<typeof t>[0])}
               </p>
               <span className="inline-flex items-center gap-2 mt-3 md:mt-5 text-[9px] md:text-[11px] tracking-[2px] uppercase text-gold no-underline font-normal">
-                {t(`items.${service.key}.linkText` as any)}
+                {t(`items.${service.key}.linkText` as Parameters<typeof t>[0])}
               </span>
             </Link>
           ))}

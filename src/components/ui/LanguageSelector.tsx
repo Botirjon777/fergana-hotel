@@ -54,6 +54,7 @@ export default function LanguageSelector({
         onClick={() => setIsOpen(!isOpen)}
         className={`flex items-center gap-2 px-3 py-2 text-xs font-medium transition-colors duration-300 ${isScrolled ? "text-text-mid" : "text-cream"} hover:text-gold`}
       >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={currentLang.flag}
           alt={currentLang.label}
@@ -87,6 +88,7 @@ export default function LanguageSelector({
                   locale === lang.code ? "bg-sand font-bold" : ""
                 }`}
               >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={lang.flag} alt={lang.label} width={20} height={15} />
                 <span>{lang.label}</span>
               </button>

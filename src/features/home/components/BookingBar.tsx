@@ -1,6 +1,5 @@
 "use client";
 
-import { usePopup } from "@/lib/PopupContext";
 import { useTranslations } from "next-intl";
 import { CustomDatePicker } from "@/components/ui/form/CustomDatePicker";
 import { GuestPicker } from "@/components/ui/form/GuestPicker";
@@ -8,7 +7,6 @@ import { useBookingStore } from "@/store/useBookingStore";
 import { useRouter } from "next/navigation";
 
 export function BookingBar() {
-  const { openPopup } = usePopup();
   const t = useTranslations("Booking");
   const router = useRouter();
 

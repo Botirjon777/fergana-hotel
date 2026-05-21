@@ -7,7 +7,7 @@ import en from "../../../new-translations/en.json";
 import ru from "../../../new-translations/ru.json";
 import uz from "../../../new-translations/uz.json";
 
-const messages: Record<string, any> = { en, ru, uz };
+const messages: Record<string, typeof en> = { en, ru, uz };
 
 export default function LanguageProvider({
   children,

@@ -39,6 +39,9 @@ export function useAvailability(viewDate: Date): AvailabilityData {
     error: null,
   });
 
+  const year = viewDate.getFullYear();
+  const month = viewDate.getMonth();
+
   useEffect(() => {
     let isMounted = true;
 
@@ -46,8 +49,6 @@ export function useAvailability(viewDate: Date): AvailabilityData {
       setData((prev) => ({ ...prev, isLoading: true, error: null }));
 
       try {
-        const year = viewDate.getFullYear();
-        const month = viewDate.getMonth();
         // Fetch from 1st of current month to last day of next month to cache a bit
         // Fetch from 1st of current month to last day of next month to support 2-month calendar
         const firstDay = new Date(year, month, 1);
@@ -108,7 +109,7 @@ export function useAvailability(viewDate: Date): AvailabilityData {
     return () => {
       isMounted = false;
     };
-  }, [viewDate.getFullYear(), viewDate.getMonth()]);
+  }, [year, month]);
 
   return data;
 }

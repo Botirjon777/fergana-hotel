@@ -8,10 +8,7 @@ import { useBookingStore } from "@/store/useBookingStore";
 import { ReviewsWidget } from "@/components/ui/ReviewsWidget";
 import { useRouter } from "next/navigation";
 
-import { usePopup } from "@/lib/PopupContext";
-
 export function Hero() {
-  const { openPopup } = usePopup();
   const containerRef = useRef<HTMLDivElement>(null);
   const t = useTranslations("Hero");
   const tb = useTranslations("Booking");
@@ -89,7 +86,7 @@ export function Hero() {
               />
               <button
                 className="bg-gold hover:bg-gold-dark transition-all duration-300 text-white border-none px-6 md:px-10 font-jost text-[10px] md:text-[11px] tracking-[2px] md:tracking-[4px] uppercase cursor-pointer whitespace-nowrap self-end w-full lg:w-auto shadow-xl shadow-gold/20 font-bold active:scale-95 h-[58px] flex items-center justify-center"
-                onClick={() => openPopup("availability-popup")}
+                onClick={() => router.push("/booking")}
               >
                 {tb("checkAvailability")}
               </button>

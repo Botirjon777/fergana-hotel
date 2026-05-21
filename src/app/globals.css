@@ -193,7 +193,25 @@
     padding-right: 80px;
     bottom: 40px !important;
   }
-}  
+}
+
+/* ── ImageBanner zoom-in/out animation ── */
+@keyframes banner-zoom {
+  0%   { transform: scale(1);    }
+  50%  { transform: scale(1.12); }
+  100% { transform: scale(1);    }
+}
+
+/* Apply zoom only to the active slide's image wrapper */
+.banner-swiper .swiper-slide-active .banner-img {
+  animation: banner-zoom 6s ease-in-out forwards;
+}
+
+/* Non-active slides stay at natural scale (resets on re-activation) */
+.banner-swiper .swiper-slide:not(.swiper-slide-active) .banner-img {
+  transform: scale(1);
+  animation: none;
+}
 @keyframes scroll-pulse {  
   0% { transform: scaleY(0); transform-origin: top; opacity: 0; }  
   50% { transform: scaleY(1); transform-origin: top; opacity: 1; }  

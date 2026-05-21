@@ -73,7 +73,8 @@ function BannerImage({ img, priority }: { img: { src: string; alt: string; id: s
   const [loading, setLoading] = useState(true);
 
   return (
-    <div className="relative w-full h-full bg-[#1a1108]">
+    // banner-img class is the zoom animation target (see globals.css .banner-swiper .swiper-slide-active .banner-img)
+    <div className="banner-img relative w-full h-full bg-[#1a1108]">
       {loading && (
         <div className="absolute inset-0 z-30 flex items-center justify-center">
           <div className="w-10 h-10 border-2 border-gold/20 border-t-gold rounded-full animate-spin"></div>
@@ -139,7 +140,8 @@ export function ImageBanner() {
         >
           {images.map((img, i) => (
             <SwiperSlide key={i} className="h-full">
-              <div className="relative w-full h-full">
+              {/* overflow-hidden clips the zoomed image within the slide bounds */}
+              <div className="relative w-full h-full overflow-hidden">
                 <BannerImage img={img} priority={i === 0} />
 
                 {/* Darkening Overlay */}
